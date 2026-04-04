@@ -7,54 +7,78 @@
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
 <style>
-html{scroll-behavior:smooth;}
-body{margin:0;font-family:'Poppins',sans-serif;background:#0f172a;color:white;}
-
-/* NAVBAR */
-.nav{
-position:sticky;
-top:0;
-display:flex;
-justify-content:space-between;
-align-items:center;
-padding:15px 25px;
-background:rgba(255,255,255,0.1);
-backdrop-filter:blur(10px);
+body{
+margin:0;
+font-family:'Poppins',sans-serif;
+background:#0f172a;
+color:white;
+transition:0.4s;
 }
 
-.nav h2{margin:0;}
-.nav a{color:white;margin-left:15px;text-decoration:none;}
+/* LIGHT MODE */
+.light{
+background:#f4f6f9;
+color:#000;
+}
+
+/* LOADER */
+.loader{
+position:fixed;
+width:100%;
+height:100%;
+background:#0f172a;
+display:flex;
+align-items:center;
+justify-content:center;
+z-index:9999;
+}
+.loader span{
+width:50px;
+height:50px;
+border:5px solid #fff;
+border-top:5px solid transparent;
+border-radius:50%;
+animation:spin 1s linear infinite;
+}
+@keyframes spin{
+100%{transform:rotate(360deg);}
+}
+
+/* NAV */
+.nav{
+display:flex;
+justify-content:space-between;
+padding:15px;
+background:rgba(255,255,255,0.1);
+}
 
 /* HERO */
 .hero{
 text-align:center;
-padding:100px 20px;
+padding:80px 20px;
 background:linear-gradient(135deg,#2563eb,#0ea5e9);
 }
 
-.hero h1{font-size:38px;}
 .btn{
-display:inline-block;
-margin:10px;
-padding:12px 25px;
-border-radius:25px;
+padding:10px 20px;
 background:white;
 color:#2563eb;
+border-radius:20px;
 text-decoration:none;
-font-weight:600;
+margin:5px;
 }
 
 /* SECTION */
 .section{
-max-width:1100px;
+max-width:1000px;
 margin:auto;
-padding:50px 20px;
+padding:40px 20px;
 }
 
 .card{
 background:rgba(255,255,255,0.08);
-padding:25px;
-border-radius:15px;
+padding:20px;
+border-radius:12px;
 margin-bottom:20px;
 }
 
@@ -62,159 +86,126 @@ margin-bottom:20px;
 .grid{
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:20px;
+gap:15px;
 }
 
-.service{
-background:rgba(255,255,255,0.1);
+/* SOCIAL */
+.social-box{
 padding:20px;
 border-radius:12px;
 text-align:center;
-}
-
-/* FOOTER */
-.footer{
-text-align:center;
-padding:30px;
-background:#020617;
-}
-
-/* FLOAT BUTTON */
-.whatsapp{
-position:fixed;
-bottom:20px;
-right:20px;
-background:#25D366;
-padding:15px;
-border-radius:50%;
-text-decoration:none;
 color:white;
-font-size:20px;
+}
+
+/* YOUTUBE */
+iframe{
+width:100%;
+height:200px;
+border-radius:10px;
+}
+
+/* TOGGLE */
+.toggle{
+cursor:pointer;
+padding:8px 15px;
+background:#fff;
+color:#000;
+border-radius:20px;
 }
 </style>
-
 </head>
 
 <body>
 
-<!-- NAVBAR -->
+<!-- LOADER -->
+<div class="loader" id="loader">
+<span></span>
+</div>
+
+<!-- NAV -->
 <div class="nav">
 <h2>Banjara Digital</h2>
-<div>
-<a href="#services">Services</a>
-<a href="#contact">Contact</a>
-</div>
+<div class="toggle" onclick="toggleMode()">🌙 Mode</div>
 </div>
 
 <!-- HERO -->
 <div class="hero">
 <h1>Banjara Digital</h1>
-<p>Professional Digital Services Platform</p>
+<p>Premium Digital Services Platform</p>
 
 <a href="#services" class="btn">Explore</a>
 <a href="https://wa.me/919685444391" class="btn">WhatsApp</a>
 </div>
 
-<!-- ABOUT -->
-<div class="section">
-<div class="card">
-<h2>About Us</h2>
-<p>We provide digital services including banner design, promotion and event registration solutions.</p>
-</div>
-</div>
-
 <!-- SERVICES -->
 <div class="section" id="services">
+<div class="card">
 <h2>Our Services</h2>
+<div class="grid">
+<div>🎨 Banner Design</div>
+<div>📢 Promotion</div>
+<div>📝 Event Registration</div>
+<div>🌐 Website</div>
+<div>📱 App</div>
+<div>📊 Marketing</div>
+</div>
+</div>
+</div>
+
+<!-- INSTAGRAM FEED STYLE -->
+<div class="section">
+<div class="card">
+<h2>Instagram Highlights</h2>
 
 <div class="grid">
-<div class="service">🎨 Banner Design</div>
-<div class="service">📢 Promotion</div>
-<div class="service">📝 Event Registration</div>
-<div class="service">🌐 Website</div>
-<div class="service">📱 App Development</div>
-<div class="service">📊 Marketing</div>
+<div class="social-box" style="background:#E1306C;">📸 Post 1</div>
+<div class="social-box" style="background:#E1306C;">📸 Post 2</div>
+<div class="social-box" style="background:#E1306C;">📸 Post 3</div>
+</div>
+
+<a href="https://www.instagram.com/banjara_digital_" class="btn">View Instagram</a>
+
 </div>
 </div>
 
-<!-- WHY -->
+<!-- YOUTUBE -->
 <div class="section">
 <div class="card">
-<h2>Why Choose Us</h2>
-<ul>
-<li>✔ Trusted platform</li>
-<li>✔ Fast delivery</li>
-<li>✔ Affordable pricing</li>
-<li>✔ Support</li>
-</ul>
-</div>
-</div>
+<h2>YouTube Videos</h2>
 
-<!-- TRUST -->
-<div class="section">
-<div class="card">
-<h2>Why Trust Us</h2>
-<ul>
-<li>✔ Secure Payment System</li>
-<li>✔ Trusted Digital Services</li>
-<li>✔ Transparent Process</li>
-</ul>
-</div>
-</div>
+<iframe src="https://www.youtube.com/embed?listType=user_uploads&list=banjara_digital_09"></iframe>
 
-<!-- TESTIMONIAL -->
-<div class="section">
-<div class="card">
-<h2>Testimonials</h2>
-<p>⭐⭐⭐⭐⭐ “Best digital service platform”</p>
-<p>⭐⭐⭐⭐⭐ “Easy and fast service”</p>
-</div>
-</div>
-
-<!-- FAQ -->
-<div class="section">
-<div class="card">
-<h2>FAQ</h2>
-<p><b>What services?</b><br>Digital services and event solutions.</p>
-<p><b>Is payment secure?</b><br>Yes, fully secure.</p>
 </div>
 </div>
 
 <!-- CONTACT -->
-<div class="section" id="contact">
-<div class="card">
-<h2>Contact</h2>
-<p>Email: <a href="mailto:banjaradigitalmp@gmail.com">banjaradigitalmp@gmail.com</a></p>
-<p>Mobile: <a href="tel:9685444391">9685444391</a></p>
-</div>
-</div>
-
-<!-- POLICIES -->
 <div class="section">
 <div class="card">
-<h2>Privacy Policy</h2>
-<p>User data is सुरक्षित रखा जाता है।</p>
-</div>
-
-<div class="card">
-<h2>Terms</h2>
-<p>Misuse may lead to termination.</p>
-</div>
-
-<div class="card">
-<h2>Refund Policy</h2>
-<p>All payments are non-refundable.</p>
+<h2>Contact</h2>
+<p>Email: banjaradigitalmp@gmail.com</p>
+<p>Mobile: 9685444391</p>
 </div>
 </div>
 
 <!-- FOOTER -->
-<div class="footer">
-<h3>Banjara Digital</h3>
-<p>© 2026 All Rights Reserved</p>
+<div class="section">
+<div class="card">
+<h2>Policies</h2>
+<p>Privacy | Terms | Refund</p>
+</div>
 </div>
 
-<!-- FLOAT WHATSAPP -->
-<a href="https://wa.me/919685444391" class="whatsapp">💬</a>
+<script>
+// LOADER
+window.onload = function(){
+document.getElementById("loader").style.display="none";
+}
+
+// DARK LIGHT
+function toggleMode(){
+document.body.classList.toggle("light");
+}
+</script>
 
 </body>
 </html>
