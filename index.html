@@ -7,12 +7,8 @@
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
 <style>
-*{margin:0;padding:0;box-sizing:border-box;}
-body{
-font-family:'Poppins',sans-serif;
-background:#0f172a;
-color:#fff;
-}
+html{scroll-behavior:smooth;}
+body{margin:0;font-family:'Poppins',sans-serif;background:#0f172a;color:white;}
 
 /* NAVBAR */
 .nav{
@@ -21,18 +17,13 @@ top:0;
 display:flex;
 justify-content:space-between;
 align-items:center;
-padding:15px 30px;
+padding:15px 25px;
 background:rgba(255,255,255,0.1);
 backdrop-filter:blur(10px);
 }
 
-.nav h2{font-weight:600;}
-
-.nav a{
-color:white;
-margin-left:15px;
-text-decoration:none;
-}
+.nav h2{margin:0;}
+.nav a{color:white;margin-left:15px;text-decoration:none;}
 
 /* HERO */
 .hero{
@@ -41,25 +32,16 @@ padding:100px 20px;
 background:linear-gradient(135deg,#2563eb,#0ea5e9);
 }
 
-.hero h1{
-font-size:40px;
-font-weight:700;
-}
-
-.hero p{
-margin-top:10px;
-opacity:0.9;
-}
-
+.hero h1{font-size:38px;}
 .btn{
 display:inline-block;
-margin-top:20px;
+margin:10px;
 padding:12px 25px;
 border-radius:25px;
 background:white;
 color:#2563eb;
-font-weight:600;
 text-decoration:none;
+font-weight:600;
 }
 
 /* SECTION */
@@ -74,12 +56,6 @@ background:rgba(255,255,255,0.08);
 padding:25px;
 border-radius:15px;
 margin-bottom:20px;
-backdrop-filter:blur(10px);
-transition:0.3s;
-}
-
-.card:hover{
-transform:translateY(-5px);
 }
 
 /* GRID */
@@ -103,9 +79,17 @@ padding:30px;
 background:#020617;
 }
 
-.footer a{
-color:#38bdf8;
+/* FLOAT BUTTON */
+.whatsapp{
+position:fixed;
+bottom:20px;
+right:20px;
+background:#25D366;
+padding:15px;
+border-radius:50%;
 text-decoration:none;
+color:white;
+font-size:20px;
 }
 </style>
 
@@ -117,42 +101,39 @@ text-decoration:none;
 <div class="nav">
 <h2>Banjara Digital</h2>
 <div>
-<a href="#">Home</a>
-<a href="#">Services</a>
-<a href="#">Contact</a>
+<a href="#services">Services</a>
+<a href="#contact">Contact</a>
 </div>
 </div>
 
 <!-- HERO -->
 <div class="hero">
-<h1>Modern Digital Services</h1>
-<p>Trusted platform for design, promotion & digital solutions</p>
-<a href="#services" class="btn">Get Started</a>
+<h1>Banjara Digital</h1>
+<p>Professional Digital Services Platform</p>
+
+<a href="#services" class="btn">Explore</a>
+<a href="https://wa.me/919685444391" class="btn">WhatsApp</a>
 </div>
 
 <!-- ABOUT -->
 <div class="section">
 <div class="card">
 <h2>About Us</h2>
-<p>
-Banjara Digital एक modern digital platform है जो individuals और organizations को digital services प्रदान करता है।
-</p>
+<p>We provide digital services including banner design, promotion and event registration solutions.</p>
 </div>
 </div>
 
 <!-- SERVICES -->
 <div class="section" id="services">
-<h2 style="margin-bottom:20px;">Our Services</h2>
+<h2>Our Services</h2>
 
 <div class="grid">
-
 <div class="service">🎨 Banner Design</div>
 <div class="service">📢 Promotion</div>
 <div class="service">📝 Event Registration</div>
 <div class="service">🌐 Website</div>
 <div class="service">📱 App Development</div>
 <div class="service">📊 Marketing</div>
-
 </div>
 </div>
 
@@ -162,19 +143,49 @@ Banjara Digital एक modern digital platform है जो individuals और 
 <h2>Why Choose Us</h2>
 <ul>
 <li>✔ Trusted platform</li>
-<li>✔ Fast service</li>
+<li>✔ Fast delivery</li>
 <li>✔ Affordable pricing</li>
-<li>✔ Support system</li>
+<li>✔ Support</li>
 </ul>
 </div>
 </div>
 
-<!-- CONTACT -->
+<!-- TRUST -->
 <div class="section">
 <div class="card">
+<h2>Why Trust Us</h2>
+<ul>
+<li>✔ Secure Payment System</li>
+<li>✔ Trusted Digital Services</li>
+<li>✔ Transparent Process</li>
+</ul>
+</div>
+</div>
+
+<!-- TESTIMONIAL -->
+<div class="section">
+<div class="card">
+<h2>Testimonials</h2>
+<p>⭐⭐⭐⭐⭐ “Best digital service platform”</p>
+<p>⭐⭐⭐⭐⭐ “Easy and fast service”</p>
+</div>
+</div>
+
+<!-- FAQ -->
+<div class="section">
+<div class="card">
+<h2>FAQ</h2>
+<p><b>What services?</b><br>Digital services and event solutions.</p>
+<p><b>Is payment secure?</b><br>Yes, fully secure.</p>
+</div>
+</div>
+
+<!-- CONTACT -->
+<div class="section" id="contact">
+<div class="card">
 <h2>Contact</h2>
-<p>Email: banjaradigitalmp@gmail.com</p>
-<p>Mobile: 9685444391</p>
+<p>Email: <a href="mailto:banjaradigitalmp@gmail.com">banjaradigitalmp@gmail.com</a></p>
+<p>Mobile: <a href="tel:9685444391">9685444391</a></p>
 </div>
 </div>
 
@@ -187,7 +198,7 @@ Banjara Digital एक modern digital platform है जो individuals और 
 
 <div class="card">
 <h2>Terms</h2>
-<p>Services misuse होने पर access बंद किया जा सकता है।</p>
+<p>Misuse may lead to termination.</p>
 </div>
 
 <div class="card">
@@ -201,6 +212,9 @@ Banjara Digital एक modern digital platform है जो individuals और 
 <h3>Banjara Digital</h3>
 <p>© 2026 All Rights Reserved</p>
 </div>
+
+<!-- FLOAT WHATSAPP -->
+<a href="https://wa.me/919685444391" class="whatsapp">💬</a>
 
 </body>
 </html>
