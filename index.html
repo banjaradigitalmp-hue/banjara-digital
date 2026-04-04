@@ -7,205 +7,154 @@
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
 <style>
-body{
-margin:0;
-font-family:'Poppins',sans-serif;
-background:#0f172a;
-color:white;
-transition:0.4s;
-}
-
-/* LIGHT MODE */
-.light{
-background:#f4f6f9;
-color:#000;
-}
-
-/* LOADER */
-.loader{
-position:fixed;
-width:100%;
-height:100%;
-background:#0f172a;
-display:flex;
-align-items:center;
-justify-content:center;
-z-index:9999;
-}
-.loader span{
-width:50px;
-height:50px;
-border:5px solid #fff;
-border-top:5px solid transparent;
-border-radius:50%;
-animation:spin 1s linear infinite;
-}
-@keyframes spin{
-100%{transform:rotate(360deg);}
-}
+html{scroll-behavior:smooth;}
+body{margin:0;font-family:'Poppins',sans-serif;background:#0f172a;color:white;}
 
 /* NAV */
-.nav{
-display:flex;
-justify-content:space-between;
-padding:15px;
-background:rgba(255,255,255,0.1);
-}
+.nav{position:sticky;top:0;display:flex;justify-content:space-between;padding:15px 25px;background:rgba(255,255,255,0.1);backdrop-filter:blur(10px);}
+.nav a{color:white;margin-left:15px;text-decoration:none;}
 
 /* HERO */
-.hero{
-text-align:center;
-padding:80px 20px;
-background:linear-gradient(135deg,#2563eb,#0ea5e9);
-}
-
-.btn{
-padding:10px 20px;
-background:white;
-color:#2563eb;
-border-radius:20px;
-text-decoration:none;
-margin:5px;
-}
+.hero{text-align:center;padding:100px 20px;background:linear-gradient(135deg,#2563eb,#0ea5e9);}
+.hero h1{font-size:38px;}
+.btn{display:inline-block;margin:10px;padding:12px 25px;border-radius:25px;background:white;color:#2563eb;text-decoration:none;font-weight:600;}
 
 /* SECTION */
-.section{
-max-width:1000px;
-margin:auto;
-padding:40px 20px;
-}
-
-.card{
-background:rgba(255,255,255,0.08);
-padding:20px;
-border-radius:12px;
-margin-bottom:20px;
-}
+.section{max-width:1100px;margin:auto;padding:50px 20px;}
+.card{background:rgba(255,255,255,0.08);padding:25px;border-radius:15px;margin-bottom:20px;}
 
 /* GRID */
-.grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:15px;
-}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px;}
+.service{background:rgba(255,255,255,0.1);padding:20px;border-radius:12px;text-align:center;}
 
 /* SOCIAL */
-.social-box{
-padding:20px;
-border-radius:12px;
-text-align:center;
-color:white;
-}
+.social-wrap{display:flex;justify-content:center;gap:25px;flex-wrap:wrap;margin-top:25px;}
+.social-box{width:180px;padding:25px;border-radius:18px;text-align:center;color:white;text-decoration:none;transition:0.4s;position:relative;overflow:hidden;box-shadow:0 10px 25px rgba(0,0,0,0.25);}
+.icon{font-size:32px;margin-bottom:10px;animation:pulse 2s infinite;}
+@keyframes pulse{0%{transform:scale(1);}50%{transform:scale(1.1);}100%{transform:scale(1);}}
+.insta{background:linear-gradient(135deg,#E1306C,#F77737);}
+.fb{background:#1877F2;}
+.yt{background:#FF0000;}
+.social-box::before{content:'';position:absolute;width:200%;height:200%;top:-50%;left:-50%;background:rgba(255,255,255,0.1);transform:rotate(45deg);transition:0.5s;}
+.social-box:hover::before{top:100%;left:100%;}
+.social-box:hover{transform:translateY(-10px) scale(1.05);}
 
-/* YOUTUBE */
-iframe{
-width:100%;
-height:200px;
-border-radius:10px;
-}
+/* FOOTER */
+.footer{text-align:center;padding:30px;background:#020617;}
 
-/* TOGGLE */
-.toggle{
-cursor:pointer;
-padding:8px 15px;
-background:#fff;
-color:#000;
-border-radius:20px;
-}
+/* FLOAT */
+.whatsapp{position:fixed;bottom:20px;right:20px;background:#25D366;padding:15px;border-radius:50%;text-decoration:none;color:white;font-size:20px;}
 </style>
+
 </head>
 
 <body>
 
-<!-- LOADER -->
-<div class="loader" id="loader">
-<span></span>
-</div>
-
 <!-- NAV -->
 <div class="nav">
 <h2>Banjara Digital</h2>
-<div class="toggle" onclick="toggleMode()">🌙 Mode</div>
+<div>
+<a href="#services">Services</a>
+<a href="#contact">Contact</a>
+</div>
 </div>
 
 <!-- HERO -->
 <div class="hero">
 <h1>Banjara Digital</h1>
-<p>Premium Digital Services Platform</p>
-
+<p>Professional Digital Services Platform</p>
 <a href="#services" class="btn">Explore</a>
 <a href="https://wa.me/919685444391" class="btn">WhatsApp</a>
 </div>
 
+<!-- ABOUT -->
+<div class="section">
+<div class="card">
+<h2>About Us</h2>
+<p>We provide digital services including banner design, promotion and event registration solutions.</p>
+</div>
+</div>
+
 <!-- SERVICES -->
 <div class="section" id="services">
-<div class="card">
 <h2>Our Services</h2>
 <div class="grid">
-<div>🎨 Banner Design</div>
-<div>📢 Promotion</div>
-<div>📝 Event Registration</div>
-<div>🌐 Website</div>
-<div>📱 App</div>
-<div>📊 Marketing</div>
-</div>
+<div class="service">🎨 Banner Design</div>
+<div class="service">📢 Promotion</div>
+<div class="service">📝 Event Registration</div>
+<div class="service">🌐 Website</div>
+<div class="service">📱 App Development</div>
+<div class="service">📊 Marketing</div>
 </div>
 </div>
 
-<!-- INSTAGRAM FEED STYLE -->
+<!-- WHY -->
 <div class="section">
 <div class="card">
-<h2>Instagram Highlights</h2>
-
-<div class="grid">
-<div class="social-box" style="background:#E1306C;">📸 Post 1</div>
-<div class="social-box" style="background:#E1306C;">📸 Post 2</div>
-<div class="social-box" style="background:#E1306C;">📸 Post 3</div>
-</div>
-
-<a href="https://www.instagram.com/banjara_digital_" class="btn">View Instagram</a>
-
-</div>
-</div>
-
-<!-- YOUTUBE -->
-<div class="section">
-<div class="card">
-<h2>YouTube Videos</h2>
-
-<iframe src="https://www.youtube.com/embed?listType=user_uploads&list=banjara_digital_09"></iframe>
-
+<h2>Why Choose Us</h2>
+<ul>
+<li>✔ Trusted platform</li>
+<li>✔ Fast delivery</li>
+<li>✔ Affordable pricing</li>
+<li>✔ Support</li>
+</ul>
 </div>
 </div>
 
 <!-- CONTACT -->
-<div class="section">
+<div class="section" id="contact">
 <div class="card">
 <h2>Contact</h2>
-<p>Email: banjaradigitalmp@gmail.com</p>
-<p>Mobile: 9685444391</p>
+<p>Email: <a href="mailto:banjaradigitalmp@gmail.com">banjaradigitalmp@gmail.com</a></p>
+<p>Mobile: <a href="tel:9685444391">9685444391</a></p>
 </div>
+</div>
+
+<!-- SOCIAL -->
+<div class="section">
+<div class="card">
+<h2 style="text-align:center;">Connect With Us</h2>
+
+<div class="social-wrap">
+
+<a href="https://www.instagram.com/banjara_digital_?igsh=NnRic3Zvb3hjMHF3" target="_blank" class="social-box insta">
+<div class="icon">📸</div>
+<h4>Instagram</h4>
+<p>@banjara_digital_</p>
+</a>
+
+<a href="https://www.facebook.com/profile.php?id=100089917780983&mibextid=ZbWKwL" target="_blank" class="social-box fb">
+<div class="icon">📘</div>
+<h4>Facebook</h4>
+<p>Banjara Digital</p>
+</a>
+
+<a href="https://youtube.com/@banjara_digital_09?si=-axG0vsYgHw485WA" target="_blank" class="social-box yt">
+<div class="icon">▶</div>
+<h4>YouTube</h4>
+<p>Banjara Digital</p>
+</a>
+
+</div>
+
+</div>
+</div>
+
+<!-- POLICIES -->
+<div class="section">
+<div class="card"><h2>Privacy Policy</h2><p>User data सुरक्षित है।</p></div>
+<div class="card"><h2>Terms</h2><p>Misuse may lead to termination.</p></div>
+<div class="card"><h2>Refund Policy</h2><p>All payments non-refundable.</p></div>
 </div>
 
 <!-- FOOTER -->
-<div class="section">
-<div class="card">
-<h2>Policies</h2>
-<p>Privacy | Terms | Refund</p>
-</div>
+<div class="footer">
+<h3>Banjara Digital</h3>
+<p>© 2026 All Rights Reserved</p>
 </div>
 
-<script>
-// LOADER
-window.onload = function(){
-document.getElementById("loader").style.display="none";
-}
-
-// DARK LIGHT
-function toggleMode(){
-document.body.classList.toggle("light");
-}
-</script>
+<!-- FLOAT WHATSAPP -->
+<a href="https://wa.me/919685444391" class="whatsapp">💬</a>
 
 </body>
 </html>
