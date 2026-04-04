@@ -4,81 +4,210 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Banjara Digital</title>
 
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
 <style>
-body{font-family:sans-serif;margin:0;background:#f4f6f9;}
-.header{background:linear-gradient(45deg,#0a58ca,#0040a0);color:white;text-align:center;padding:40px;}
-.section{max-width:900px;margin:20px auto;background:white;padding:25px;border-radius:10px;box-shadow:0 5px 15px rgba(0,0,0,0.1);}
-.footer{background:#111;color:white;text-align:center;padding:25px;}
-ul{line-height:1.8;}
+body{
+font-family:'Poppins',sans-serif;
+margin:0;
+background:#f1f5f9;
+}
+
+/* HEADER */
+.header{
+background:linear-gradient(135deg,#0040a0,#007bff);
+color:white;
+text-align:center;
+padding:60px 20px;
+}
+
+.header h1{font-size:34px;margin:0;}
+.header p{opacity:0.9;margin-top:10px;}
+
+/* CARD SECTION */
+.section{
+max-width:900px;
+margin:20px auto;
+padding:20px;
+}
+
+.card{
+background:white;
+padding:25px;
+border-radius:15px;
+box-shadow:0 10px 25px rgba(0,0,0,0.08);
+margin-bottom:20px;
+transition:0.3s;
+}
+
+.card:hover{
+transform:translateY(-5px);
+}
+
+.card h2{
+color:#0040a0;
+margin-bottom:10px;
+}
+
+ul,ol{
+line-height:1.8;
+}
+
+/* HIGHLIGHT */
+.highlight{
+background:#e3f2fd;
+padding:15px;
+border-radius:10px;
+margin-top:10px;
+}
+
+/* FOOTER */
+.footer{
+background:#0f172a;
+color:white;
+text-align:center;
+padding:30px;
+}
+
+.footer a{
+color:#38bdf8;
+text-decoration:none;
+margin:0 5px;
+}
+
+/* ANIMATION */
+.fade{
+animation:fadeIn 1s ease-in;
+}
+
+@keyframes fadeIn{
+from{opacity:0; transform:translateY(10px);}
+to{opacity:1; transform:translateY(0);}
+}
 </style>
+
 </head>
 
 <body>
 
-<div class="header">
+<!-- HEADER -->
+<div class="header fade">
 <h1>Banjara Digital</h1>
-<p>Professional Digital Service Platform</p>
+<p>Modern Digital Services Platform</p>
 </div>
 
 <div class="section">
-<h2>Welcome to Banjara Digital</h2>
+
+<!-- INTRO -->
+<div class="card fade">
+<h2>Welcome</h2>
 <p>
-Banjara Digital एक trusted digital platform है जो individuals, organizations और communities को modern digital solutions प्रदान करता है।
+Banjara Digital एक professional digital platform है जो modern digital services प्रदान करता है जैसे design, promotion और event solutions।
 </p>
+
+<div class="highlight">
+<b>Mission:</b> Digital services सभी तक पहुँचाना  
+<br><br>
+<b>Vision:</b> India का trusted digital platform बनना
+</div>
 </div>
 
-<div class="section">
+<!-- SERVICES -->
+<div class="card fade">
 <h2>Our Services</h2>
 <ul>
-<li>🎨 Banner & Poster Design Services</li>
+<li>🎨 Banner Design</li>
 <li>📢 Social Media Promotion</li>
-<li>📝 Event Registration & Management</li>
-<li>🌐 Website & App Development</li>
-<li>📊 Digital Marketing Solutions</li>
+<li>📝 Event Registration</li>
+<li>🌐 Website Development</li>
+<li>📱 App Development</li>
+<li>📊 Digital Marketing</li>
 </ul>
 </div>
 
-<div class="section">
+<!-- WHY -->
+<div class="card fade">
 <h2>Why Choose Us</h2>
 <ul>
-<li>✔ Trusted digital services</li>
+<li>✔ Trusted platform</li>
 <li>✔ Fast delivery</li>
 <li>✔ Affordable pricing</li>
 <li>✔ Customer support</li>
 </ul>
 </div>
 
-<div class="section">
-<h2>Contact Us</h2>
+<!-- HOW -->
+<div class="card fade">
+<h2>How It Works</h2>
+<ol>
+<li>Select service</li>
+<li>Fill details</li>
+<li>Complete payment</li>
+<li>Get service</li>
+</ol>
+</div>
+
+<!-- USERS -->
+<div class="card fade">
+<h2>Our Users</h2>
+<p>We serve students, organizations and communities across India.</p>
+</div>
+
+<!-- PURPOSE -->
+<div class="card fade">
+<h2>Business Purpose</h2>
+<p>
+We provide digital services and event solutions including registration systems and digital payments.
+</p>
+</div>
+
+<!-- DISCLAIMER -->
+<div class="card fade">
+<h2>Disclaimer</h2>
+<p>
+We are an independent digital service provider and not affiliated with any government organization.
+</p>
+</div>
+
+<!-- CONTACT -->
+<div class="card fade">
+<h2>Contact</h2>
 <p>Email: banjaradigitalmp@gmail.com</p>
 <p>Mobile: 9685444391</p>
 <p>Location: Madhya Pradesh, India</p>
 </div>
 
-<div class="section">
+<!-- POLICIES -->
+<div class="card fade">
 <h2>Privacy Policy</h2>
-<p>
-We respect your privacy. All user data is सुरक्षित रखा जाता है और किसी third party के साथ share नहीं किया जाता।
-</p>
+<p>User data is सुरक्षित रखा जाता है।</p>
 </div>
 
-<div class="section">
+<div class="card fade">
 <h2>Terms & Conditions</h2>
-<p>
-Users must use services legally. Any misuse may result in service termination.
-</p>
+<p>Misuse of services may lead to termination.</p>
 </div>
 
-<div class="section">
+<div class="card fade">
 <h2>Refund Policy</h2>
-<p>
-All payments for digital services are non-refundable once completed.
-</p>
+<p>All payments are non-refundable.</p>
 </div>
 
+</div>
+
+<!-- FOOTER -->
 <div class="footer">
-<p>© 2026 Banjara Digital</p>
-<p>Email: banjaradigitalmp@gmail.com</p>
+<h3>Banjara Digital</h3>
+
+<p>📧 banjaradigitalmp@gmail.com | 📞 9685444391</p>
+
+<p>
+<a href="#">Privacy</a> |
+<a href="#">Terms</a> |
+<a href="#">Refund</a>
+</p>
+
+<p style="font-size:12px;">© 2026 All Rights Reserved</p>
 </div>
 
 </body>
