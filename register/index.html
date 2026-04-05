@@ -2,60 +2,26 @@
 <html lang="hi">
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Student Success Meet 2026-27</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+<title>Banjara Digital | Student Registration</title>
 
 <style>
 body{
-    font-family:'Poppins',sans-serif;
+    font-family:'Segoe UI',sans-serif;
     margin:0;
-    background:#f1f5f9;
+    background:#eef2f7;
 }
 
 /* HEADER */
 .header{
-    background:linear-gradient(135deg,#2563eb,#06b6d4);
+    background:linear-gradient(45deg,#0a58ca,#0040a0);
     color:white;
     text-align:center;
-    padding-bottom:25px;
+    padding-bottom:20px;
 }
 
 .header img{
     width:100%;
-    max-height:260px;
-    object-fit:cover;
 }
-
-.header h1{margin:10px 0;}
-.header p{opacity:0.9;}
-
-/* EVENT BOX */
-.event-box{
-    background:#ffffff20;
-    margin:15px;
-    padding:12px;
-    border-radius:10px;
-    font-size:14px;
-}
-
-/* BUTTON */
-.btn{
-    width:90%;
-    margin:8px auto;
-    display:block;
-    padding:14px;
-    border:none;
-    border-radius:10px;
-    font-size:15px;
-    font-weight:600;
-    color:white;
-    cursor:pointer;
-}
-
-.mapBtn{background:#16a34a;}
-.pay{background:#2563eb;}
-.whatsapp{background:#25D366;}
 
 /* CONTAINER */
 .container{
@@ -63,57 +29,51 @@ body{
     margin:20px auto;
     background:white;
     padding:25px;
-    border-radius:15px;
-    box-shadow:0 10px 25px rgba(0,0,0,0.1);
+    border-radius:12px;
+    box-shadow:0 5px 15px rgba(0,0,0,0.1);
 }
-
-h2{margin-top:0;}
 
 label{
     font-weight:600;
-    margin-top:10px;
     display:block;
+    margin-top:10px;
 }
 
 input,select,textarea{
     width:100%;
-    padding:12px;
-    margin-top:6px;
+    padding:10px;
+    margin-top:5px;
+    border-radius:6px;
+    border:1px solid #ccc;
+}
+
+button{
+    width:100%;
+    padding:14px;
+    margin-top:15px;
+    border:none;
     border-radius:8px;
-    border:1px solid #cbd5e1;
+    font-size:16px;
+    font-weight:bold;
+    color:white;
 }
 
-/* INFO TEXT */
-.note{
-    color:green;
-    font-weight:600;
-    margin-top:10px;
-    font-size:14px;
-}
-
-/* PARTNER */
-.partner{
-    text-align:center;
-    margin-top:20px;
-}
-
-.partner img{
-    width:70px;
-    height:70px;
-    border-radius:50%;
-}
+/* BUTTON COLORS */
+.pay{background:#0066ff;}
+.whatsapp{background:#25D366;}
+.mapBtn{background:#28a745;}
 
 /* FOOTER */
 .footer{
-    background:#0f172a;
+    background:#222;
     color:white;
     text-align:center;
-    padding:25px;
+    padding:20px;
     margin-top:30px;
 }
 
 .footer a{
-    color:#38bdf8;
+    color:#00c3ff;
     text-decoration:none;
 }
 </style>
@@ -129,16 +89,21 @@ input,select,textarea{
 
 <h1>Student Success Meet 2026-27</h1>
 
-<p>Welcome • Fill details carefully</p>
+<p>
+Welcome to Student Success Meet 2026-27  
+Please fill details carefully
+</p>
 
-<div class="event-box">
-<p>📅 10 May 2026</p>
-<p>⏰ 10:00 AM</p>
-<p>📍 Indore</p>
+<!-- EVENT DETAILS -->
+<div style="background:#ffffff20;margin:15px;padding:10px;border-radius:8px;">
+<p><b>📅 Date:</b> 10 May 2026</p>
+<p><b>⏰ Time:</b> 10:00 AM</p>
+<p><b>📍 Venue:</b> Indore</p>
 </div>
 
+<!-- MAP -->
 <a href="https://www.google.com/maps/search/?api=1&query=Indore" target="_blank">
-<button class="btn mapBtn">📍 View Location</button>
+<button class="mapBtn">📍 View Location</button>
 </a>
 
 </div>
@@ -148,13 +113,13 @@ input,select,textarea{
 
 <h2>Registration Form</h2>
 
-<label>Full Name</label>
+<label>Name</label>
 <input type="text">
 
-<label>Mobile Number</label>
+<label>Mobile</label>
 <input type="number">
 
-<label>School / College</label>
+<label>School</label>
 <input type="text">
 
 <label>Stream</label>
@@ -167,27 +132,30 @@ input,select,textarea{
 <label>Career Goal</label>
 <textarea></textarea>
 
-<p class="note">
+<p style="color:green;font-weight:bold;">
 👉 पहले ₹21 payment करें, फिर WhatsApp group join करें
 </p>
 
+<!-- PAYMENT -->
 <a href="https://rzp.io/rzp/2r1AcRdr" target="_blank">
-<button class="btn pay">💳 Step 1: Pay ₹21</button>
+<button class="pay">💳 Step 1: Pay ₹21</button>
 </a>
 
+<!-- WHATSAPP -->
 <a href="https://chat.whatsapp.com/F6pAgLGdTcu5soecJMh3F0?mode=gi_t" target="_blank">
-<button class="btn whatsapp">📲 Step 2: Join WhatsApp</button>
+<button class="whatsapp">📲 Step 2: Join WhatsApp</button>
 </a>
 
-<!-- PARTNER -->
-<div class="partner">
+<!-- DIGITAL PARTNER -->
+<div style="text-align:center;margin-top:20px;">
 
-<p style="font-weight:bold;">Digital Partner</p>
+<p style="font-weight:bold;color:#555;">Digital Partner</p>
 
-<img src="https://github.com/banjaradigitalmp-hue/student-form/blob/main/WhatsApp%20Image%202026-03-06%20at%206.52.34%20PM.jpeg?raw=true">
+<img src="https://github.com/banjaradigitalmp-hue/student-form/blob/main/WhatsApp%20Image%202026-03-06%20at%206.52.34%20PM.jpeg?raw=true"
+style="width:60px;height:60px;border-radius:50%;">
 
 <h4>Banjara Digital</h4>
-<p style="font-size:12px;">Connect • Create • Grow</p>
+<p style="font-size:12px;color:#666;">Connect • Create • Grow</p>
 
 </div>
 
@@ -197,7 +165,7 @@ input,select,textarea{
 <div class="container">
 <h3>About Us</h3>
 <p>
-Banjara Digital एक professional digital service platform है जो banner design, promotion और digital solutions प्रदान करता है।
+Banjara Digital एक digital service platform है जो समाज, संस्थाओं और व्यक्तियों को banner design, promotion और digital services प्रदान करता है।
 </p>
 </div>
 
@@ -221,8 +189,8 @@ Banjara Digital एक professional digital service platform है जो banne
 </p>
 
 <p style="font-size:12px;">
-User data सुरक्षित रखा जाता है।  
-All payments non-refundable.
+We respect your privacy. Your data is सुरक्षित रखा जाता है।  
+All payments are final. Refund नहीं मिलेगा।
 </p>
 
 <p>© 2026 Banjara Digital</p>
