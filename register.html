@@ -1,59 +1,93 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Student Registration</title>
+<title>Banjara Digital Registration</title>
 
 <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
 
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
 <style>
 body{
-font-family:sans-serif;
-background:#020617;
-color:white;
-text-align:center;
-padding:20px;
+font-family:'Poppins',sans-serif;
+background:linear-gradient(135deg,#2563eb,#06b6d4);
+margin:0;
+color:#fff;
 }
 
-.box{
-background:#111827;
+.container{
+max-width:420px;
+margin:40px auto;
+background:#0f172a;
 padding:25px;
 border-radius:15px;
-max-width:400px;
-margin:auto;
+box-shadow:0 10px 25px rgba(0,0,0,0.4);
+text-align:center;
 }
 
-input{
-width:90%;
-padding:10px;
-margin:10px;
-border-radius:5px;
+h2{margin-bottom:5px;}
+p{opacity:0.8;font-size:14px;}
+
+input, select{
+width:100%;
+padding:12px;
+margin:8px 0;
 border:none;
+border-radius:8px;
+background:#1e293b;
+color:white;
 }
 
 button{
-padding:12px 25px;
+width:100%;
+padding:14px;
 background:#06b6d4;
 border:none;
 border-radius:25px;
 color:white;
+font-size:16px;
+margin-top:10px;
+cursor:pointer;
+}
+
+.note{
+font-size:12px;
+margin-top:10px;
+color:#ccc;
 }
 </style>
+
 </head>
 
 <body>
 
-<div class="box">
+<div class="container">
 
 <h2>Banjara Digital</h2>
-<p>Student Registration</p>
+<p>Student Registration Form</p>
 
 <input type="text" id="name" placeholder="Full Name">
+<input type="text" id="father" placeholder="Father Name">
 <input type="text" id="mobile" placeholder="Mobile Number">
+<input type="text" id="whatsapp" placeholder="WhatsApp Number">
+
+<input type="text" id="village" placeholder="Village / City">
+<input type="text" id="district" placeholder="District">
+
+<select id="class">
+<option>Select Class</option>
+<option>5th</option>
+<option>8th</option>
+<option>10th</option>
+<option>12th</option>
+<option>Other</option>
+</select>
 
 <p>Exam Fee: ₹21</p>
-<p style="font-size:12px;">
-Free Food Token + Medal + Certificate
+
+<p class="note">
+Free Food Token + Medal + Certificate Included
 </p>
 
 <button onclick="payNow()">Pay & Register</button>
@@ -67,7 +101,7 @@ var name=document.getElementById("name").value;
 var mobile=document.getElementById("mobile").value;
 
 if(name=="" || mobile==""){
-alert("Fill details");
+alert("Please fill all required details");
 return;
 }
 
@@ -76,14 +110,14 @@ var options = {
 "amount": "2100",
 "currency": "INR",
 "name": "Banjara Digital",
-"description": "Exam Fee",
+"description": "Exam Registration Fee",
 
 "handler": function (response){
 
-alert("Payment Successful");
+alert("Registration Successful ✅");
 
-/* WhatsApp Join */
-window.location.href="https://chat.whatsapp.com/YOUR_LINK";
+/* WhatsApp Group Join */
+window.location.href="https://chat.whatsapp.com/YOUR_GROUP_LINK";
 
 }
 };
