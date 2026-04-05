@@ -1,60 +1,110 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="hi">
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Banjara Digital Registration</title>
-
-<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+<title>Banjara Digital | Student Registration</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 
 <style>
 body{
-font-family:'Poppins',sans-serif;
-background:linear-gradient(135deg,#2563eb,#06b6d4);
-margin:0;
-color:#fff;
+    font-family:'Poppins',sans-serif;
+    margin:0;
+    background:#f1f5f9;
 }
 
+/* HEADER */
+.header{
+    background:linear-gradient(135deg,#2563eb,#06b6d4);
+    color:white;
+    text-align:center;
+    padding-bottom:25px;
+}
+
+.header img{
+    width:100%;
+    max-height:250px;
+    object-fit:cover;
+}
+
+.header h1{margin:10px 0 5px;}
+.header p{opacity:0.9;}
+
+.event-box{
+    background:#ffffff20;
+    margin:15px;
+    padding:12px;
+    border-radius:10px;
+}
+
+/* BUTTON */
+.btn{
+    width:90%;
+    margin:8px auto;
+    display:block;
+    padding:14px;
+    border:none;
+    border-radius:10px;
+    font-size:15px;
+    font-weight:600;
+    color:white;
+    cursor:pointer;
+}
+
+.mapBtn{background:#16a34a;}
+.pay{background:#2563eb;}
+.whatsapp{background:#25D366;}
+
+/* CONTAINER */
 .container{
-max-width:420px;
-margin:40px auto;
-background:#0f172a;
-padding:25px;
-border-radius:15px;
-box-shadow:0 10px 25px rgba(0,0,0,0.4);
-text-align:center;
+    max-width:600px;
+    margin:20px auto;
+    background:white;
+    padding:25px;
+    border-radius:15px;
+    box-shadow:0 10px 25px rgba(0,0,0,0.1);
 }
 
-h2{margin-bottom:5px;}
-p{opacity:0.8;font-size:14px;}
+h2{margin-top:0;}
 
-input, select{
-width:100%;
-padding:12px;
-margin:8px 0;
-border:none;
-border-radius:8px;
-background:#1e293b;
-color:white;
+label{
+    font-weight:600;
+    margin-top:10px;
+    display:block;
 }
 
-button{
-width:100%;
-padding:14px;
-background:#06b6d4;
-border:none;
-border-radius:25px;
-color:white;
-font-size:16px;
-margin-top:10px;
-cursor:pointer;
+input,select,textarea{
+    width:100%;
+    padding:12px;
+    margin-top:6px;
+    border-radius:8px;
+    border:1px solid #ccc;
 }
 
-.note{
-font-size:12px;
-margin-top:10px;
-color:#ccc;
+/* PARTNER */
+.partner{
+    text-align:center;
+    margin-top:20px;
+}
+
+.partner img{
+    width:70px;
+    height:70px;
+    border-radius:50%;
+}
+
+/* FOOTER */
+.footer{
+    background:#0f172a;
+    color:white;
+    text-align:center;
+    padding:25px;
+    margin-top:30px;
+}
+
+.footer a{
+    color:#38bdf8;
+    text-decoration:none;
 }
 </style>
 
@@ -62,70 +112,112 @@ color:#ccc;
 
 <body>
 
-<div class="container">
+<!-- HEADER -->
+<div class="header">
 
-<h2>Banjara Digital</h2>
-<p>Student Registration Form</p>
+<img src="https://github.com/banjaradigitalmp-hue/student-form/blob/main/WhatsApp%20Image%202026-04-04%20at%209.41.57%20AM.jpeg?raw=true">
 
-<input type="text" id="name" placeholder="Full Name">
-<input type="text" id="father" placeholder="Father Name">
-<input type="text" id="mobile" placeholder="Mobile Number">
-<input type="text" id="whatsapp" placeholder="WhatsApp Number">
+<h1>Student Success Meet 2026-27</h1>
 
-<input type="text" id="village" placeholder="Village / City">
-<input type="text" id="district" placeholder="District">
+<p>Welcome to registration • Fill details carefully</p>
 
-<select id="class">
-<option>Select Class</option>
-<option>5th</option>
-<option>8th</option>
-<option>10th</option>
-<option>12th</option>
-<option>Other</option>
-</select>
+<div class="event-box">
+<p>📅 10 May 2026</p>
+<p>⏰ 10:00 AM</p>
+<p>📍 Indore</p>
+</div>
 
-<p>Exam Fee: ₹21</p>
-
-<p class="note">
-Free Food Token + Medal + Certificate Included
-</p>
-
-<button onclick="payNow()">Pay & Register</button>
+<a href="https://www.google.com/maps/search/?api=1&query=Indore" target="_blank">
+<button class="btn mapBtn">📍 View Location</button>
+</a>
 
 </div>
 
-<script>
-function payNow(){
+<!-- FORM -->
+<div class="container">
 
-var name=document.getElementById("name").value;
-var mobile=document.getElementById("mobile").value;
+<h2>Registration Form</h2>
 
-if(name=="" || mobile==""){
-alert("Please fill all required details");
-return;
-}
+<label>Full Name</label>
+<input type="text">
 
-var options = {
-"key": "YOUR_API_KEY",
-"amount": "2100",
-"currency": "INR",
-"name": "Banjara Digital",
-"description": "Exam Registration Fee",
+<label>Mobile Number</label>
+<input type="number">
 
-"handler": function (response){
+<label>School / College</label>
+<input type="text">
 
-alert("Registration Successful ✅");
+<label>Stream</label>
+<select>
+<option>Science</option>
+<option>Commerce</option>
+<option>Arts</option>
+</select>
 
-/* WhatsApp Group Join */
-window.location.href="https://chat.whatsapp.com/YOUR_GROUP_LINK";
+<label>Career Goal</label>
+<textarea></textarea>
 
-}
-};
+<p style="color:green;font-weight:bold;">
+👉 पहले ₹21 payment करें, फिर WhatsApp group join करें
+</p>
 
-var rzp = new Razorpay(options);
-rzp.open();
-}
-</script>
+<a href="https://rzp.io/rzp/2r1AcRdr" target="_blank">
+<button class="btn pay">💳 Step 1: Pay ₹21</button>
+</a>
+
+<a href="https://chat.whatsapp.com/F6pAgLGdTcu5soecJMh3F0?mode=gi_t" target="_blank">
+<button class="btn whatsapp">📲 Step 2: Join WhatsApp</button>
+</a>
+
+<!-- PARTNER -->
+<div class="partner">
+
+<p style="font-weight:bold;">Digital Partner</p>
+
+<img src="https://github.com/banjaradigitalmp-hue/student-form/blob/main/WhatsApp%20Image%202026-03-06%20at%206.52.34%20PM.jpeg?raw=true">
+
+<h4>Banjara Digital</h4>
+<p style="font-size:12px;">Connect • Create • Grow</p>
+
+</div>
+
+</div>
+
+<!-- ABOUT -->
+<div class="container">
+<h3>About Us</h3>
+<p>
+Banjara Digital एक digital service platform है जो banner design, promotion और digital solutions प्रदान करता है।
+</p>
+</div>
+
+<!-- CONTACT -->
+<div class="container">
+<h3>Contact</h3>
+<p>📞 9685444391</p>
+<p>📧 banjaradigitalmp@gmail.com</p>
+<p>📍 Madhya Pradesh, India</p>
+</div>
+
+<!-- FOOTER -->
+<div class="footer">
+
+<h3>Policies</h3>
+
+<p>
+<a href="#">Privacy Policy</a> |
+<a href="#">Terms & Conditions</a> |
+<a href="#">Refund Policy</a>
+</p>
+
+<p style="font-size:12px;">
+User data सुरक्षित रखा जाता है।  
+All payments non-refundable.
+</p>
+
+<p>© 2026 Banjara Digital</p>
+
+</div>
 
 </body>
 </html>
