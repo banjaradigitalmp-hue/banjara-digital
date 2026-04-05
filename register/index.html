@@ -9,113 +9,62 @@
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 
 <style>
-body{
-    font-family:'Poppins',sans-serif;
-    margin:0;
-    background:#f1f5f9;
-}
-
-/* HEADER */
-.header{
-    background:linear-gradient(135deg,#2563eb,#06b6d4);
-    color:white;
-    text-align:center;
-    padding-bottom:20px;
-}
-
-.header img{
-    width:100%;
-    height:auto;
-    object-fit:contain;
-}
-
-/* EVENT */
-.event-box{
-    background:#ffffff20;
-    margin:15px;
-    padding:12px;
-    border-radius:10px;
-}
-
-/* CONTAINER */
+body{font-family:'Poppins';margin:0;background:#f1f5f9;}
 .container{
-    max-width:600px;
-    margin:20px auto;
-    background:white;
-    padding:25px;
-    border-radius:15px;
-    box-shadow:0 10px 25px rgba(0,0,0,0.1);
+max-width:600px;margin:20px auto;background:white;padding:20px;border-radius:12px;
 }
 
 input,select{
-    width:100%;
-    padding:12px;
-    margin-top:8px;
-    border-radius:8px;
-    border:1px solid #ccc;
+width:100%;padding:12px;margin-top:8px;border-radius:8px;border:1px solid #ccc;
 }
 
-/* BUTTON */
-.btn{
-    width:100%;
-    padding:14px;
-    margin-top:12px;
-    border:none;
-    border-radius:10px;
-    color:white;
-    font-size:15px;
-    cursor:pointer;
-}
-
-.pay{background:#2563eb;}
-.map{background:#16a34a;}
-
-/* FOOTER */
-.footer{
-    background:#0f172a;
-    color:white;
-    text-align:center;
-    padding:20px;
+button{
+width:100%;padding:14px;margin-top:12px;border:none;border-radius:10px;
+background:#2563eb;color:white;font-size:15px;
 }
 </style>
 </head>
 
 <body>
 
-<!-- HEADER -->
-<div class="header">
-
-<img src="https://github.com/banjaradigitalmp-hue/student-form/blob/main/WhatsApp%20Image%202026-04-04%20at%209.41.57%20AM.jpeg?raw=true">
-
-<h1>Student Success Meet 2026-27</h1>
-
-<p>आयोजन: म.प्र. NGO महासंघ</p>
-
-<div class="event-box">
-<p>📅 10 May 2026</p>
-<p>⏰ 10:00 AM</p>
-<p>📍 आनंद मोहन माथुर सभागृह, विजयनगर, इंदौर</p>
-</div>
-
-<a href="https://www.google.com/maps/search/?api=1&query=Indore" target="_blank">
-<button class="btn map">📍 Location</button>
-</a>
-
-</div>
-
-<!-- FORM -->
 <div class="container">
 
 <h2>Registration Form</h2>
 
 <input id="name" placeholder="Full Name">
-<input id="dob" placeholder="Date of Birth">
+<input id="dob" type="date">
+
+<select id="state">
+<option>Select State</option>
+<option>Madhya Pradesh</option>
+<option>Maharashtra</option>
+<option>Rajasthan</option>
+<option>Gujarat</option>
+<option>Other</option>
+</select>
+
+<select id="district">
+<option>Select District (MP)</option>
+<option>Indore</option>
+<option>Bhopal</option>
+<option>Ujjain</option>
+<option>Gwalior</option>
+<option>Jabalpur</option>
+<option>Dhar</option>
+<option>Khandwa</option>
+<option>Khargone</option>
+<option>Ratlam</option>
+<option>Dewas</option>
+<option>Sehore</option>
+<option>Vidisha</option>
+<option>Other</option>
+</select>
+
 <input id="mobile" placeholder="Mobile Number">
 <input id="school" placeholder="School Name">
-<input id="district" placeholder="District">
 
 <select id="stream">
-<option>Stream</option>
+<option>Select Stream</option>
 <option>Science</option>
 <option>Commerce</option>
 <option>Arts</option>
@@ -123,40 +72,37 @@ input,select{
 
 <input id="college" placeholder="College Name">
 <input id="career" placeholder="Career Goal">
-<input id="travel" placeholder="Travel (Yes/No)">
-<input id="scholarship" placeholder="Scholarship (Yes/No)">
-<input id="health" placeholder="Health Issue (if any)">
+
+<select id="travel">
+<option>Travel</option>
+<option>Yes</option>
+<option>No</option>
+</select>
+
+<select id="scholarship">
+<option>Scholarship</option>
+<option>Yes</option>
+<option>No</option>
+</select>
+
+<input id="health" placeholder="Health Issue">
 <input id="contact1" placeholder="Parent Contact 1">
 <input id="contact2" placeholder="Parent Contact 2">
 
-<p style="color:green;font-weight:bold;">
-₹21 Registration Fee (Food + Medal + Certificate)
-</p>
+<button onclick="payNow()">Pay & Register</button>
 
-<button class="btn pay" onclick="payNow()">Pay & Register</button>
-
-</div>
-
-<!-- PARTNER -->
-<div class="container" style="text-align:center;">
-<p>Digital Partner</p>
-<h3>Banjara Digital</h3>
-</div>
-
-<!-- FOOTER -->
-<div class="footer">
-<p>© 2026 Banjara Digital</p>
 </div>
 
 <script>
 function payNow(){
 
-var data = {
+var data={
 name:document.getElementById("name").value,
 dob:document.getElementById("dob").value,
+state:document.getElementById("state").value,
+district:document.getElementById("district").value,
 mobile:document.getElementById("mobile").value,
 school:document.getElementById("school").value,
-district:document.getElementById("district").value,
 stream:document.getElementById("stream").value,
 college:document.getElementById("college").value,
 career:document.getElementById("career").value,
@@ -168,31 +114,28 @@ contact2:document.getElementById("contact2").value
 };
 
 if(data.name=="" || data.mobile==""){
-alert("Please fill required details");
+alert("Fill required fields");
 return;
 }
 
-var options = {
-"key": "YOUR_API_KEY",
-"amount": "2100",
-"currency": "INR",
-"name": "Student Meet",
+var options={
+"key":"YOUR_API_KEY",
+"amount":"2100",
+"currency":"INR",
 
-"handler": function (){
+"handler":function(){
 
-fetch("YOUR_SCRIPT_URL", {
-method: "POST",
-body: JSON.stringify(data)
+fetch("YOUR_SCRIPT_URL",{
+method:"POST",
+body:JSON.stringify(data)
 });
 
-// WhatsApp redirect
 window.location.href="https://chat.whatsapp.com/YOUR_GROUP_LINK";
 
 }
 };
 
-var rzp = new Razorpay(options);
-rzp.open();
+new Razorpay(options).open();
 }
 </script>
 
