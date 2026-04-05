@@ -1,232 +1,247 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="hi">
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Banjara Digital</title>
+<title>Student Success Meet 2026-27</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 
 <style>
-*{margin:0;padding:0;box-sizing:border-box;}
-body{font-family:'Poppins',sans-serif;background:#0f172a;color:#fff;}
-
-/* NAV */
-.nav{
-display:flex;
-justify-content:space-between;
-align-items:center;
-padding:15px 25px;
-position:fixed;
-width:100%;
-background:rgba(0,0,0,0.5);
-backdrop-filter:blur(10px);
-z-index:1000;
-}
-.logo{display:flex;align-items:center;gap:10px;}
-.logo img{height:40px;}
-.nav a{color:#ccc;margin-left:20px;text-decoration:none;font-size:14px;}
-
-/* HERO */
-.hero{
-height:100vh;
-display:flex;
-flex-direction:column;
-justify-content:center;
-align-items:center;
-text-align:center;
-background:linear-gradient(135deg,#2563eb,#06b6d4);
-}
-.hero h1{font-size:48px;font-weight:700;}
-.hero p{margin-top:10px;opacity:0.9;}
-.btn{
-margin-top:20px;
-padding:12px 25px;
-border-radius:25px;
-background:white;
-color:#2563eb;
-font-weight:600;
-text-decoration:none;
+body{
+    font-family:'Poppins',sans-serif;
+    margin:0;
+    background:#eef2f7;
 }
 
-/* SECTION */
-.section{max-width:1100px;margin:auto;padding:80px 20px;}
-.card{
-background:#1e293b;
-padding:25px;
-border-radius:15px;
-margin-bottom:20px;
-box-shadow:0 5px 15px rgba(0,0,0,0.4);
+/* HEADER */
+.header{
+    background:linear-gradient(135deg,#2563eb,#0040a0);
+    color:white;
+    text-align:center;
+    padding-bottom:20px;
+}
+.header img{
+    width:100%;
+    max-height:280px;
+    object-fit:cover;
 }
 
-/* GRID */
-.grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:20px;
-}
-.service{
-background:#0f172a;
-padding:20px;
-border-radius:10px;
-text-align:center;
+/* CONTAINER */
+.container{
+    max-width:650px;
+    margin:20px auto;
+    background:white;
+    padding:25px;
+    border-radius:12px;
+    box-shadow:0 10px 25px rgba(0,0,0,0.1);
 }
 
-/* FOUNDER */
-.founder img{
-width:130px;
-height:130px;
-border-radius:50%;
-object-fit:cover;
-margin-bottom:10px;
+label{
+    font-weight:600;
+    margin-top:10px;
+    display:block;
 }
 
-/* SOCIAL */
-.social{
-display:flex;
-justify-content:center;
-gap:20px;
-margin-top:15px;
+input,select,textarea{
+    width:100%;
+    padding:12px;
+    margin-top:6px;
+    border-radius:8px;
+    border:1px solid #ccc;
 }
-.social a{
-color:white;
-font-size:22px;
-transition:0.3s;
+
+/* BUTTON */
+button{
+    width:100%;
+    padding:14px;
+    margin-top:12px;
+    border:none;
+    border-radius:8px;
+    font-size:16px;
+    font-weight:bold;
+    color:white;
 }
-.social a:hover{color:#06b6d4;}
+
+.pay{background:#2563eb;}
+.whatsapp{background:#25D366;}
+.mapBtn{background:#16a34a;}
+
+.note{
+    color:green;
+    font-weight:600;
+}
 
 /* FOOTER */
 .footer{
-text-align:center;
-padding:30px;
-background:#020617;
-margin-top:30px;
+    background:#0f172a;
+    color:white;
+    text-align:center;
+    padding:20px;
+    margin-top:30px;
 }
+.footer a{color:#38bdf8;text-decoration:none;}
 </style>
+
 </head>
 
 <body>
 
-<!-- NAV -->
-<div class="nav">
-<div class="logo">
-<img src="https://github.com/banjaradigitalmp-hue/banjara-digital/blob/main/WhatsApp%20Image%202026-03-06%20at%206.52.34%20PM.jpeg?raw=true">
-<h2>Banjara Digital</h2>
+<!-- HEADER -->
+<div class="header">
+
+<img src="https://github.com/banjaradigitalmp-hue/student-form/blob/main/WhatsApp%20Image%202026-04-04%20at%209.41.57%20AM.jpeg?raw=true">
+
+<h1>Student Success Meet 2026-27</h1>
+
+<p>आयोजन: म.प्र. NGO महासंघ</p>
+
+<div style="background:#ffffff20;margin:15px;padding:10px;border-radius:8px;">
+<p>📅 10 May 2026</p>
+<p>⏰ 10:00 AM</p>
+<p>📍 आनंद मोहन माथुर सभागृह, विजयनगर, इंदौर</p>
 </div>
 
-<div>
-<a href="#services">Services</a>
-<a href="#contact">Contact</a>
-</div>
+<a href="https://www.google.com/maps/search/?api=1&query=Indore" target="_blank">
+<button class="mapBtn">📍 View Location</button>
+</a>
+
 </div>
 
-<!-- HERO -->
-<div class="hero">
-<h1>Banjara Digital</h1>
-<p>Connect • Create • Grow</p>
-<a href="#services" class="btn">Explore</a>
+<!-- FORM -->
+<div class="container">
+
+<h2>Registration Form</h2>
+
+<label>Full Name</label>
+<input id="name">
+
+<label>Date of Birth</label>
+<input type="date" id="dob">
+
+<label>Mobile</label>
+<input id="mobile">
+
+<label>State</label>
+<select id="state">
+<option>Madhya Pradesh</option>
+<option>Maharashtra</option>
+<option>Rajasthan</option>
+<option>Gujarat</option>
+<option>Other</option>
+</select>
+
+<label>District</label>
+<select id="district">
+<option>Indore</option>
+<option>Bhopal</option>
+<option>Ujjain</option>
+<option>Dhar</option>
+<option>Ratlam</option>
+<option>Khargone</option>
+<option>Other</option>
+</select>
+
+<label>School</label>
+<input id="school">
+
+<label>Stream</label>
+<select id="stream">
+<option>Science</option>
+<option>Commerce</option>
+<option>Arts</option>
+</select>
+
+<label>College</label>
+<input id="college">
+
+<label>Career Goal</label>
+<select id="career">
+<option>Doctor</option>
+<option>Engineer</option>
+<option>Govt Job</option>
+<option>Business</option>
+<option>Other</option>
+</select>
+
+<label>Travel Required?</label>
+<select id="travel">
+<option>Yes</option>
+<option>No</option>
+</select>
+
+<label>Scholarship Needed?</label>
+<select id="scholarship">
+<option>Yes</option>
+<option>No</option>
+</select>
+
+<label>Health Issue</label>
+<input id="health">
+
+<label>Parent Contact 1</label>
+<input id="contact1">
+
+<label>Parent Contact 2</label>
+<input id="contact2">
+
+<p class="note">
+👉 ₹21 Registration Fee (Food + Medal + Certificate)
+</p>
+
+<button class="pay" onclick="payNow()">💳 Pay & Register</button>
+
+<button class="whatsapp" onclick="joinGroup()">📲 Join WhatsApp</button>
+
+<!-- PARTNER -->
+<div style="text-align:center;margin-top:20px;">
+<p>Digital Partner</p>
+<h3>Banjara Digital</h3>
+</div>
+
 </div>
 
 <!-- ABOUT -->
-<div class="section">
-
-<div class="card">
-<h2>About Banjara Digital</h2>
+<div class="container">
+<h3>About</h3>
 <p>
-Banjara Digital is a professional digital services platform providing banner design, social media promotion, event registration services, and digital development solutions across India.
+Banjara Digital एक professional digital service platform है जो banner design, promotion और digital solutions प्रदान करता है।
 </p>
-</div>
-
-<div class="card">
-<h2>Business Purpose</h2>
-<p>
-We provide digital services such as design, promotion, and event registration solutions for individuals and organizations.
-</p>
-</div>
-
-<!-- FOUNDER -->
-<div class="card founder" style="text-align:center;">
-<img src="https://github.com/banjaradigitalmp-hue/banjara-digital/blob/main/my%20profile%20picture.png?raw=true">
-<h3>Founder</h3>
-<h2>Vikas Pawar</h2>
-<p>
-Founder of Banjara Digital working in digital services, event management systems and social media solutions across India.
-</p>
-</div>
-
-</div>
-
-<!-- SERVICES -->
-<div class="section" id="services">
-<h2>Our Services</h2>
-
-<div class="grid">
-<div class="service">🎨 Banner & Poster Design</div>
-<div class="service">📢 Social Media Promotion</div>
-<div class="service">📝 Event Registration Services</div>
-<div class="service">🌐 Website Development</div>
-<div class="service">📱 App Development</div>
-<div class="service">📊 Digital Marketing</div>
-</div>
-</div>
-
-<!-- HOW -->
-<div class="section">
-<div class="card">
-<h2>How It Works</h2>
-<ol>
-<li>Select service</li>
-<li>Provide details</li>
-<li>Complete payment</li>
-<li>Get service</li>
-</ol>
-</div>
-</div>
-
-<!-- TRUST -->
-<div class="section">
-<div class="card">
-<h2>Trusted Platform</h2>
-<p>✔ Secure Services</p>
-<p>✔ Trusted by Users</p>
-<p>✔ Professional Digital Solutions</p>
-</div>
 </div>
 
 <!-- CONTACT -->
-<div class="section" id="contact">
-<div class="card">
-<h2>Contact</h2>
-<p>Email: banjaradigitalmp@gmail.com</p>
-<p>Phone: 9685444391</p>
-<p>Location: Madhya Pradesh, India</p>
-
-<div class="social">
-<a href="https://www.instagram.com/banjara_digital_"><i class="fab fa-instagram"></i></a>
-<a href="https://www.facebook.com/profile.php?id=100089917780983"><i class="fab fa-facebook"></i></a>
-<a href="https://youtube.com/@banjara_digital_09"><i class="fab fa-youtube"></i></a>
-</div>
-
-</div>
-</div>
-
-<!-- POLICIES -->
-<div class="section">
-<div class="card"><h3>Privacy Policy</h3><p>User data सुरक्षित रखा जाता है।</p></div>
-<div class="card"><h3>Terms & Conditions</h3><p>Misuse may lead to termination.</p></div>
-<div class="card"><h3>Refund Policy</h3><p>All payments non-refundable.</p></div>
-<div class="card"><h3>Cancellation Policy</h3><p>Once confirmed, cancellation may not be possible.</p></div>
+<div class="container">
+<h3>Contact</h3>
+<p>📞 9685444391</p>
+<p>📧 banjaradigitalmp@gmail.com</p>
+<p>📍 Madhya Pradesh, India</p>
 </div>
 
 <!-- FOOTER -->
 <div class="footer">
-<h3>Banjara Digital</h3>
-<p style="font-size:12px;">
-This website provides digital services and event management solutions.  
-All services are offered independently by Banjara Digital.
+<p>
+<a href="#">Privacy Policy</a> |
+<a href="#">Terms</a> |
+<a href="#">Refund</a>
 </p>
-<p>© 2026 All Rights Reserved</p>
+<p style="font-size:12px;">
+User data सुरक्षित रखा जाता है। All payments non-refundable.
+</p>
+<p>© 2026 Banjara Digital</p>
 </div>
+
+<script>
+function payNow(){
+if(name.value=="" || mobile.value==""){
+alert("Fill required details");
+return;
+}
+window.open("https://rzp.io/rzp/2r1AcRdr","_blank");
+}
+
+function joinGroup(){
+window.open("https://chat.whatsapp.com/F6pAgLGdTcu5soecJMh3F0","_blank");
+}
+</script>
 
 </body>
 </html>
