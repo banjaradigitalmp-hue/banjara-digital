@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Student Registration</title>
+
+<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+
+<style>
+body{
+font-family:sans-serif;
+background:#020617;
+color:white;
+text-align:center;
+padding:20px;
+}
+
+.box{
+background:#111827;
+padding:25px;
+border-radius:15px;
+max-width:400px;
+margin:auto;
+}
+
+input{
+width:90%;
+padding:10px;
+margin:10px;
+border-radius:5px;
+border:none;
+}
+
+button{
+padding:12px 25px;
+background:#06b6d4;
+border:none;
+border-radius:25px;
+color:white;
+}
+</style>
+</head>
+
+<body>
+
+<div class="box">
+
+<h2>Banjara Digital</h2>
+<p>Student Registration</p>
+
+<input type="text" id="name" placeholder="Full Name">
+<input type="text" id="mobile" placeholder="Mobile Number">
+
+<p>Exam Fee: ₹21</p>
+<p style="font-size:12px;">
+Free Food Token + Medal + Certificate
+</p>
+
+<button onclick="payNow()">Pay & Register</button>
+
+</div>
+
+<script>
+function payNow(){
+
+var name=document.getElementById("name").value;
+var mobile=document.getElementById("mobile").value;
+
+if(name=="" || mobile==""){
+alert("Fill details");
+return;
+}
+
+var options = {
+"key": "YOUR_API_KEY",
+"amount": "2100",
+"currency": "INR",
+"name": "Banjara Digital",
+"description": "Exam Fee",
+
+"handler": function (response){
+
+alert("Payment Successful");
+
+/* WhatsApp Join */
+window.location.href="https://chat.whatsapp.com/YOUR_LINK";
+
+}
+};
+
+var rzp = new Razorpay(options);
+rzp.open();
+}
+</script>
+
+</body>
+</html>
