@@ -38,33 +38,26 @@ background:#f1f5f9;
 border-radius:10px;
 }
 
-/* MAP */
-.mapBtn{
-background:#16a34a;
-color:#fff;
-padding:12px;
-border:none;
-border-radius:10px;
-margin-top:10px;
-width:100%;
-}
-
 /* FORM */
 .container{
 max-width:720px;
-margin:20px auto;
-background:rgba(255,255,255,0.05);
-padding:25px;
-border-radius:18px;
+margin:auto;
+background:#111827;
+padding:20px;
+border-radius:15px;
 }
 
-label{margin-top:12px;display:block;}
+label{
+margin-top:10px;
+display:block;
+font-size:14px;
+}
 
 input,select{
 width:100%;
 padding:12px;
-margin-top:6px;
-border-radius:10px;
+margin-top:5px;
+border-radius:8px;
 border:none;
 }
 
@@ -74,20 +67,20 @@ width:100%;
 padding:14px;
 margin-top:12px;
 border:none;
-border-radius:10px;
-font-weight:600;
+border-radius:8px;
 }
 
 .pay{background:#2563eb;color:#fff;}
+.mapBtn{background:#16a34a;color:#fff;}
 
-/* LOGO */
+/* DIGITAL PARTNER */
 .partnerCard{
 background:#fff;
-margin:25px;
-padding:25px;
-border-radius:18px;
+margin:20px;
+padding:20px;
 text-align:center;
 color:#000;
+border-radius:15px;
 }
 
 .logoCircle{
@@ -101,6 +94,7 @@ box-shadow:0 0 25px rgba(0,0,0,0.7);
 .footer{
 text-align:center;
 padding:20px;
+font-size:13px;
 }
 .footer a{color:#38bdf8;}
 </style>
@@ -143,7 +137,7 @@ padding:20px;
 <label>Date of Birth / जन्म तिथि</label>
 <input type="date" id="dob">
 
-<label>Mobile Number / मोबाइल</label>
+<label>Mobile / मोबाइल</label>
 <input id="mobile">
 
 <label>Caste / जाति</label>
@@ -155,6 +149,21 @@ padding:20px;
 <select id="district">
 <option>Indore</option><option>Bhopal</option><option>Ujjain</option>
 <option>Jabalpur</option><option>Gwalior</option><option>Sagar</option>
+<option>Rewa</option><option>Satna</option><option>Dewas</option>
+<option>Ratlam</option><option>Khargone</option><option>Sehore</option>
+<option>Vidisha</option><option>Betul</option><option>Chhindwara</option>
+<option>Shivpuri</option><option>Morena</option><option>Bhind</option>
+<option>Mandsaur</option><option>Neemuch</option><option>Barwani</option>
+<option>Alirajpur</option><option>Damoh</option><option>Katni</option>
+<option>Panna</option><option>Datia</option><option>Tikamgarh</option>
+<option>Singrauli</option><option>Anuppur</option><option>Dindori</option>
+<option>Umaria</option><option>Sidhi</option><option>Shahdol</option>
+<option>Harda</option><option>Agar Malwa</option><option>Shajapur</option>
+<option>Rajgarh</option><option>Seoni</option><option>Mandla</option>
+<option>Balaghat</option><option>Ashoknagar</option><option>Sheopur</option>
+<option>Burhanpur</option><option>Khandwa</option><option>Hoshangabad</option>
+<option>Narsinghpur</option><option>Guna</option><option>Chhatarpur</option>
+<option>Maihar</option><option>Niwari</option><option>Mauganj</option>
 </select>
 
 <label>School / स्कूल</label>
@@ -162,7 +171,7 @@ padding:20px;
 
 <label>Stream / विषय</label>
 <select id="stream" onchange="updateCourse()">
-<option value="">Select</option>
+<option value="">Select Stream</option>
 <option>Science</option>
 <option>Commerce</option>
 <option>Arts</option>
@@ -175,16 +184,15 @@ padding:20px;
 
 <input id="otherCourse" placeholder="Other Course" style="display:none;">
 
-<label>Future College / कॉलेज</label>
+<label>Future College / भविष्य कॉलेज</label>
 <input id="college">
 
 <label>Career Goal / लक्ष्य</label>
 <select id="career">
-<option>Doctor</option><option>Engineer</option><option>Govt Job</option>
-<option>Business</option><option>Other</option>
+<option>Doctor</option><option>Engineer</option><option>Govt Job</option><option>Business</option>
 </select>
 
-<label>Travel Mode / यात्रा</label>
+<label>Travel Mode / कैसे आएंगे</label>
 <select id="travel">
 <option>Self Vehicle</option>
 <option>College Bus</option>
@@ -232,7 +240,6 @@ Payment के बाद WhatsApp group join करें
 <a href="#">Terms</a> |
 <a href="#">Refund</a>
 </p>
-<p>User data सुरक्षित रखा जाता है। All payments non-refundable.</p>
 <p>© 2026 Banjara Digital</p>
 </div>
 
@@ -243,7 +250,7 @@ function openMap(){
 window.open("https://www.google.com/maps/search/?api=1&query=Anand+Mohan+Mathur+Sabhagrah+Indore");
 }
 
-/* STREAM */
+/* COURSE */
 function updateCourse(){
 let s=stream.value;
 let c=course;
@@ -264,7 +271,6 @@ c.add(o);
 });
 }
 
-/* COURSE */
 function checkCourse(){
 if(course.value=="Other"){
 otherCourse.style.display="block";
@@ -277,11 +283,11 @@ otherCourse.style.display="none";
 function startPayment(){
 
 if(name.value=="" || mobile.value==""){
-alert("Please fill all required fields");
+alert("Fill required fields");
 return;
 }
 
-var finalCourse=(course.value=="Other")?otherCourse.value:course.value;
+let finalCourse=(course.value=="Other")?otherCourse.value:course.value;
 
 var options={
 key:"YOUR_RAZORPAY_KEY",
@@ -324,7 +330,6 @@ window.open("https://chat.whatsapp.com/F6pAgLGdTcu5soecJMh3F0");
 
 new Razorpay(options).open();
 }
-
 </script>
 
 </body>
