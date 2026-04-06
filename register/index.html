@@ -1,3 +1,4 @@
+<!-- 🔥 FULL FINAL FIXED VERSION -->
 <!DOCTYPE html>
 <html lang="hi">
 <head>
@@ -5,146 +6,155 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Student Success Meet</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
 
 <style>
-body{
-  font-family:'Poppins',sans-serif;
-  margin:0;
-  background:#071126;
-  color:#fff;
+body{font-family:sans-serif;background:#071126;color:#fff;margin:0}
+.container{max-width:900px;margin:auto;padding:20px}
+.card{background:#0b1b3a;padding:20px;border-radius:10px}
+input,select{width:100%;padding:12px;margin:8px 0;border-radius:8px;border:none}
+button{width:100%;padding:14px;background:#47d7ff;border:none;border-radius:10px;font-weight:bold}
+.hidden{display:none}
+.popup{
+position:fixed;top:0;left:0;width:100%;height:100%;
+background:rgba(0,0,0,.7);
+display:none;justify-content:center;align-items:center
 }
-
-.container{
-  max-width:1000px;
-  margin:auto;
-  padding:15px;
-}
-
-h1{font-size:28px;}
-
-.card{
-  background:#0b1b3a;
-  padding:20px;
-  border-radius:12px;
-}
-
-input,select{
-  width:100%;
-  padding:12px;
-  margin-top:6px;
-  margin-bottom:15px;
-  border-radius:8px;
-  border:none;
-}
-
-button{
-  width:100%;
-  padding:14px;
-  background:#47d7ff;
-  border:none;
-  border-radius:10px;
-  font-weight:bold;
-  cursor:pointer;
-}
-
-.status{
-  margin-top:10px;
-}
-
-@media(max-width:600px){
-  h1{font-size:22px;}
-}
+.popup-box{background:#fff;color:#000;padding:20px;border-radius:10px}
 </style>
 </head>
 
 <body>
 
 <div class="container">
-  <div class="card">
-    <h1>Student Registration</h1>
+<div class="card">
 
-    <form id="form">
+<h2>Student Registration</h2>
 
-      <label>नाम</label>
-      <input id="name" required>
+<form id="form">
 
-      <label>मोबाइल</label>
-      <input id="mobile" maxlength="10" required>
+<input id="name" placeholder="Student Name" required>
+<input id="mobile" placeholder="Mobile" maxlength="10" required>
 
-      <label>Stream</label>
-      <select id="stream" required>
-        <option value="">Select</option>
-        <option>Science</option>
-        <option>Commerce</option>
-        <option>Arts</option>
-      </select>
+<select id="stream" required>
+<option value="">Stream</option>
+<option>Science</option>
+<option>Commerce</option>
+<option>Arts</option>
+</select>
 
-      <label>Course</label>
-      <select id="course" required></select>
+<select id="course" required></select>
 
-      <button type="submit">Pay ₹21</button>
+<input id="otherCourse" class="hidden" placeholder="Other Course">
 
-      <div class="status" id="status"></div>
+<select id="career">
+<option>Doctor</option>
+<option>Engineer</option>
+<option>Other</option>
+</select>
 
-    </form>
-  </div>
+<input id="otherCareer" class="hidden" placeholder="Other Career">
+
+<button type="submit">Pay ₹21</button>
+
+<div id="status"></div>
+
+</form>
+</div>
+</div>
+
+<!-- ✅ Popup -->
+<div class="popup" id="popup">
+<div class="popup-box">
+<h3>Payment Success</h3>
+<p id="receipt"></p>
+<a href="https://chat.whatsapp.com/F6pAgLGdTcu5soecJMh3F0" target="_blank">
+<button>Join WhatsApp</button>
+</a>
+</div>
 </div>
 
 <script>
 
-const courseMap = {
-  Science:["MBBS","BSc","Engineering"],
-  Commerce:["BCom","CA","BBA"],
-  Arts:["BA","LLB"]
+// CONFIG
+const CONFIG={
+key:"YOUR_RAZORPAY_KEY",
+sheetURL:"YOUR_SCRIPT_URL"
 };
 
-const stream = document.getElementById("stream");
-const course = document.getElementById("course");
-const form = document.getElementById("form");
-const statusBox = document.getElementById("status");
+// DATA
+const courseMap={
+Science:["MBBS","BSc","Engineering","Other"],
+Commerce:["BCom","CA","BBA","Other"],
+Arts:["BA","LLB","Other"]
+};
 
-// ✅ Course Fix
-function updateCourse(){
-  let val = stream.value;
-  course.innerHTML="";
+const stream=document.getElementById("stream");
+const course=document.getElementById("course");
+const otherCourse=document.getElementById("otherCourse");
+const career=document.getElementById("career");
+const otherCareer=document.getElementById("otherCareer");
 
-  if(!courseMap[val]) return;
+// Course load
+stream.onchange=()=>{
+course.innerHTML="";
+courseMap[stream.value].forEach(c=>{
+let op=document.createElement("option");
+op.textContent=c;
+course.appendChild(op);
+});
+};
 
-  courseMap[val].forEach(c=>{
-    let op = document.createElement("option");
-    op.textContent=c;
-    course.appendChild(op);
-  });
+// Other course
+course.onchange=()=>{
+otherCourse.classList.toggle("hidden",course.value!=="Other");
+};
+
+// Other career
+career.onchange=()=>{
+otherCareer.classList.toggle("hidden",career.value!=="Other");
+};
+
+// Submit
+document.getElementById("form").onsubmit=function(e){
+e.preventDefault();
+
+let data={
+name:name.value,
+mobile:mobile.value,
+stream:stream.value,
+course:course.value==="Other"?otherCourse.value:course.value,
+career:career.value==="Other"?otherCareer.value:career.value
+};
+
+if(data.mobile.length!==10){
+status.innerText="Mobile 10 digit hona chahiye";
+return;
 }
 
-stream.addEventListener("change",updateCourse);
+// Razorpay
+let rzp=new Razorpay({
+key:CONFIG.key,
+amount:2100,
+handler:function(res){
 
-// ✅ Payment
-form.addEventListener("submit",function(e){
-  e.preventDefault();
-
-  const name = document.getElementById("name").value;
-  const mobile = document.getElementById("mobile").value;
-
-  if(mobile.length!==10){
-    statusBox.innerText="10 digit mobile daalo";
-    return;
-  }
-
-  const rzp = new Razorpay({
-    key:"rzp_live_SZnaVX76WrMx4H",
-    amount:2100,
-    currency:"INR",
-    name:"Student Meet",
-    handler:function(res){
-      statusBox.innerText="Payment Success: "+res.razorpay_payment_id;
-    }
-  });
-
-  rzp.open();
+// Google Sheet
+fetch(CONFIG.sheetURL,{
+method:"POST",
+body:JSON.stringify({...data,payment:res.razorpay_payment_id})
 });
+
+// Popup
+document.getElementById("popup").style.display="flex";
+document.getElementById("receipt").innerText=
+"Name: "+data.name+" | Payment: "+res.razorpay_payment_id;
+
+}
+});
+
+rzp.open();
+
+};
 
 </script>
 
