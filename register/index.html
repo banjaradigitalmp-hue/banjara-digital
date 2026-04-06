@@ -8,37 +8,87 @@
 <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
 
 <style>
-body{font-family:'Poppins';margin:0;background:#020617;color:#fff;}
+body{
+font-family:'Poppins',sans-serif;
+margin:0;
+background:linear-gradient(135deg,#020617,#0f172a);
+color:#fff;
+}
 
-.banner img{width:100%;}
+.banner img{width:100%;height:auto;}
 
 .headerCard{
-background:#fff;margin:15px;padding:20px;border-radius:15px;text-align:center;color:#000;
+background:#fff;
+margin:15px;
+padding:25px;
+border-radius:18px;
+text-align:center;
+color:#000;
+}
+
+.year{color:#2563eb;font-weight:600;}
+
+.eventInfo{
+margin-top:10px;
+padding:12px;
+background:#f1f5f9;
+border-radius:10px;
 }
 
 .container{
-max-width:720px;margin:auto;background:#111827;padding:20px;border-radius:15px;
+max-width:720px;
+margin:20px auto;
+background:rgba(255,255,255,0.05);
+padding:25px;
+border-radius:18px;
 }
 
+label{margin-top:12px;display:block;}
+
 input,select{
-width:100%;padding:12px;margin-top:8px;border-radius:8px;border:none;
+width:100%;
+padding:12px;
+border-radius:8px;
+border:none;
+margin-top:5px;
 }
 
 button{
-width:100%;padding:14px;margin-top:12px;border:none;border-radius:8px;
+width:100%;
+padding:14px;
+margin-top:12px;
+border:none;
+border-radius:10px;
+font-weight:600;
 }
 
-.pay{background:#2563eb;color:#fff;}
-.whatsapp{background:#25D366;color:#fff;}
+.pay{background:#2563eb;color:white;}
+.whatsapp{background:#25D366;color:white;}
+.mapBtn{background:#16a34a;color:white;}
 
 .partnerCard{
-background:#fff;margin:20px;padding:20px;text-align:center;color:#000;border-radius:15px;
+background:#fff;
+margin:25px;
+padding:25px;
+border-radius:16px;
+text-align:center;
+color:#000;
 }
 
 .logoCircle{
-width:90px;height:90px;border-radius:50%;
-box-shadow:0 5px 20px rgba(0,0,0,0.5);
+width:90px;
+height:90px;
+border-radius:50%;
+object-fit:cover;
+box-shadow:0 5px 20px rgba(0,0,0,0.4);
 }
+
+.footer{
+text-align:center;
+padding:20px;
+font-size:13px;
+}
+.footer a{color:#38bdf8;}
 </style>
 
 </head>
@@ -50,43 +100,144 @@ box-shadow:0 5px 20px rgba(0,0,0,0.5);
 <img src="https://github.com/banjaradigitalmp-hue/student-form/blob/main/WhatsApp%20Image%202026-04-04%20at%209.41.57%20AM.jpeg?raw=true">
 </div>
 
+<!-- HEADER -->
 <div class="headerCard">
-<h2>Student Success Meet 2026-27</h2>
-<p>आयोजक: म.प्र. NGO महासंघ</p>
+<h1>Student Success Meet</h1>
+<div class="year">2026-27</div>
+<h3>आयोजक: म.प्र. NGO महासंघ</h3>
+
+<div class="eventInfo">
+📅 10 May 2026 <br>
+⏰ 10:00 AM <br>
+📍 आनंद मोहन माथुर सभागृह, इंदौर
 </div>
 
+<button class="mapBtn" onclick="openMap()">📍 View Location</button>
+</div>
+
+<!-- FORM -->
 <div class="container">
 
-<input id="name" placeholder="Student Name">
-<input id="mobile" placeholder="Mobile">
+<h2>Registration Form / पंजीकरण फॉर्म</h2>
+
+<form id="myForm">
+
+<label>State / राज्य</label>
+<input value="Madhya Pradesh" readonly>
+
+<label>Student Name / छात्र का नाम</label>
+<input id="name" required>
+
+<label>Parent Name / अभिभावक</label>
+<input id="parent">
+
+<label>Date of Birth / जन्म तिथि</label>
+<input type="date" id="dob">
+
+<label>Mobile / मोबाइल</label>
+<input id="mobile" required>
+
+<label>Caste / जाति</label>
+<select id="caste">
+<option>SC</option><option>ST</option><option>OBC</option><option>Other</option>
+</select>
+
+<label>District / जिला</label>
 <select id="district">
-<option>Indore</option><option>Bhopal</option>
+<option>Indore</option><option>Bhopal</option><option>Ujjain</option>
+<option>Jabalpur</option><option>Gwalior</option><option>Sagar</option>
+<option>Rewa</option><option>Satna</option><option>Dewas</option>
+<option>Ratlam</option><option>Khargone</option><option>Sehore</option>
+<option>Vidisha</option><option>Betul</option><option>Chhindwara</option>
+<option>Shivpuri</option><option>Morena</option><option>Bhind</option>
+<option>Mandsaur</option><option>Neemuch</option><option>Barwani</option>
+<option>Alirajpur</option><option>Damoh</option><option>Katni</option>
+<option>Panna</option><option>Datia</option><option>Tikamgarh</option>
+<option>Singrauli</option><option>Anuppur</option><option>Dindori</option>
+<option>Umaria</option><option>Sidhi</option><option>Shahdol</option>
+<option>Harda</option><option>Agar Malwa</option><option>Shajapur</option>
+<option>Rajgarh</option><option>Seoni</option><option>Mandla</option>
+<option>Balaghat</option><option>Ashoknagar</option><option>Sheopur</option>
+<option>Burhanpur</option><option>Khandwa</option><option>Hoshangabad</option>
+<option>Narsinghpur</option><option>Guna</option><option>Chhatarpur</option>
+<option>Maihar</option><option>Niwari</option><option>Mauganj</option>
 </select>
 
+<label>School / स्कूल</label>
+<input id="school">
+
+<label>Stream / विषय</label>
+<select id="stream">
+<option>Science</option><option>Commerce</option><option>Arts</option><option>Maths</option><option>Other</option>
+</select>
+
+<label>Future College / भविष्य कॉलेज</label>
+<input id="college">
+
+<label>Career Goal / लक्ष्य</label>
 <select id="career">
-<option>Doctor</option><option>Engineer</option>
+<option>Doctor</option><option>Engineer</option><option>Govt Job</option><option>Business</option><option>Other</option>
 </select>
 
-<p>₹21 Exam Fee – Free Food + Medal + Certificate</p>
+<label>Travel Mode / कैसे आएंगे</label>
+<select id="travel">
+<option>Self</option><option>Bus</option><option>Public Transport</option>
+</select>
 
-<button class="pay" onclick="payNow()">Pay & Register</button>
+<label>Scholarship / स्कॉलरशिप</label>
+<select id="scholarship">
+<option>Yes</option><option>No</option>
+</select>
+
+<label>Health Card / हेल्थ कार्ड</label>
+<select id="health">
+<option>Yes</option><option>No</option>
+</select>
+
+<label>Parent Mobile 1</label>
+<input id="parent1">
+
+<label>Parent Mobile 2</label>
+<input id="parent2">
+
+<p>₹21 Exam Fee – Free Food + Token + Medal + Certificate</p>
+
+<button type="button" class="pay" onclick="startPayment()">💳 Pay & Register</button>
+<button type="button" class="whatsapp" onclick="joinGroup()">WhatsApp</button>
+
+</form>
 
 </div>
 
 <!-- DIGITAL PARTNER -->
 <div class="partnerCard">
-<h3>Digital Partner</h3>
+<h2>Digital Partner</h2>
 <img src="https://github.com/banjaradigitalmp-hue/banjara-digital/blob/main/WhatsApp%20Image%202026-03-06%20at%206.52.34%20PM.jpeg?raw=true" class="logoCircle">
-<h2>Banjara Digital</h2>
+<h1>Banjara Digital</h1>
 <p>CONNECT • CREATE • GROW</p>
+</div>
+
+<!-- FOOTER -->
+<div class="footer">
+<p>
+<a href="#">Privacy Policy</a> |
+<a href="#">Terms & Conditions</a> |
+<a href="#">Refund Policy</a>
+</p>
+<p>User data सुरक्षित रखा जाता है। All payments non-refundable.</p>
+<p>© 2026 Banjara Digital</p>
 </div>
 
 <script>
 
-function payNow(){
+function openMap(){
+window.open("https://www.google.com/maps/search/?api=1&query=Anand+Mohan+Mathur+Sabhagrah+Indore");
+}
+
+function startPayment(){
 
 if(name.value=="" || mobile.value==""){
-alert("Fill details");
+alert("Please fill required details");
 return;
 }
 
@@ -94,25 +245,35 @@ var options = {
 key: "rzp_live_SZnaVX76WrMx4H",
 amount: 2100,
 currency: "INR",
+name: "Student Success Meet",
 
-handler: function (){
+handler: function (response){
 
-// 🔥 SEND DATA TO GOOGLE SHEET
-fetch("https://script.google.com/macros/s/AKfycbyEm3UowaIdD1M8nDcWks67yV05o64pyF3kEHFfSQL4bbosQ9hzx0GuZmv06fceAuFAGg/exec", {
+fetch("https://script.google.com/macros/s/AKfycbyAU5OsgXmi_lZqCeGYn5YjiuKd-GCbObx2Hpr05YVKKykOrVhSLKajurqSNbBzZAgGkg/exec", {
 method:"POST",
 body: JSON.stringify({
 name: name.value,
+parent: parent.value,
+dob: dob.value,
 mobile: mobile.value,
+caste: caste.value,
 district: district.value,
-career: career.value
+school: school.value,
+stream: stream.value,
+college: college.value,
+career: career.value,
+travel: travel.value,
+scholarship: scholarship.value,
+health: health.value,
+parent1: parent1.value,
+parent2: parent2.value,
+payment_id: response.razorpay_payment_id
 })
 });
 
-// SUCCESS MESSAGE
 alert("Payment Successful ✅");
 
-// WHATSAPP POPUP
-if(confirm("Join WhatsApp Group?")){
+if(confirm("WhatsApp Group join karna hai?")){
 window.open("https://chat.whatsapp.com/F6pAgLGdTcu5soecJMh3F0");
 }
 
@@ -121,6 +282,10 @@ window.open("https://chat.whatsapp.com/F6pAgLGdTcu5soecJMh3F0");
 
 new Razorpay(options).open();
 
+}
+
+function joinGroup(){
+window.open("https://chat.whatsapp.com/F6pAgLGdTcu5soecJMh3F0");
 }
 
 </script>
