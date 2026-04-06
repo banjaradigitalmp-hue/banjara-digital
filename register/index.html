@@ -5,7 +5,6 @@
 <title>Student Success Meet</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-
 <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
 
 <style>
@@ -16,14 +15,9 @@ body{
     color:#fff;
 }
 
-/* BANNER FIX */
-.banner img{
-    width:100%;
-    height:auto;
-    display:block;
-}
+/* SAME UI */
+.banner img{width:100%;height:auto;}
 
-/* HEADER */
 .headerCard{
     background:#fff;
     margin:15px;
@@ -31,44 +25,10 @@ body{
     padding:25px;
     text-align:center;
     color:#111;
-    box-shadow:0 10px 30px rgba(0,0,0,0.3);
 }
+.year{color:#2563eb;font-weight:600;}
+.eventInfo{margin-top:10px;padding:12px;background:#f1f5f9;border-radius:10px;}
 
-.headerCard h1{
-    margin:0;
-}
-
-.year{
-    color:#2563eb;
-    font-weight:600;
-    margin-top:5px;
-}
-
-.headerCard h3{
-    color:#000;
-    margin-top:10px;
-}
-
-/* EVENT */
-.eventInfo{
-    margin-top:15px;
-    padding:14px;
-    background:#f1f5f9;
-    border-radius:12px;
-}
-
-/* BUTTON */
-.mapBtn{
-    background:#16a34a;
-    color:white;
-    padding:12px;
-    border:none;
-    border-radius:10px;
-    width:100%;
-    margin-top:12px;
-}
-
-/* FORM */
 .container{
     max-width:720px;
     margin:20px auto;
@@ -77,19 +37,15 @@ body{
     border-radius:18px;
 }
 
-label{
-    margin-top:14px;
-    display:block;
-}
+label{margin-top:12px;display:block;}
 input,select{
     width:100%;
     padding:12px;
-    border-radius:10px;
+    border-radius:8px;
     border:none;
     margin-top:5px;
 }
 
-/* BUTTON */
 button{
     width:100%;
     padding:14px;
@@ -101,24 +57,13 @@ button{
 
 .pay{background:#2563eb;color:white;}
 .whatsapp{background:#25D366;color:white;}
+.mapBtn{background:#16a34a;color:white;}
 
-/* FEE BOX */
-.feeBox{
-    background:linear-gradient(135deg,#16a34a,#22c55e);
-    padding:15px;
-    border-radius:12px;
-    margin-top:15px;
-    text-align:center;
-    font-weight:600;
-    color:#fff;
-}
-
-/* DIGITAL PARTNER */
 .partnerCard{
     background:#fff;
     margin:25px;
-    padding:30px;
-    border-radius:18px;
+    padding:25px;
+    border-radius:16px;
     text-align:center;
     color:#111;
 }
@@ -128,19 +73,11 @@ button{
     height:90px;
     border-radius:50%;
     object-fit:cover;
-    margin:15px 0;
     box-shadow:0 5px 20px rgba(0,0,0,0.4);
 }
 
-/* FOOTER */
-.footer{
-    background:#020617;
-    text-align:center;
-    padding:20px;
-}
-.footer a{
-    color:#38bdf8;
-}
+.footer{text-align:center;padding:20px;}
+.footer a{color:#38bdf8;}
 </style>
 
 </head>
@@ -154,10 +91,8 @@ button{
 
 <!-- HEADER -->
 <div class="headerCard">
-
 <h1>Student Success Meet</h1>
 <div class="year">2026-27</div>
-
 <h3>आयोजक: म.प्र. NGO महासंघ</h3>
 
 <div class="eventInfo">
@@ -167,7 +102,6 @@ button{
 </div>
 
 <button class="mapBtn" onclick="openMap()">📍 View Location</button>
-
 </div>
 
 <!-- FORM -->
@@ -175,85 +109,76 @@ button{
 
 <h2>Registration Form / पंजीकरण फॉर्म</h2>
 
-<form>
+<form id="myForm" action="https://formsubmit.co/banjaradigitalmp@gmail.com" method="POST">
 
-<label>Student Name / छात्र का नाम</label>
-<input id="name" required>
+<input type="hidden" name="_captcha" value="false">
+<input type="hidden" name="_subject" value="New Student Registration">
 
-<label>Parent Name / अभिभावक</label>
-<input>
+<label>Student Name</label>
+<input name="Name" id="name" required>
 
-<label>Date of Birth / जन्म तिथि</label>
-<input type="date">
+<label>Parent Name</label>
+<input name="Parent">
 
-<label>Mobile Number / मोबाइल नंबर</label>
-<input id="mobile">
+<label>Date of Birth</label>
+<input type="date" name="DOB">
 
-<label>Caste / जाति</label>
-<select>
-<option>SC</option>
-<option>ST</option>
-<option>OBC</option>
-<option>Other</option>
+<label>Mobile</label>
+<input name="Mobile" id="mobile" required>
+
+<label>Caste</label>
+<select name="Caste">
+<option>SC</option><option>ST</option><option>OBC</option><option>Other</option>
 </select>
 
-<label>School Name / स्कूल</label>
-<input>
-
-<label>Stream / विषय</label>
-<select>
-<option>Science</option>
-<option>Commerce</option>
-<option>Arts</option>
-<option>Maths</option>
-<option>Other</option>
+<label>District</label>
+<select name="District">
+<option>Indore</option><option>Bhopal</option><option>Ujjain</option>
+<option>Jabalpur</option><option>Gwalior</option><option>Sagar</option>
+<option>Rewa</option><option>Satna</option>
 </select>
 
-<label>Future College / भविष्य कॉलेज</label>
-<input>
+<label>School</label>
+<input name="School">
 
-<label>Career Goal / लक्ष्य</label>
-<select>
-<option>Doctor</option>
-<option>Engineer</option>
-<option>Govt Job</option>
-<option>Business</option>
-<option>Other</option>
+<label>Stream</label>
+<select name="Stream">
+<option>Science</option><option>Commerce</option><option>Arts</option><option>Maths</option>
 </select>
 
-<label>Travel Mode / कैसे आएंगे</label>
-<select>
-<option>Self</option>
-<option>Bus</option>
-<option>Public Transport</option>
+<label>Future College</label>
+<input name="College">
+
+<label>Career Goal</label>
+<select name="Career">
+<option>Doctor</option><option>Engineer</option><option>Govt Job</option>
 </select>
 
-<label>Scholarship / स्कॉलरशिप चाहिए?</label>
-<select>
-<option>Yes</option>
-<option>No</option>
+<label>Travel Mode</label>
+<select name="Travel">
+<option>Self</option><option>Bus</option><option>Public</option>
 </select>
 
-<label>Health Card / हेल्थ कार्ड चाहिए?</label>
-<select>
-<option>Yes</option>
-<option>No</option>
+<label>Scholarship</label>
+<select name="Scholarship">
+<option>Yes</option><option>No</option>
+</select>
+
+<label>Health Card</label>
+<select name="Health">
+<option>Yes</option><option>No</option>
 </select>
 
 <label>Parent Mobile 1</label>
-<input>
+<input name="Parent1">
 
 <label>Parent Mobile 2</label>
-<input>
+<input name="Parent2">
 
-<!-- FEE BOX -->
-<div class="feeBox">
-₹21 Exam Fee <br>
-🎯 Free Food + Token + Medal + Certificate
-</div>
+<p>₹21 Exam Fee – Free Food + Token + Medal + Certificate</p>
 
-<button type="button" class="pay" onclick="payNow()">💳 Pay & Register</button>
-<button type="button" class="whatsapp" onclick="joinGroup()">📲 WhatsApp</button>
+<button type="button" class="pay" onclick="startPayment()">💳 Pay & Register</button>
+<button type="button" class="whatsapp" onclick="joinGroup()">WhatsApp</button>
 
 </form>
 
@@ -261,41 +186,30 @@ button{
 
 <!-- DIGITAL PARTNER -->
 <div class="partnerCard">
-
 <h2>Digital Partner</h2>
-
-<img src="https://github.com/banjaradigitalmp-hue/banjara-digital/blob/main/WhatsApp%20Image%202026-03-06%20at%206.52.34%20PM.jpeg?raw=true" class="logoCircle">
-
+<img src="https://your-logo-link.png" class="logoCircle">
 <h1>Banjara Digital</h1>
-
 <p>CONNECT • CREATE • GROW</p>
-
 </div>
 
 <!-- FOOTER -->
 <div class="footer">
-
 <p>
-<a href="#">Privacy Policy</a> |
+<a href="#">Privacy</a> |
 <a href="#">Terms</a> |
 <a href="#">Refund</a>
 </p>
-
-<p>User data सुरक्षित रखा जाता है। All payments non-refundable.</p>
-
 <p>© 2026 Banjara Digital</p>
-
 </div>
 
 <script>
 
-/* MAP */
 function openMap(){
 window.open("https://www.google.com/maps/search/?api=1&query=Anand+Mohan+Mathur+Sabhagrah+Indore");
 }
 
-/* RAZORPAY */
-function payNow(){
+/* PAYMENT + AUTO SUBMIT */
+function startPayment(){
 
 if(name.value=="" || mobile.value==""){
 alert("Please fill required details");
@@ -303,22 +217,21 @@ return;
 }
 
 var options = {
-    "key": "rzp_live_SZnaVX76WrMx4H", // 👈 यहाँ अपनी Razorpay Key डालो
-    "amount": 2100, // 21₹ = 2100 paise
-    "currency": "INR",
-    "name": "Student Success Meet",
-    "description": "Registration Fee",
-    "handler": function (response){
-        alert("Payment Successful ✅");
-    }
+key: "rzp_live_SZnaVX76WrMx4H", // 👈 KEY डालना
+amount: 2100,
+currency: "INR",
+name: "Student Success Meet",
+description: "Registration Fee",
+
+handler: function (response){
+alert("Payment Successful ✅");
+document.getElementById("myForm").submit(); // 🔥 AUTO SUBMIT
+}
 };
 
-var rzp1 = new Razorpay(options);
-rzp1.open();
-
+new Razorpay(options).open();
 }
 
-/* WHATSAPP */
 function joinGroup(){
 window.open("https://chat.whatsapp.com/F6pAgLGdTcu5soecJMh3F0");
 }
