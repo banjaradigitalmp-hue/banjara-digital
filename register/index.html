@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="hi">
+<html lang="en">
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Student Success Meet 2026-27</title>
@@ -10,21 +10,30 @@
 body{
     font-family:'Poppins',sans-serif;
     margin:0;
-    background:linear-gradient(135deg,#0f172a,#1e293b);
+    background:linear-gradient(135deg,#020617,#0f172a);
     color:#fff;
 }
 
-.header{text-align:center;}
-.header img{width:100%;max-height:260px;object-fit:cover;}
-
-.glass{
-    background:rgba(255,255,255,0.08);
-    backdrop-filter:blur(15px);
-    border-radius:12px;
-    padding:10px;
-    margin:15px;
+/* HEADER */
+.header{
+    text-align:center;
+    padding-bottom:20px;
+}
+.header img{
+    width:100%;
+    max-height:260px;
+    object-fit:cover;
 }
 
+.highlight{
+    background:linear-gradient(135deg,#2563eb,#06b6d4);
+    padding:15px;
+    border-radius:12px;
+    margin:15px;
+    box-shadow:0 0 20px #0ea5e9;
+}
+
+/* CONTAINER */
 .container{
     max-width:700px;
     margin:20px auto;
@@ -43,6 +52,7 @@ input,select{
     margin-top:5px;
 }
 
+/* BUTTON */
 button{
     width:100%;
     padding:14px;
@@ -56,6 +66,11 @@ button{
 .pay{background:#2563eb;}
 .whatsapp{background:#25D366;}
 .mapBtn{background:#16a34a;}
+
+.footer{
+    text-align:center;
+    padding:20px;
+}
 </style>
 </head>
 
@@ -66,13 +81,15 @@ button{
 
 <img src="https://github.com/banjaradigitalmp-hue/student-form/blob/main/WhatsApp%20Image%202026-04-04%20at%209.41.57%20AM.jpeg?raw=true">
 
+<div class="highlight">
 <h1>Student Success Meet 2026-27</h1>
+<h3>आयोजक: म.प्र. NGO महासंघ</h3>
+</div>
 
-<p>आयोजक: म.प्र. NGO महासंघ</p>
-
-<div class="glass">
-<p>📅 10 May 2026 | ⏰ 10:00 AM</p>
-<p>📍 Anand Mohan Mathur Sabhagrah, Indore</p>
+<div class="highlight">
+<p>📅 10 May 2026</p>
+<p>⏰ 10:00 AM</p>
+<p>📍 आनंद मोहन माथुर सभागृह, इंदौर</p>
 </div>
 
 <a href="https://www.google.com/maps/search/?api=1&query=Anand+Mohan+Mathur+Sabhagrah+Indore" target="_blank">
@@ -94,13 +111,13 @@ button{
 <label>Parent Name / अभिभावक का नाम</label>
 <input name="Parent Name" required>
 
-<label>Parent Mobile 1</label>
-<input name="Parent Mobile 1" required>
+<label>Date of Birth / जन्म तिथि</label>
+<input type="date" name="DOB" required>
 
-<label>Parent Mobile 2</label>
-<input name="Parent Mobile 2">
+<label>Mobile Number</label>
+<input name="Mobile" required>
 
-<label>Caste / वर्ग</label>
+<label>Caste / जाति</label>
 <select name="Caste">
 <option>SC</option>
 <option>ST</option>
@@ -108,16 +125,10 @@ button{
 <option>Other</option>
 </select>
 
-<label>Date of Birth / जन्म तिथि</label>
-<input type="date" name="DOB" required>
-
-<label>Mobile Number / मोबाइल नंबर</label>
-<input name="Mobile" required>
-
-<label>School Name / स्कूल का नाम</label>
+<label>School Name</label>
 <input name="School">
 
-<label>Stream / स्ट्रीम</label>
+<label>Stream</label>
 <select name="Stream">
 <option>Science</option>
 <option>Commerce</option>
@@ -126,17 +137,17 @@ button{
 <option>Other</option>
 </select>
 
-<label>Subject Exam / परीक्षा विषय</label>
+<label>Subject Exam</label>
 <select name="Subject">
 <option>Science</option>
 <option>Commerce</option>
 <option>Arts</option>
 </select>
 
-<label>Future College Plan / आगे किस कॉलेज में एडमिशन लेना चाहते हैं?</label>
+<label>Future College Plan</label>
 <input name="Future College">
 
-<label>Career Goal / आप क्या बनना चाहते हैं?</label>
+<label>Career Goal</label>
 <select name="Career">
 <option>Doctor</option>
 <option>Engineer</option>
@@ -145,7 +156,7 @@ button{
 <option>Other</option>
 </select>
 
-<label>District (MP) / जिला</label>
+<label>District (MP)</label>
 <select name="District">
 <option>Indore</option>
 <option>Bhopal</option>
@@ -191,24 +202,30 @@ button{
 <option>Sheopur</option>
 </select>
 
-<label>Travel Mode / आप कैसे आएंगे?</label>
+<label>Travel Mode</label>
 <select name="Travel">
 <option>Self</option>
 <option>Bus</option>
 <option>Public Transport</option>
 </select>
 
-<label>Scholarship Exam / स्कॉलरशिप लेना चाहते हैं?</label>
+<label>Scholarship Exam</label>
 <select name="Scholarship">
 <option>Yes</option>
 <option>No</option>
 </select>
 
-<label>Health Card / हेल्थ कार्ड चाहिए?</label>
+<label>Health Card Required?</label>
 <select name="Health Card">
 <option>Yes</option>
 <option>No</option>
 </select>
+
+<label>Parent Mobile 1</label>
+<input name="Parent Mobile 1">
+
+<label>Parent Mobile 2</label>
+<input name="Parent Mobile 2">
 
 <p style="color:#4ade80;">
 ₹21 Registration Fee (Food + Medal + Certificate)
@@ -222,15 +239,15 @@ button{
 </div>
 
 <!-- DIGITAL PARTNER -->
-<div style="text-align:center; margin:30px; padding:25px; background:rgba(255,255,255,0.05); border-radius:12px;">
+<div style="text-align:center; margin:30px; padding:30px; background:linear-gradient(135deg,#0ea5e9,#22c55e); border-radius:16px; box-shadow:0 0 30px #22c55e;">
 
-<h3 style="color:#38bdf8;">Digital Partner</h3>
+<h2 style="color:white;">Digital Partner</h2>
 
-<img src="https://your-logo-link.png" style="width:90px;">
+<img src="https://your-logo-link.png" style="width:90px; margin:10px 0;">
 
-<h2 style="color:#22c55e;">Banjara Digital</h2>
+<h1 style="color:#020617;">Banjara Digital</h1>
 
-<p style="color:#94a3b8;">CONNECT • CREATE • GROW</p>
+<p style="color:#020617; letter-spacing:2px;">CONNECT • CREATE • GROW</p>
 
 </div>
 
@@ -255,7 +272,7 @@ User data सुरक्षित रखा जाता है। All payments
 
 <script>
 function payNow(){
-alert("Payment page open ho raha hai. Payment ke baad form submit kare.");
+alert("Payment open ho raha hai, payment ke baad form submit kare");
 window.open("https://rzp.io/rzp/2r1AcRdr","_blank");
 }
 
