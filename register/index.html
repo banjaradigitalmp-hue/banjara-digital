@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="hi">
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Student Success Meet 2026-27</title>
@@ -56,30 +56,28 @@ button{
 .pay{background:#2563eb;}
 .whatsapp{background:#25D366;}
 .mapBtn{background:#16a34a;}
-
-.footer{
-    text-align:center;
-    padding:20px;
-    font-size:12px;
-}
 </style>
 </head>
 
 <body>
 
+<!-- HEADER -->
 <div class="header">
+
 <img src="https://github.com/banjaradigitalmp-hue/student-form/blob/main/WhatsApp%20Image%202026-04-04%20at%209.41.57%20AM.jpeg?raw=true">
 
 <h1>Student Success Meet 2026-27</h1>
+<h3>आयोजक: म.प्र. NGO महासंघ</h3>
 
 <div class="glass">
 <p>📅 10 May 2026 | ⏰ 10:00 AM</p>
-<p>📍 Anand Mohan Mathur Sabhagrah, Indore</p>
+<p>📍 आनंद मोहन माथुर सभागृह, इंदौर</p>
 </div>
 
 <a href="https://www.google.com/maps/search/?api=1&query=Anand+Mohan+Mathur+Sabhagrah+Indore" target="_blank">
 <button class="mapBtn">📍 View Location</button>
 </a>
+
 </div>
 
 <!-- FORM -->
@@ -92,16 +90,27 @@ button{
 <label>Student Name / छात्र का नाम</label>
 <input name="Name" required>
 
+<label>Parent Mobile Number / अभिभावक मोबाइल नंबर</label>
+<input name="Parent Mobile" required>
+
 <label>Date of Birth / जन्म तिथि</label>
 <input type="date" name="DOB" required>
 
-<label>Mobile Number</label>
+<label>Mobile Number / मोबाइल नंबर</label>
 <input name="Mobile" required>
 
-<label>School Name</label>
+<label>Caste / जाति</label>
+<select name="Caste">
+<option>SC</option>
+<option>ST</option>
+<option>OBC</option>
+<option>Other</option>
+</select>
+
+<label>School Name / स्कूल का नाम</label>
 <input name="School">
 
-<label>Stream</label>
+<label>Stream / स्ट्रीम</label>
 <select name="Stream">
 <option>Science</option>
 <option>Commerce</option>
@@ -110,17 +119,17 @@ button{
 <option>Other</option>
 </select>
 
-<label>Subject Exam</label>
+<label>Subject Exam / परीक्षा विषय</label>
 <select name="Subject">
 <option>Science</option>
 <option>Commerce</option>
 <option>Arts</option>
 </select>
 
-<label>Future College Plan</label>
+<label>Future College Plan / भविष्य कॉलेज</label>
 <input name="Future College">
 
-<label>Career Goal</label>
+<label>Career Goal / लक्ष्य</label>
 <select name="Career">
 <option>Doctor</option>
 <option>Engineer</option>
@@ -129,7 +138,7 @@ button{
 <option>Other</option>
 </select>
 
-<label>District (MP)</label>
+<label>District (MP) / जिला</label>
 <select name="District">
 <option>Indore</option>
 <option>Bhopal</option>
@@ -175,30 +184,24 @@ button{
 <option>Sheopur</option>
 </select>
 
-<label>Travel Mode</label>
+<label>Travel Mode / यात्रा माध्यम</label>
 <select name="Travel">
 <option>Self</option>
 <option>Bus</option>
 <option>Public Transport</option>
 </select>
 
-<label>Scholarship Exam</label>
+<label>Scholarship Exam / स्कॉलरशिप</label>
 <select name="Scholarship">
 <option>Yes</option>
 <option>No</option>
 </select>
 
-<label>Health Card Required?</label>
+<label>Health Card / हेल्थ कार्ड</label>
 <select name="Health Card">
 <option>Yes</option>
 <option>No</option>
 </select>
-
-<label>Parent Name 1</label>
-<input name="Parent1">
-
-<label>Parent Name 2</label>
-<input name="Parent2">
 
 <p style="color:#4ade80;">
 ₹21 Registration Fee (Food + Medal + Certificate)
@@ -211,19 +214,43 @@ button{
 
 </div>
 
+<!-- DIGITAL PARTNER -->
+<div style="text-align:center; margin:30px; padding:30px; background:rgba(255,255,255,0.05); border-radius:12px;">
+
+<h3 style="color:#38bdf8;">Digital Partner</h3>
+
+<img src="https://your-logo-link.png" style="width:90px; margin:10px;">
+
+<h2 style="color:#22c55e;">Banjara Digital</h2>
+
+<p style="color:#94a3b8;">CONNECT • CREATE • GROW</p>
+
+</div>
+
 <!-- FOOTER -->
-<div class="footer">
-<h3>Digital Partner</h3>
-<p><b>Banjara Digital</b></p>
-<p>© 2026 | MP NGO महासंघ</p>
+<div style="background:#0f172a; text-align:center; padding:25px;">
+
+<p>
+<a href="#" style="color:#38bdf8;">Privacy Policy</a> |
+<a href="#" style="color:#38bdf8;">Terms</a> |
+<a href="#" style="color:#38bdf8;">Refund</a>
+</p>
+
+<p style="color:#cbd5f5;">
+User data सुरक्षित रखा जाता है। All payments non-refundable.
+</p>
+
+<p style="color:#94a3b8;">
+© 2026 Banjara Digital
+</p>
+
 </div>
 
 <script>
 function payNow(){
-alert("Payment page open ho raha hai. Payment ke baad form submit kare.");
+alert("Payment open ho raha hai, payment ke baad form submit kare");
 window.open("https://rzp.io/rzp/2r1AcRdr","_blank");
 }
-
 function joinGroup(){
 window.open("https://chat.whatsapp.com/F6pAgLGdTcu5soecJMh3F0","_blank");
 }
