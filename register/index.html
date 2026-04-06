@@ -8,19 +8,95 @@
 <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
 
 <style>
-body{font-family:'Poppins';margin:0;background:linear-gradient(135deg,#020617,#0f172a);color:#fff;}
+body{
+font-family:'Poppins',sans-serif;
+margin:0;
+background:linear-gradient(135deg,#020617,#0f172a,#020617);
+color:#fff;
+}
+
+/* BANNER */
 .banner img{width:100%;}
-.headerCard{background:#fff;margin:15px;padding:25px;border-radius:18px;text-align:center;color:#000;}
-.year{color:#2563eb;font-weight:600;}
-.eventInfo{margin-top:10px;padding:12px;background:#f1f5f9;border-radius:10px;}
-.container{max-width:720px;margin:auto;background:#111827;padding:20px;border-radius:15px;}
-input,select{width:100%;padding:12px;margin-top:8px;border-radius:8px;border:none;}
-button{width:100%;padding:14px;margin-top:12px;border:none;border-radius:8px;}
-.pay{background:#2563eb;color:#fff;}
-.mapBtn{background:#16a34a;color:#fff;}
-.partnerCard{background:#fff;margin:20px;padding:20px;text-align:center;color:#000;border-radius:15px;}
-.logoCircle{width:90px;height:90px;border-radius:50%;}
-.footer{text-align:center;padding:20px;font-size:13px;}
+
+/* HEADER GLASS */
+.headerCard{
+background:rgba(255,255,255,0.08);
+backdrop-filter:blur(15px);
+margin:15px;
+padding:25px;
+border-radius:18px;
+text-align:center;
+box-shadow:0 0 30px rgba(0,0,0,0.6);
+}
+
+.year{color:#38bdf8;font-weight:600;font-size:18px;}
+.eventInfo{
+margin-top:12px;
+padding:14px;
+background:rgba(255,255,255,0.1);
+border-radius:12px;
+}
+
+/* FORM */
+.container{
+max-width:720px;
+margin:20px auto;
+background:rgba(255,255,255,0.05);
+padding:25px;
+border-radius:18px;
+backdrop-filter:blur(10px);
+}
+
+input,select{
+width:100%;
+padding:12px;
+margin-top:8px;
+border-radius:10px;
+border:none;
+background:#0f172a;
+color:#fff;
+}
+
+/* BUTTON */
+button{
+width:100%;
+padding:14px;
+margin-top:12px;
+border:none;
+border-radius:10px;
+font-weight:600;
+}
+
+.pay{
+background:linear-gradient(135deg,#2563eb,#1d4ed8);
+color:#fff;
+}
+
+/* DIGITAL PARTNER */
+.partnerCard{
+background:#fff;
+margin:25px;
+padding:25px;
+border-radius:18px;
+text-align:center;
+color:#000;
+}
+
+/* LOGO GLOW */
+.logoCircle{
+width:100px;
+height:100px;
+border-radius:50%;
+object-fit:cover;
+box-shadow:0 0 25px rgba(0,0,0,0.8);
+}
+
+/* FOOTER */
+.footer{
+text-align:center;
+padding:20px;
+font-size:13px;
+}
 .footer a{color:#38bdf8;}
 </style>
 
@@ -44,8 +120,6 @@ button{width:100%;padding:14px;margin-top:12px;border:none;border-radius:8px;}
 ⏰ 10:00 AM <br>
 📍 आनंद मोहन माथुर सभागृह, इंदौर
 </div>
-
-<button class="mapBtn" onclick="openMap()">📍 View Location</button>
 </div>
 
 <!-- FORM -->
@@ -53,25 +127,13 @@ button{width:100%;padding:14px;margin-top:12px;border:none;border-radius:8px;}
 
 <h2>Registration Form / पंजीकरण फॉर्म</h2>
 
-<input id="name" placeholder="Student Name / छात्र का नाम" required>
+<input id="name" placeholder="Student Name / छात्र का नाम">
 <input id="parent" placeholder="Parent Name / अभिभावक">
 <input type="date" id="dob">
-<input id="mobile" placeholder="Mobile / मोबाइल" required>
+<input id="mobile" placeholder="Mobile / मोबाइल">
 
-<select id="caste">
-<option>SC</option><option>ST</option><option>OBC</option><option>Other</option>
-</select>
-
-<select id="district">
-<option>Indore</option><option>Bhopal</option><option>Ujjain</option>
-<option>Jabalpur</option><option>Gwalior</option><option>Sagar</option>
-</select>
-
-<input id="school" placeholder="School / स्कूल">
-
-<!-- STREAM -->
 <select id="stream" onchange="updateCourse()">
-<option value="">Select Stream / विषय चुनें</option>
+<option value="">Select Stream</option>
 <option>Science</option>
 <option>Commerce</option>
 <option>Arts</option>
@@ -79,42 +141,18 @@ button{width:100%;padding:14px;margin-top:12px;border:none;border-radius:8px;}
 <option>Other</option>
 </select>
 
-<!-- COURSE -->
-<select id="course" onchange="checkOtherCourse()">
-<option>Select Course / कोर्स चुनें</option>
+<select id="course" onchange="checkCourse()">
+<option>Select Course</option>
 </select>
 
-<input id="otherCourse" placeholder="Other Course / अन्य कोर्स लिखें" style="display:none;">
-
-<input id="college" placeholder="Future College / भविष्य कॉलेज">
-
-<select id="career">
-<option>Doctor</option><option>Engineer</option><option>Govt Job</option><option>Business</option><option>Other</option>
-</select>
-
-<select id="travel">
-<option>Self Vehicle</option>
-<option>College Bus</option>
-<option>Public Transport</option>
-</select>
-
-<select id="scholarship">
-<option>Yes</option><option>No</option>
-</select>
-
-<select id="health">
-<option>Yes</option><option>No</option>
-</select>
-
-<input id="parent1" placeholder="Parent Mobile 1">
-<input id="parent2" placeholder="Parent Mobile 2">
+<input id="otherCourse" placeholder="Write Course" style="display:none;">
 
 <p>₹21 Exam Fee – Free Food + Token + Medal + Certificate</p>
 
 <button class="pay" onclick="startPayment()">💳 Pay & Register</button>
 
 <p style="font-size:12px;">
-Payment के बाद आगे के update के लिए WhatsApp group join करें
+Payment के बाद WhatsApp group join करें
 </p>
 
 </div>
@@ -131,66 +169,60 @@ Payment के बाद आगे के update के लिए WhatsApp group
 <div class="footer">
 <p>
 <a href="#">Privacy Policy</a> |
-<a href="#">Terms & Conditions</a> |
-<a href="#">Refund Policy</a>
+<a href="#">Terms</a> |
+<a href="#">Refund</a>
 </p>
-<p>User data सुरक्षित रखा जाता है। All payments non-refundable.</p>
 <p>© 2026 Banjara Digital</p>
 </div>
 
 <script>
 
-/* MAP */
-function openMap(){
-window.open("https://www.google.com/maps/search/?api=1&query=Anand+Mohan+Mathur+Sabhagrah+Indore");
-}
-
 /* STREAM → COURSE */
 function updateCourse(){
-let stream=streamSelect=document.getElementById("stream").value;
-let course=document.getElementById("course");
+let s=stream.value;
+let c=course;
 
-let options={
-Science:["MBBS","BSc","Engineering","Pharmacy","Other"],
-Commerce:["BCom","CA","CS","BBA","Other"],
-Arts:["BA","LLB","Journalism","UPSC","Other"],
-Maths:["BSc Maths","Data Science","Statistics","Other"],
+let data={
+Science:["MBBS","BSc","Engineering","Other"],
+Commerce:["BCom","CA","BBA","Other"],
+Arts:["BA","LLB","UPSC","Other"],
+Maths:["BSc Maths","Data Science","Other"],
 Other:["Other"]
 };
 
-course.innerHTML="";
-options[stream].forEach(c=>{
-let opt=document.createElement("option");
-opt.text=c;
-course.add(opt);
+c.innerHTML="";
+data[s].forEach(x=>{
+let o=document.createElement("option");
+o.text=x;
+c.add(o);
 });
 }
 
 /* OTHER COURSE */
-function checkOtherCourse(){
+function checkCourse(){
 if(course.value=="Other"){
-document.getElementById("otherCourse").style.display="block";
+otherCourse.style.display="block";
 }else{
-document.getElementById("otherCourse").style.display="none";
+otherCourse.style.display="none";
 }
 }
 
 /* PAYMENT */
 function startPayment(){
 
-if(name.value=="" || mobile.value=="" || stream.value==""){
-alert("Please fill all required fields");
+if(name.value=="" || mobile.value==""){
+alert("Fill details");
 return;
 }
 
 var finalCourse = (course.value=="Other") ? otherCourse.value : course.value;
 
 var options={
-key:"rzp_live_SZnaVX76WrMx4H",
+key:"YOUR_RAZORPAY_KEY",
 amount:2100,
 currency:"INR",
 
-handler:function(response){
+handler:function(res){
 
 fetch("https://script.google.com/macros/s/AKfycbyAU5OsgXmi_lZqCeGYn5YjiuKd-GCbObx2Hpr05YVKKykOrVhSLKajurqSNbBzZAgGkg/exec",{
 method:"POST",
@@ -199,25 +231,15 @@ name:name.value,
 parent:parent.value,
 dob:dob.value,
 mobile:mobile.value,
-caste:caste.value,
-district:district.value,
-school:school.value,
 stream:stream.value,
 course:finalCourse,
-college:college.value,
-career:career.value,
-travel:travel.value,
-scholarship:scholarship.value,
-health:health.value,
-parent1:parent1.value,
-parent2:parent2.value,
-payment_id:response.razorpay_payment_id
+payment_id:res.razorpay_payment_id
 })
 });
 
-alert("Payment Successful ✅");
+alert("Payment Successful");
 
-if(confirm("WhatsApp Group join kare?")){
+if(confirm("Join WhatsApp Group?")){
 window.open("https://chat.whatsapp.com/F6pAgLGdTcu5soecJMh3F0");
 }
 
