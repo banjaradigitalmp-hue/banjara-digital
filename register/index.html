@@ -26,7 +26,6 @@ padding:25px;
 border-radius:18px;
 text-align:center;
 color:#000;
-box-shadow:0 10px 30px rgba(0,0,0,0.3);
 }
 
 .year{color:#2563eb;font-weight:600;}
@@ -36,6 +35,15 @@ margin-top:10px;
 padding:12px;
 background:#f1f5f9;
 border-radius:10px;
+}
+
+.mapBtn{
+background:#16a34a;
+color:#fff;
+padding:10px;
+border:none;
+border-radius:8px;
+margin-top:10px;
 }
 
 /* FORM */
@@ -48,7 +56,7 @@ border-radius:15px;
 }
 
 label{
-margin-top:10px;
+margin-top:12px;
 display:block;
 font-size:14px;
 }
@@ -61,17 +69,16 @@ border-radius:8px;
 border:none;
 }
 
-/* BUTTON */
 button{
 width:100%;
 padding:14px;
 margin-top:12px;
 border:none;
-border-radius:8px;
+border-radius:10px;
+font-weight:600;
 }
 
 .pay{background:#2563eb;color:#fff;}
-.mapBtn{background:#16a34a;color:#fff;}
 
 /* DIGITAL PARTNER */
 .partnerCard{
@@ -171,7 +178,6 @@ font-size:13px;
 
 <label>Stream / विषय</label>
 <select id="stream" onchange="updateCourse()">
-<option value="">Select Stream</option>
 <option>Science</option>
 <option>Commerce</option>
 <option>Arts</option>
@@ -189,10 +195,10 @@ font-size:13px;
 
 <label>Career Goal / लक्ष्य</label>
 <select id="career">
-<option>Doctor</option><option>Engineer</option><option>Govt Job</option><option>Business</option>
+<option>Doctor</option><option>Engineer</option><option>Govt Job</option><option>Business</option><option>Other</option>
 </select>
 
-<label>Travel Mode / कैसे आएंगे</label>
+<label>Travel Mode / यात्रा</label>
 <select id="travel">
 <option>Self Vehicle</option>
 <option>College Bus</option>
@@ -237,9 +243,10 @@ Payment के बाद WhatsApp group join करें
 <div class="footer">
 <p>
 <a href="#">Privacy Policy</a> |
-<a href="#">Terms</a> |
-<a href="#">Refund</a>
+<a href="#">Terms & Conditions</a> |
+<a href="#">Refund Policy</a>
 </p>
+<p>User data सुरक्षित रखा जाता है। All payments non-refundable.</p>
 <p>© 2026 Banjara Digital</p>
 </div>
 
@@ -250,40 +257,34 @@ function openMap(){
 window.open("https://www.google.com/maps/search/?api=1&query=Anand+Mohan+Mathur+Sabhagrah+Indore");
 }
 
-/* COURSE */
+/* STREAM → COURSE */
 function updateCourse(){
 let s=stream.value;
-let c=course;
-
 let data={
-Science:["MBBS","BSc","Engineering","Other"],
-Commerce:["BCom","CA","BBA","Other"],
-Arts:["BA","LLB","UPSC","Other"],
-Maths:["BSc Maths","Data Science","Other"],
+Science:["MBBS","BSc","Engineering","Pharmacy","Other"],
+Commerce:["BCom","CA","CS","BBA","Other"],
+Arts:["BA","LLB","Journalism","UPSC","Other"],
+Maths:["BSc Maths","Data Science","Statistics","Other"],
 Other:["Other"]
 };
-
-c.innerHTML="";
+course.innerHTML="";
 data[s].forEach(x=>{
 let o=document.createElement("option");
 o.text=x;
-c.add(o);
+course.add(o);
 });
 }
 
+/* OTHER COURSE */
 function checkCourse(){
-if(course.value=="Other"){
-otherCourse.style.display="block";
-}else{
-otherCourse.style.display="none";
-}
+otherCourse.style.display=(course.value=="Other")?"block":"none";
 }
 
 /* PAYMENT */
 function startPayment(){
 
 if(name.value=="" || mobile.value==""){
-alert("Fill required fields");
+alert("Please fill required details");
 return;
 }
 
@@ -330,6 +331,7 @@ window.open("https://chat.whatsapp.com/F6pAgLGdTcu5soecJMh3F0");
 
 new Razorpay(options).open();
 }
+
 </script>
 
 </body>
