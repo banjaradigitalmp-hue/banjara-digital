@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="hi">
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Student Success Meet 2026-27</title>
@@ -10,7 +10,7 @@
 body{
     font-family:'Poppins',sans-serif;
     margin:0;
-    background:linear-gradient(135deg,#020617,#0f172a);
+    background:linear-gradient(135deg,#020617,#0f172a,#1e293b);
     color:#fff;
 }
 
@@ -21,16 +21,17 @@ body{
 }
 .header img{
     width:100%;
-    max-height:260px;
+    max-height:250px;
     object-fit:cover;
 }
 
-.highlight{
-    background:linear-gradient(135deg,#2563eb,#06b6d4);
+/* GLOW BOX */
+.glow{
+    background:linear-gradient(135deg,#1e3a8a,#2563eb);
+    margin:15px;
     padding:15px;
     border-radius:12px;
-    margin:15px;
-    box-shadow:0 0 20px #0ea5e9;
+    box-shadow:0 0 25px rgba(37,99,235,0.6);
 }
 
 /* CONTAINER */
@@ -40,10 +41,14 @@ body{
     background:rgba(255,255,255,0.05);
     padding:25px;
     border-radius:16px;
-    backdrop-filter:blur(20px);
+    backdrop-filter:blur(15px);
 }
 
-label{margin-top:12px;display:block;}
+/* FORM */
+label{
+    margin-top:12px;
+    display:block;
+}
 input,select{
     width:100%;
     padding:12px;
@@ -67,11 +72,25 @@ button{
 .whatsapp{background:#25D366;}
 .mapBtn{background:#16a34a;}
 
-.footer{
+/* DIGITAL PARTNER */
+.partner{
     text-align:center;
-    padding:20px;
+    padding:30px;
+    margin:20px;
+    background:linear-gradient(135deg,#0ea5e9,#22c55e);
+    border-radius:16px;
+    box-shadow:0 0 30px rgba(34,197,94,0.6);
 }
+
+/* FOOTER */
+.footer{
+    background:#020617;
+    text-align:center;
+    padding:25px;
+}
+.footer a{color:#38bdf8;text-decoration:none;}
 </style>
+
 </head>
 
 <body>
@@ -81,14 +100,12 @@ button{
 
 <img src="https://github.com/banjaradigitalmp-hue/student-form/blob/main/WhatsApp%20Image%202026-04-04%20at%209.41.57%20AM.jpeg?raw=true">
 
-<div class="highlight">
-<h1>Student Success Meet 2026-27</h1>
-<h3>आयोजक: म.प्र. NGO महासंघ</h3>
-</div>
+<h1 style="color:#38bdf8;">Student Success Meet 2026-27</h1>
 
-<div class="highlight">
-<p>📅 10 May 2026</p>
-<p>⏰ 10:00 AM</p>
+<h3 style="color:#22c55e;">आयोजक: म.प्र. NGO महासंघ</h3>
+
+<div class="glow">
+<p>📅 10 May 2026 | ⏰ 10:00 AM</p>
 <p>📍 आनंद मोहन माथुर सभागृह, इंदौर</p>
 </div>
 
@@ -109,13 +126,13 @@ button{
 <input name="Student Name" required>
 
 <label>Parent Name / अभिभावक का नाम</label>
-<input name="Parent Name" required>
+<input name="Parent Name">
 
 <label>Date of Birth / जन्म तिथि</label>
-<input type="date" name="DOB" required>
+<input type="date" name="DOB">
 
-<label>Mobile Number</label>
-<input name="Mobile" required>
+<label>Mobile Number / मोबाइल नंबर</label>
+<input name="Mobile">
 
 <label>Caste / जाति</label>
 <select name="Caste">
@@ -125,10 +142,10 @@ button{
 <option>Other</option>
 </select>
 
-<label>School Name</label>
+<label>School Name / स्कूल</label>
 <input name="School">
 
-<label>Stream</label>
+<label>Stream / विषय</label>
 <select name="Stream">
 <option>Science</option>
 <option>Commerce</option>
@@ -137,17 +154,17 @@ button{
 <option>Other</option>
 </select>
 
-<label>Subject Exam</label>
+<label>Subject Exam / परीक्षा विषय</label>
 <select name="Subject">
 <option>Science</option>
 <option>Commerce</option>
 <option>Arts</option>
 </select>
 
-<label>Future College Plan</label>
-<input name="Future College">
+<label>Future College / भविष्य कॉलेज</label>
+<input name="College">
 
-<label>Career Goal</label>
+<label>Career Goal / लक्ष्य</label>
 <select name="Career">
 <option>Doctor</option>
 <option>Engineer</option>
@@ -156,67 +173,21 @@ button{
 <option>Other</option>
 </select>
 
-<label>District (MP)</label>
-<select name="District">
-<option>Indore</option>
-<option>Bhopal</option>
-<option>Ujjain</option>
-<option>Jabalpur</option>
-<option>Gwalior</option>
-<option>Sagar</option>
-<option>Rewa</option>
-<option>Satna</option>
-<option>Dewas</option>
-<option>Ratlam</option>
-<option>Khargone</option>
-<option>Sehore</option>
-<option>Vidisha</option>
-<option>Betul</option>
-<option>Chhindwara</option>
-<option>Shivpuri</option>
-<option>Morena</option>
-<option>Bhind</option>
-<option>Mandsaur</option>
-<option>Neemuch</option>
-<option>Barwani</option>
-<option>Alirajpur</option>
-<option>Damoh</option>
-<option>Katni</option>
-<option>Panna</option>
-<option>Datia</option>
-<option>Tikamgarh</option>
-<option>Singrauli</option>
-<option>Anuppur</option>
-<option>Dindori</option>
-<option>Umaria</option>
-<option>Sidhi</option>
-<option>Shahdol</option>
-<option>Harda</option>
-<option>Agar Malwa</option>
-<option>Shajapur</option>
-<option>Rajgarh</option>
-<option>Seoni</option>
-<option>Mandla</option>
-<option>Balaghat</option>
-<option>Ashoknagar</option>
-<option>Sheopur</option>
-</select>
-
-<label>Travel Mode</label>
+<label>Travel Mode / कैसे आएंगे</label>
 <select name="Travel">
 <option>Self</option>
 <option>Bus</option>
 <option>Public Transport</option>
 </select>
 
-<label>Scholarship Exam</label>
+<label>Scholarship Exam / स्कॉलरशिप चाहिए?</label>
 <select name="Scholarship">
 <option>Yes</option>
 <option>No</option>
 </select>
 
-<label>Health Card Required?</label>
-<select name="Health Card">
+<label>Health Card / हेल्थ कार्ड चाहिए?</label>
+<select name="Health">
 <option>Yes</option>
 <option>No</option>
 </select>
@@ -231,53 +202,46 @@ button{
 ₹21 Registration Fee (Food + Medal + Certificate)
 </p>
 
-<button type="button" class="pay" onclick="payNow()">💳 Pay & Register</button>
-<button type="button" class="whatsapp" onclick="joinGroup()">📲 WhatsApp Group</button>
+<button type="submit" class="pay">💳 Pay & Register</button>
+<button type="button" class="whatsapp" onclick="joinGroup()">📲 WhatsApp</button>
 
 </form>
 
 </div>
 
 <!-- DIGITAL PARTNER -->
-<div style="text-align:center; margin:30px; padding:30px; background:linear-gradient(135deg,#0ea5e9,#22c55e); border-radius:16px; box-shadow:0 0 30px #22c55e;">
+<div class="partner">
 
-<h2 style="color:white;">Digital Partner</h2>
+<h2>Digital Partner</h2>
 
-<img src="https://github.com/banjaradigitalmp-hue/banjara-digital/blob/main/WhatsApp%20Image%202026-03-06%20at%206.52.34%20PM.jpeg?raw=true" style="width:90px; margin:10px 0;">
+<img src="https://your-logo-link.png" style="width:90px;">
 
-<h1 style="color:#020617;">Banjara Digital</h1>
+<h1>Banjara Digital</h1>
 
-<p style="color:#020617; letter-spacing:2px;">CONNECT • CREATE • GROW</p>
+<p>CONNECT • CREATE • GROW</p>
 
 </div>
 
 <!-- FOOTER -->
-<div style="background:#0f172a; text-align:center; padding:25px;">
+<div class="footer">
 
 <p>
-<a href="#" style="color:#38bdf8;">Privacy Policy</a> |
-<a href="#" style="color:#38bdf8;">Terms</a> |
-<a href="#" style="color:#38bdf8;">Refund</a>
+<a href="#">Privacy Policy</a> |
+<a href="#">Terms</a> |
+<a href="#">Refund</a>
 </p>
 
-<p style="color:#cbd5f5;">
+<p>
 User data सुरक्षित रखा जाता है। All payments non-refundable.
 </p>
 
-<p style="color:#94a3b8;">
-© 2026 Banjara Digital
-</p>
+<p>© 2026 Banjara Digital</p>
 
 </div>
 
 <script>
-function payNow(){
-alert("Payment open ho raha hai, payment ke baad form submit kare");
-window.open("https://rzp.io/rzp/2r1AcRdr","_blank");
-}
-
 function joinGroup(){
-window.open("https://chat.whatsapp.com/F6pAgLGdTcu5soecJMh3F0");
+window.open("https://chat.whatsapp.com/F6pAgLGdTcu5soecJMh3F0","_blank");
 }
 </script>
 
