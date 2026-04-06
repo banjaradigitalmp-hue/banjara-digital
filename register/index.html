@@ -11,39 +11,25 @@
 body{
 font-family:'Poppins',sans-serif;
 margin:0;
-background:linear-gradient(135deg,#020617,#0f172a);
+background:#020617;
 color:#fff;
 }
 
-/* BANNER */
-.banner img{width:100%;}
-
-/* HEADER WHITE */
+/* HEADER */
 .headerCard{
 background:#fff;
+color:#000;
 margin:15px;
 padding:25px;
-border-radius:18px;
+border-radius:15px;
 text-align:center;
-color:#000;
 }
-
-.year{color:#2563eb;font-weight:600;}
 
 .eventInfo{
 margin-top:10px;
-padding:12px;
+padding:10px;
 background:#f1f5f9;
 border-radius:10px;
-}
-
-.mapBtn{
-background:#16a34a;
-color:#fff;
-padding:10px;
-border:none;
-border-radius:8px;
-margin-top:10px;
 }
 
 /* FORM */
@@ -63,38 +49,40 @@ font-size:14px;
 
 input,select{
 width:100%;
-padding:12px;
+padding:10px;
 margin-top:5px;
 border-radius:8px;
 border:none;
 }
 
+/* BUTTON */
 button{
 width:100%;
 padding:14px;
 margin-top:12px;
 border:none;
-border-radius:10px;
+border-radius:8px;
 font-weight:600;
 }
 
 .pay{background:#2563eb;color:#fff;}
+.mapBtn{background:#16a34a;color:#fff;}
 
-/* DIGITAL PARTNER */
+/* PARTNER */
 .partnerCard{
 background:#fff;
+color:#000;
 margin:20px;
 padding:20px;
-text-align:center;
-color:#000;
 border-radius:15px;
+text-align:center;
 }
 
 .logoCircle{
 width:100px;
 height:100px;
 border-radius:50%;
-box-shadow:0 0 25px rgba(0,0,0,0.7);
+box-shadow:0 0 20px rgba(0,0,0,0.7);
 }
 
 /* FOOTER */
@@ -110,16 +98,11 @@ font-size:13px;
 
 <body>
 
-<!-- BANNER -->
-<div class="banner">
-<img src="https://github.com/banjaradigitalmp-hue/student-form/blob/main/WhatsApp%20Image%202026-04-04%20at%209.41.57%20AM.jpeg?raw=true">
-</div>
-
 <!-- HEADER -->
 <div class="headerCard">
 <h2>Student Success Meet</h2>
-<div class="year">2026-27</div>
-<h3>आयोजक: म.प्र. NGO महासंघ</h3>
+<h3>2026-27</h3>
+<p><b>आयोजक: म.प्र. NGO महासंघ</b></p>
 
 <div class="eventInfo">
 📅 10 May 2026 <br>
@@ -134,6 +117,9 @@ font-size:13px;
 <div class="container">
 
 <h2>Registration Form / पंजीकरण फॉर्म</h2>
+
+<label>State / राज्य</label>
+<input value="Madhya Pradesh" readonly>
 
 <label>Student Name / छात्र का नाम</label>
 <input id="name">
@@ -178,11 +164,7 @@ font-size:13px;
 
 <label>Stream / विषय</label>
 <select id="stream" onchange="updateCourse()">
-<option>Science</option>
-<option>Commerce</option>
-<option>Arts</option>
-<option>Maths</option>
-<option>Other</option>
+<option>Science</option><option>Commerce</option><option>Arts</option><option>Maths</option><option>Other</option>
 </select>
 
 <label>Course / कोर्स</label>
@@ -194,18 +176,20 @@ font-size:13px;
 <input id="college">
 
 <label>Career Goal / लक्ष्य</label>
-<select id="career">
+<select id="career" onchange="checkCareer()">
 <option>Doctor</option><option>Engineer</option><option>Govt Job</option><option>Business</option><option>Other</option>
 </select>
 
-<label>Travel Mode / यात्रा</label>
+<input id="otherCareer" placeholder="Other Goal" style="display:none;">
+
+<label>आप कॉलेज कैसे जाएंगे?</label>
 <select id="travel">
 <option>Self Vehicle</option>
 <option>College Bus</option>
 <option>Public Transport</option>
 </select>
 
-<label>Scholarship / स्कॉलरशिप</label>
+<label>क्या आप NGO महासंघ की स्कॉलरशिप योजना में भाग लेना चाहते हैं?</label>
 <select id="scholarship">
 <option>Yes</option><option>No</option>
 </select>
@@ -226,27 +210,25 @@ font-size:13px;
 <button class="pay" onclick="startPayment()">💳 Pay & Register</button>
 
 <p style="font-size:12px;">
-Payment के बाद WhatsApp group join करें
+Payment के बाद आगे के update के लिए WhatsApp group join करें
 </p>
 
 </div>
 
-<!-- DIGITAL PARTNER -->
+<!-- PARTNER -->
 <div class="partnerCard">
 <h3>Digital Partner</h3>
 <img src="https://github.com/banjaradigitalmp-hue/banjara-digital/blob/main/WhatsApp%20Image%202026-03-06%20at%206.52.34%20PM.jpeg?raw=true" class="logoCircle">
 <h2>Banjara Digital</h2>
-<p>CONNECT • CREATE • GROW</p>
 </div>
 
 <!-- FOOTER -->
 <div class="footer">
 <p>
 <a href="#">Privacy Policy</a> |
-<a href="#">Terms & Conditions</a> |
-<a href="#">Refund Policy</a>
+<a href="#">Terms</a> |
+<a href="#">Refund</a>
 </p>
-<p>User data सुरक्षित रखा जाता है। All payments non-refundable.</p>
 <p>© 2026 Banjara Digital</p>
 </div>
 
@@ -257,21 +239,22 @@ function openMap(){
 window.open("https://www.google.com/maps/search/?api=1&query=Anand+Mohan+Mathur+Sabhagrah+Indore");
 }
 
-/* STREAM → COURSE */
+/* COURSE */
 function updateCourse(){
 let s=stream.value;
+let c=course;
 let data={
-Science:["MBBS","BSc","Engineering","Pharmacy","Other"],
-Commerce:["BCom","CA","CS","BBA","Other"],
-Arts:["BA","LLB","Journalism","UPSC","Other"],
-Maths:["BSc Maths","Data Science","Statistics","Other"],
+Science:["MBBS","BSc","Engineering","Other"],
+Commerce:["BCom","CA","BBA","Other"],
+Arts:["BA","LLB","UPSC","Other"],
+Maths:["BSc Maths","Data Science","Other"],
 Other:["Other"]
 };
-course.innerHTML="";
+c.innerHTML="";
 data[s].forEach(x=>{
 let o=document.createElement("option");
 o.text=x;
-course.add(o);
+c.add(o);
 });
 }
 
@@ -280,15 +263,21 @@ function checkCourse(){
 otherCourse.style.display=(course.value=="Other")?"block":"none";
 }
 
+/* OTHER CAREER */
+function checkCareer(){
+otherCareer.style.display=(career.value=="Other")?"block":"none";
+}
+
 /* PAYMENT */
 function startPayment(){
 
 if(name.value=="" || mobile.value==""){
-alert("Please fill required details");
+alert("Please fill required fields");
 return;
 }
 
-let finalCourse=(course.value=="Other")?otherCourse.value:course.value;
+var finalCourse=(course.value=="Other")?otherCourse.value:course.value;
+var finalCareer=(career.value=="Other")?otherCareer.value:career.value;
 
 var options={
 key:"YOUR_RAZORPAY_KEY",
@@ -310,7 +299,7 @@ school:school.value,
 stream:stream.value,
 course:finalCourse,
 college:college.value,
-career:career.value,
+career:finalCareer,
 travel:travel.value,
 scholarship:scholarship.value,
 health:health.value,
