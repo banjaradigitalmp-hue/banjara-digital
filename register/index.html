@@ -10,67 +10,79 @@
 body{
     font-family:'Poppins',sans-serif;
     margin:0;
-    background:#f1f5f9;
+    background:#020617;
+    color:#fff;
 }
 
-/* HEADER */
+/* HEADER WHITE CARD */
 .headerCard{
-    background:#ffffff;
+    background:white;
     margin:15px;
-    padding:20px;
     border-radius:16px;
-    box-shadow:0 10px 25px rgba(0,0,0,0.08);
+    padding:20px;
     text-align:center;
+    color:#111;
+    box-shadow:0 10px 25px rgba(0,0,0,0.3);
 }
 
 .headerCard h1{
-    color:#2563eb;
+    font-size:24px;
     font-weight:700;
+    color:#0f172a;
 }
 
 .headerCard h3{
-    color:#16a34a;
     font-weight:600;
+    color:#16a34a;
 }
 
+/* EVENT INFO */
 .eventInfo{
     margin-top:10px;
-    color:#334155;
+    padding:12px;
+    background:#f1f5f9;
+    border-radius:10px;
+    color:#111;
     font-weight:500;
 }
 
-/* IMAGE */
-.header img{
+/* MAP BUTTON */
+.mapBtn{
+    background:#16a34a;
+    color:white;
+    border:none;
+    padding:12px;
+    border-radius:8px;
+    margin-top:10px;
     width:100%;
-    max-height:220px;
-    object-fit:cover;
 }
 
 /* FORM */
 .container{
     max-width:700px;
     margin:20px auto;
-    background:white;
+    background:rgba(255,255,255,0.05);
     padding:25px;
     border-radius:16px;
-    box-shadow:0 10px 25px rgba(0,0,0,0.08);
 }
 
 label{
     margin-top:12px;
     display:block;
-    font-weight:600;
 }
 
 input,select{
     width:100%;
     padding:12px;
     border-radius:8px;
-    border:1px solid #ccc;
+    border:none;
     margin-top:5px;
 }
 
 /* BUTTON */
+.pay{background:#2563eb;color:white;}
+.whatsapp{background:#25D366;color:white;}
+
 button{
     width:100%;
     padding:14px;
@@ -78,33 +90,22 @@ button{
     border:none;
     border-radius:8px;
     font-weight:bold;
-    color:white;
 }
 
-.pay{background:#2563eb;}
-.whatsapp{background:#25D366;}
-.mapBtn{background:#16a34a;}
-
-/* DIGITAL PARTNER */
+/* DIGITAL PARTNER WHITE CARD */
 .partnerCard{
-    text-align:center;
+    background:white;
     margin:20px;
     padding:25px;
-    background:white;
     border-radius:16px;
-    box-shadow:0 10px 25px rgba(0,0,0,0.08);
-}
-
-.logoCircle{
-    width:70px;
-    height:70px;
-    border-radius:50%;
-    object-fit:cover;
-    margin:10px 0;
+    text-align:center;
+    color:#111;
+    box-shadow:0 10px 25px rgba(0,0,0,0.3);
 }
 
 .partnerCard h2{
     color:#2563eb;
+    font-weight:600;
 }
 
 .partnerCard h1{
@@ -112,39 +113,51 @@ button{
     font-weight:700;
 }
 
+/* LOGO CIRCLE FIX */
+.logoCircle{
+    width:70px;
+    height:70px;
+    border-radius:50%;
+    object-fit:cover;
+    border:3px solid #16a34a;
+    margin:10px 0;
+}
+
+/* TAGLINE */
 .partnerCard p{
-    color:#64748b;
-    letter-spacing:1px;
+    color:#555;
+    font-size:12px;
+    letter-spacing:2px;
 }
 
 /* FOOTER */
 .footer{
-    background:#0f172a;
-    color:white;
+    background:#020617;
     text-align:center;
     padding:20px;
 }
-.footer a{color:#38bdf8;text-decoration:none;}
+
+.footer a{
+    color:#38bdf8;
+    text-decoration:none;
+}
 </style>
 
 </head>
 
 <body>
 
-<!-- HEADER IMAGE -->
-<div class="header">
-<img src="https://github.com/banjaradigitalmp-hue/student-form/blob/main/WhatsApp%20Image%202026-04-04%20at%209.41.57%20AM.jpeg?raw=true">
-</div>
-
-<!-- HEADER CARD -->
+<!-- HEADER -->
 <div class="headerCard">
 
 <h1>Student Success Meet 2026-27</h1>
+
 <h3>आयोजक: म.प्र. NGO महासंघ</h3>
 
 <div class="eventInfo">
-<p>📅 10 May 2026 | ⏰ 10:00 AM</p>
-<p>📍 आनंद मोहन माथुर सभागृह, इंदौर</p>
+📅 10 May 2026 <br>
+⏰ 10:00 AM <br>
+📍 आनंद मोहन माथुर सभागृह, इंदौर
 </div>
 
 <a href="https://www.google.com/maps/search/?api=1&query=Anand+Mohan+Mathur+Sabhagrah+Indore" target="_blank">
@@ -161,30 +174,30 @@ button{
 <form action="https://formsubmit.co/banjaradigitalmp@gmail.com" method="POST">
 
 <label>Student Name / छात्र का नाम</label>
-<input name="Student Name" required>
+<input required>
 
-<label>Parent Name / अभिभावक का नाम</label>
-<input name="Parent Name">
+<label>Parent Name / अभिभावक</label>
+<input>
 
-<label>Date of Birth / जन्म तिथि</label>
-<input type="date" name="DOB">
+<label>Date of Birth</label>
+<input type="date">
 
-<label>Mobile Number / मोबाइल नंबर</label>
-<input name="Mobile">
+<label>Mobile</label>
+<input>
 
-<label>Caste / जाति</label>
-<select name="Caste">
+<label>Caste</label>
+<select>
 <option>SC</option>
 <option>ST</option>
 <option>OBC</option>
 <option>Other</option>
 </select>
 
-<label>School Name / स्कूल</label>
-<input name="School">
+<label>School</label>
+<input>
 
-<label>Stream / विषय</label>
-<select name="Stream">
+<label>Stream</label>
+<select>
 <option>Science</option>
 <option>Commerce</option>
 <option>Arts</option>
@@ -192,49 +205,46 @@ button{
 <option>Other</option>
 </select>
 
-<label>Future College / भविष्य कॉलेज</label>
-<input name="College">
+<label>Future College</label>
+<input>
 
-<label>Career Goal / लक्ष्य</label>
-<select name="Career">
+<label>Career Goal</label>
+<select>
 <option>Doctor</option>
 <option>Engineer</option>
 <option>Govt Job</option>
 <option>Business</option>
-<option>Other</option>
 </select>
 
-<label>Travel Mode / कैसे आएंगे</label>
-<select name="Travel">
+<label>Travel Mode</label>
+<select>
 <option>Self</option>
 <option>Bus</option>
-<option>Public Transport</option>
+<option>Public</option>
 </select>
 
-<label>Scholarship / स्कॉलरशिप चाहिए?</label>
-<select name="Scholarship">
+<label>Scholarship</label>
+<select>
 <option>Yes</option>
 <option>No</option>
 </select>
 
-<label>Health Card / हेल्थ कार्ड चाहिए?</label>
-<select name="Health">
+<label>Health Card</label>
+<select>
 <option>Yes</option>
 <option>No</option>
 </select>
 
 <label>Parent Mobile 1</label>
-<input name="Parent Mobile 1">
+<input>
 
 <label>Parent Mobile 2</label>
-<input name="Parent Mobile 2">
+<input>
 
-<p style="color:#16a34a;">
-₹21 Registration Fee (Food + Medal + Certificate)
-</p>
+<p style="color:#4ade80;">₹21 Registration Fee</p>
 
-<button type="submit" class="pay">💳 Pay & Register</button>
-<button type="button" class="whatsapp" onclick="joinGroup()">📲 WhatsApp</button>
+<button class="pay">💳 Pay & Register</button>
+<button type="button" class="whatsapp" onclick="joinGroup()">WhatsApp</button>
 
 </form>
 
@@ -245,7 +255,7 @@ button{
 
 <h2>Digital Partner</h2>
 
-<img src="https://github.com/banjaradigitalmp-hue/banjara-digital/blob/main/WhatsApp%20Image%202026-03-06%20at%206.52.34%20PM.jpeg?raw=true" class="logoCircle">
+<img src="https://your-logo-link.png" class="logoCircle">
 
 <h1>Banjara Digital</h1>
 
@@ -262,9 +272,7 @@ button{
 <a href="#">Refund</a>
 </p>
 
-<p>
-User data सुरक्षित रखा जाता है। All payments non-refundable.
-</p>
+<p>User data सुरक्षित रखा जाता है। All payments non-refundable.</p>
 
 <p>© 2026 Banjara Digital</p>
 
