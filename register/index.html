@@ -8,178 +8,181 @@
 <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
 
 <style>
-body{
-font-family:'Poppins';
-margin:0;
-background:#020617;
-color:#fff;
-}
-
-/* HEADER */
-.header{
-background:#fff;
-color:#000;
-padding:20px;
-text-align:center;
-}
-
-/* FORM */
-.container{
-max-width:700px;
-margin:auto;
-padding:20px;
-}
-
-input,select{
-width:100%;
-padding:12px;
-margin-top:8px;
-border-radius:8px;
-border:none;
-}
-
-/* BUTTON */
-button{
-width:100%;
-padding:14px;
-margin-top:12px;
-border:none;
-border-radius:8px;
-}
-
-.pay{
-background:#2563eb;
-color:#fff;
-}
-
-/* FOOTER */
-.footer{
-text-align:center;
-padding:20px;
-font-size:13px;
-}
+body{font-family:'Poppins';margin:0;background:#020617;color:#fff;}
+.banner img{width:100%;}
+.header{background:#fff;color:#000;padding:20px;text-align:center;border-radius:12px;margin:10px;}
+.event{background:#f1f5f9;padding:10px;border-radius:10px;margin-top:10px;}
+.container{padding:20px;max-width:700px;margin:auto;background:#111827;border-radius:12px;}
+label{margin-top:10px;display:block;}
+input,select{width:100%;padding:10px;margin-top:5px;border-radius:8px;border:none;}
+button{width:100%;padding:12px;margin-top:10px;border:none;border-radius:8px;}
+.pay{background:#2563eb;color:#fff;}
+.partner{background:#fff;color:#000;text-align:center;padding:20px;margin:15px;border-radius:12px;}
+.logo{width:90px;height:90px;border-radius:50%;box-shadow:0 0 20px #000;}
+.footer{text-align:center;padding:20px;}
+.footer a{color:#38bdf8;}
 </style>
 
 </head>
 
 <body>
 
+<!-- BANNER -->
+<div class="banner">
+<img src="https://github.com/banjaradigitalmp-hue/student-form/blob/main/WhatsApp%20Image%202026-04-04%20at%209.41.57%20AM.jpeg?raw=true">
+</div>
+
+<!-- HEADER -->
 <div class="header">
 <h2>Student Success Meet 2026-27</h2>
 <p>आयोजक: म.प्र. NGO महासंघ</p>
+
+<div class="event">
+📅 10 May 2026 <br>
+⏰ 10:00 AM <br>
+📍 आनंद मोहन माथुर सभागृह, इंदौर
 </div>
 
+<button onclick="window.open('https://www.google.com/maps/search/?api=1&query=Anand+Mohan+Mathur+Sabhagrah+Indore')">
+📍 View Location
+</button>
+</div>
+
+<!-- FORM -->
 <div class="container">
 
-<input id="name" placeholder="Student Name / छात्र का नाम">
-<input id="mobile" placeholder="Mobile / मोबाइल">
+<label>राज्य / State</label>
+<input value="Madhya Pradesh" readonly>
 
-<!-- STREAM -->
-<select id="stream" onchange="loadCourse()">
-<option value="">Stream चुनें</option>
-<option>Science</option>
-<option>Commerce</option>
-<option>Arts</option>
-<option>Maths</option>
-<option>Other</option>
+<label>नाम / Name</label>
+<input id="name">
+
+<label>अभिभावक / Parent</label>
+<input id="parent">
+
+<label>DOB</label>
+<input type="date" id="dob">
+
+<label>मोबाइल</label>
+<input id="mobile">
+
+<label>जाति</label>
+<select id="caste">
+<option>SC</option><option>ST</option><option>OBC</option><option>Other</option>
 </select>
 
-<!-- COURSE -->
-<select id="course" onchange="checkOtherCourse()"></select>
+<label>जिला</label>
+<select id="district">
+<option>Indore</option><option>Bhopal</option><option>Ujjain</option>
+<option>Jabalpur</option><option>Gwalior</option><option>Sagar</option>
+<option>Rewa</option><option>Satna</option><option>Dewas</option>
+<option>Ratlam</option><option>Khargone</option><option>Sehore</option>
+<option>Vidisha</option><option>Betul</option><option>Chhindwara</option>
+<option>Shivpuri</option><option>Morena</option><option>Bhind</option>
+<option>Mandsaur</option><option>Neemuch</option><option>Barwani</option>
+<option>Alirajpur</option><option>Damoh</option><option>Katni</option>
+<option>Panna</option><option>Datia</option><option>Tikamgarh</option>
+<option>Singrauli</option><option>Anuppur</option><option>Dindori</option>
+<option>Umaria</option><option>Sidhi</option><option>Shahdol</option>
+<option>Harda</option><option>Agar Malwa</option><option>Shajapur</option>
+<option>Rajgarh</option><option>Seoni</option><option>Mandla</option>
+<option>Balaghat</option><option>Ashoknagar</option><option>Sheopur</option>
+<option>Burhanpur</option><option>Khandwa</option><option>Hoshangabad</option>
+<option>Narsinghpur</option><option>Guna</option><option>Chhatarpur</option>
+<option>Niwari</option><option>Mauganj</option>
+</select>
 
-<input id="otherCourse" placeholder="Other Course लिखें" style="display:none">
+<label>Stream</label>
+<select id="stream" onchange="loadCourse()">
+<option>Science</option><option>Commerce</option><option>Arts</option><option>Maths</option><option>Other</option>
+</select>
+
+<label>Course</label>
+<select id="course" onchange="otherCourse()"></select>
+
+<input id="otherCourseInput" placeholder="Other Course" style="display:none">
 
 <p>₹21 Exam Fee – Free Food + Token + Medal + Certificate</p>
 
-<button class="pay" onclick="payNow()">💳 Pay & Register</button>
+<button class="pay" onclick="pay()">Pay & Register</button>
 
-<p style="font-size:12px;">
-Payment के बाद WhatsApp group join करें
-</p>
+<p>Payment के बाद WhatsApp group join करें</p>
 
 </div>
 
+<!-- PARTNER -->
+<div class="partner">
+<h3>Digital Partner</h3>
+<img src="https://github.com/banjaradigitalmp-hue/banjara-digital/blob/main/WhatsApp%20Image%202026-03-06%20at%206.52.34%20PM.jpeg?raw=true" class="logo">
+<h2>Banjara Digital</h2>
+</div>
+
+<!-- FOOTER -->
 <div class="footer">
+<p>
+<a href="#">Privacy</a> |
+<a href="#">Terms</a> |
+<a href="#">Refund</a>
+</p>
 <p>© 2026 Banjara Digital</p>
 </div>
 
 <script>
 
-/* STREAM → COURSE */
+/* COURSE */
 function loadCourse(){
-let s=document.getElementById("stream").value;
-let c=document.getElementById("course");
-
 let data={
 Science:["MBBS","BSc","Engineering","Other"],
-Commerce:["BCom","CA","BBA","Other"],
-Arts:["BA","LLB","UPSC","Other"],
-Maths:["BSc Maths","Data Science","Other"],
+Commerce:["BCom","CA","Other"],
+Arts:["BA","LLB","Other"],
+Maths:["BSc Maths","Other"],
 Other:["Other"]
 };
 
-c.innerHTML="";
-
-if(!data[s]) return;
-
-data[s].forEach(x=>{
+course.innerHTML="";
+data[stream.value].forEach(c=>{
 let o=document.createElement("option");
-o.text=x;
-c.add(o);
+o.text=c;
+course.add(o);
 });
 }
 
-/* OTHER COURSE */
-function checkOtherCourse(){
-let course=document.getElementById("course").value;
-document.getElementById("otherCourse").style.display =
-(course==="Other") ? "block":"none";
+function otherCourse(){
+otherCourseInput.style.display=(course.value=="Other")?"block":"none";
 }
 
 /* PAYMENT */
-function payNow(){
+function pay(){
 
-let name=document.getElementById("name").value;
-let mobile=document.getElementById("mobile").value;
-let stream=document.getElementById("stream").value;
-let course=document.getElementById("course").value;
-let otherCourse=document.getElementById("otherCourse").value;
-
-if(name=="" || mobile==""){
-alert("पहले form भरें");
+if(name.value=="" || mobile.value==""){
+alert("Fill details");
 return;
 }
 
-let finalCourse = (course==="Other") ? otherCourse : course;
-
 var options={
-key:"YOUR_RAZORPAY_KEY", // 🔴 यहाँ अपनी key डालो
+key:"rzp_live_SZnaVX76WrMx4H",
 amount:2100,
-currency:"INR",
 
-handler:function(response){
+handler:function(res){
 
 fetch("https://script.google.com/macros/s/AKfycbz61bYG939JPxIt8KsG2SvCL08kYz1HWyc8O7ks-nGS9Mbn4Zd5X7KoZZt2BWXEwwaCgQ/exec",{
 method:"POST",
-headers:{
-"Content-Type":"application/json"
-},
 body:JSON.stringify({
-name:name,
-mobile:mobile,
-stream:stream,
-course:finalCourse,
-payment_id:response.razorpay_payment_id
+name:name.value,
+mobile:mobile.value,
+district:district.value,
+stream:stream.value,
+course:(course.value=="Other"?otherCourseInput.value:course.value),
+payment_id:res.razorpay_payment_id
 })
-})
-.then(()=>{
+}).then(()=>{
 alert("Payment Successful ✅");
 
-if(confirm("WhatsApp Group join करना है?")){
+if(confirm("WhatsApp join kare?")){
 window.open("https://chat.whatsapp.com/F6pAgLGdTcu5soecJMh3F0");
 }
-})
-.catch(()=>{
+
+}).catch(()=>{
 alert("Data save error ❌");
 });
 
