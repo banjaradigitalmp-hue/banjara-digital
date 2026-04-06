@@ -124,15 +124,6 @@ box-shadow:0 10px 30px rgba(0,0,0,0.5);
 border-color:#38bdf8;
 }
 
-/* FOUNDER */
-.founder img{
-width:130px;
-height:130px;
-border-radius:50%;
-object-fit:cover;
-margin-bottom:10px;
-}
-
 /* SOCIAL */
 .social{
 display:flex;
@@ -154,12 +145,42 @@ color:#fff;
 transition:0.3s;
 border:1px solid rgba(255,255,255,0.1);
 }
-.social a:hover{
-transform:scale(1.2);
-}
+.social a:hover{transform:scale(1.2);}
 .social a:nth-child(1):hover{background:#E1306C;}
 .social a:nth-child(2):hover{background:#1877F2;}
 .social a:nth-child(3):hover{background:#FF0000;}
+
+/* FOUNDER PROFESSIONAL */
+.founder-card{
+display:flex;
+align-items:center;
+gap:30px;
+flex-wrap:wrap;
+background:linear-gradient(135deg, rgba(56,189,248,0.1), rgba(99,102,241,0.1));
+border:1px solid rgba(255,255,255,0.1);
+}
+
+.founder-img img{
+width:160px;
+height:160px;
+border-radius:50%;
+object-fit:cover;
+border:3px solid #38bdf8;
+box-shadow:0 0 25px rgba(56,189,248,0.6);
+transition:0.3s;
+}
+.founder-img img:hover{
+transform:scale(1.05);
+box-shadow:0 0 40px rgba(99,102,241,0.8);
+}
+
+.founder-content h3{color:#38bdf8;}
+.founder-content h2{font-size:28px;margin:5px 0;}
+.founder-content p{opacity:0.85;line-height:1.6;}
+
+@media(max-width:768px){
+.founder-card{flex-direction:column;text-align:center;}
+}
 
 /* FOOTER */
 .footer{
@@ -193,75 +214,17 @@ margin-top:30px;
 <a href="#services" class="btn">Explore</a>
 </div>
 
-<!-- ABOUT -->
-<div class="section">
-
-<div class="card">
-<h2>About Banjara Digital</h2>
-<p>
-Banjara Digital is a professional digital services platform providing banner design, social media promotion, event registration services, and digital development solutions across India.
-</p>
-</div>
-
-<div class="card">
-<h2>Business Purpose</h2>
-<p>
-We provide digital services such as design, promotion, and event registration solutions for individuals and organizations.
-</p>
-</div>
-
-<!-- FOUNDER -->
-<div class="card founder" style="text-align:center;">
-<img src="https://github.com/banjaradigitalmp-hue/banjara-digital/blob/main/my%20profile%20picture.png?raw=true>
-<h3>Founder</h3>
-<h2>Vikas Pawar</h2>
-<p>
-Founder of Banjara Digital working in digital services, event management systems and social media solutions across India.
-</p>
-</div>
-
-</div>
-
 <!-- SERVICES -->
 <div class="section" id="services">
 <h2>Our Services</h2>
 
 <div class="grid">
-<div class="service">
-<i class="fas fa-paint-brush"></i>
-<h3>Banner Design</h3>
-<p>Creative & professional designs</p>
-</div>
-
-<div class="service">
-<i class="fas fa-bullhorn"></i>
-<h3>Social Promotion</h3>
-<p>Grow your online presence</p>
-</div>
-
-<div class="service">
-<i class="fas fa-file-signature"></i>
-<h3>Event Registration</h3>
-<p>Easy event management</p>
-</div>
-
-<div class="service">
-<i class="fas fa-globe"></i>
-<h3>Website Development</h3>
-<p>Modern responsive websites</p>
-</div>
-
-<div class="service">
-<i class="fas fa-mobile-alt"></i>
-<h3>App Development</h3>
-<p>Android & iOS apps</p>
-</div>
-
-<div class="service">
-<i class="fas fa-chart-line"></i>
-<h3>Digital Marketing</h3>
-<p>Boost your business growth</p>
-</div>
+<div class="service"><i class="fas fa-paint-brush"></i><h3>Banner Design</h3></div>
+<div class="service"><i class="fas fa-bullhorn"></i><h3>Social Promotion</h3></div>
+<div class="service"><i class="fas fa-file-signature"></i><h3>Event Registration</h3></div>
+<div class="service"><i class="fas fa-globe"></i><h3>Website Development</h3></div>
+<div class="service"><i class="fas fa-mobile-alt"></i><h3>App Development</h3></div>
+<div class="service"><i class="fas fa-chart-line"></i><h3>Digital Marketing</h3></div>
 </div>
 </div>
 
@@ -271,12 +234,28 @@ Founder of Banjara Digital working in digital services, event management systems
 <h2>Contact</h2>
 <p>Email: banjaradigitalmp@gmail.com</p>
 <p>Phone: 9685444391</p>
-<p>Location: Madhya Pradesh, India</p>
 
 <div class="social">
-<a href="https://www.instagram.com/banjara_digital_"><i class="fab fa-instagram"></i></a>
-<a href="https://www.facebook.com/profile.php?id=100089917780983"><i class="fab fa-facebook"></i></a>
-<a href="https://youtube.com/@banjara_digital_09"><i class="fab fa-youtube"></i></a>
+<a href="#"><i class="fab fa-instagram"></i></a>
+<a href="#"><i class="fab fa-facebook"></i></a>
+<a href="#"><i class="fab fa-youtube"></i></a>
+</div>
+
+</div>
+</div>
+
+<!-- FOUNDER -->
+<div class="section">
+<div class="card founder-card">
+
+<div class="founder-img">
+<img src="https://YOUR-PHOTO-LINK.jpg">
+</div>
+
+<div class="founder-content">
+<h3>Founder</h3>
+<h2>Vikas Pawar</h2>
+<p>Founder of Banjara Digital working in digital services, event systems & social media solutions.</p>
 </div>
 
 </div>
@@ -285,9 +264,7 @@ Founder of Banjara Digital working in digital services, event management systems
 <!-- FOOTER -->
 <div class="footer">
 <h3>Banjara Digital</h3>
-<p style="font-size:12px;">
-Professional Digital Services Platform
-</p>
+<p>Professional Digital Services Platform</p>
 <p>© 2026 All Rights Reserved</p>
 </div>
 
