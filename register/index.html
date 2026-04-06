@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCTYPE html> 
 <html lang="hi">
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,99 +8,18 @@
 <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
 
 <style>
-body{
-font-family:'Poppins';
-margin:0;
-background:#020617;
-color:#fff;
-}
-
-.banner img{
-width:100%;
-}
-
-.headerCard{
-background:#fff;
-color:#000;
-margin:15px;
-padding:20px;
-border-radius:15px;
-text-align:center;
-}
-
-.eventInfo{
-background:#f1f5f9;
-padding:10px;
-border-radius:10px;
-margin-top:10px;
-}
-
-.container{
-max-width:720px;
-margin:auto;
-background:#111827;
-padding:20px;
-border-radius:15px;
-}
-
-input,select{
-width:100%;
-padding:12px;
-margin-top:8px;
-border-radius:8px;
-border:none;
-outline:none;
-}
-
-input:focus,select:focus{
-box-shadow:0 0 8px #2563eb;
-}
-
-button{
-width:100%;
-padding:14px;
-margin-top:12px;
-border:none;
-border-radius:8px;
-cursor:pointer;
-font-weight:600;
-}
-
-.pay{
-background:#2563eb;
-color:#fff;
-}
-
-.pay:hover{
-background:#1d4ed8;
-}
-
-.partnerCard{
-background:#fff;
-color:#000;
-margin:20px;
-padding:20px;
-text-align:center;
-border-radius:15px;
-}
-
-.logoCircle{
-width:90px;
-height:90px;
-border-radius:50%;
-box-shadow:0 0 20px #000;
-}
-
-.footer{
-text-align:center;
-padding:20px;
-}
-
-.footer a{
-color:#38bdf8;
-text-decoration:none;
-margin:0 5px;
-}
+body{font-family:'Poppins';margin:0;background:#020617;color:#fff;}
+.banner img{width:100%;}
+.headerCard{background:#fff;color:#000;margin:15px;padding:20px;border-radius:15px;text-align:center;}
+.eventInfo{background:#f1f5f9;padding:10px;border-radius:10px;margin-top:10px;}
+.container{max-width:720px;margin:auto;background:#111827;padding:20px;border-radius:15px;}
+input,select{width:100%;padding:12px;margin-top:5px;border-radius:8px;border:none;}
+button{width:100%;padding:14px;margin-top:12px;border:none;border-radius:8px;}
+.pay{background:#2563eb;color:#fff;}
+.partnerCard{background:#fff;color:#000;margin:20px;padding:20px;text-align:center;border-radius:15px;}
+.logoCircle{width:90px;height:90px;border-radius:50%;box-shadow:0 0 20px #000;}
+.footer{text-align:center;padding:20px;}
+.footer a{color:#38bdf8;}
 </style>
 
 </head>
@@ -131,11 +50,11 @@ margin:0 5px;
 
 <select id="stream" onchange="updateCourse()">
 <option value="">Select Stream</option>
-<option>Science</option>
-<option>Commerce</option>
-<option>Arts</option>
-<option>Maths</option>
-<option>Other</option>
+<option value="Science">Science</option>
+<option value="Commerce">Commerce</option>
+<option value="Arts">Arts</option>
+<option value="Maths">Maths</option>
+<option value="Other">Other</option>
 </select>
 
 <select id="course">
@@ -167,21 +86,20 @@ margin:0 5px;
 
 <script>
 
-/* GLOBAL VARIABLES */
-let name = document.getElementById("name");
-let mobile = document.getElementById("mobile");
-let stream = document.getElementById("stream");
-let course = document.getElementById("course");
-let otherCourse = document.getElementById("otherCourse");
+/* ELEMENT FIX */
+let nameEl = document.getElementById("name");
+let mobileEl = document.getElementById("mobile");
+let streamEl = document.getElementById("stream");
+let courseEl = document.getElementById("course");
+let otherCourseEl = document.getElementById("otherCourse");
 
 /* MAP */
 function openMap(){
 window.open("https://www.google.com/maps?q=Anand Mohan Mathur Sabhagrah Indore");
 }
 
-/* COURSE */
+/* COURSE FIX */
 function updateCourse(){
-
 let data={
 Science:["MBBS","BSc","Engineering","Other"],
 Commerce:["BCom","CA","BBA","Other"],
@@ -190,36 +108,36 @@ Maths:["BSc Maths","Data Science","Other"],
 Other:["Other"]
 };
 
-course.innerHTML="<option value=''>Select Course</option>";
+courseEl.innerHTML="<option value=''>Select Course</option>";
 
-if(stream.value==="") return;
+if(streamEl.value==="") return;
 
-data[stream.value].forEach(c=>{
+data[streamEl.value].forEach(c=>{
 let opt=document.createElement("option");
 opt.value=c;
 opt.text=c;
-course.appendChild(opt);
+courseEl.appendChild(opt);
 });
 }
 
 /* OTHER COURSE */
-course.addEventListener("change",function(){
+courseEl.addEventListener("change",function(){
 if(this.value==="Other"){
-otherCourse.style.display="block";
+otherCourseEl.style.display="block";
 }else{
-otherCourse.style.display="none";
+otherCourseEl.style.display="none";
 }
 });
 
 /* PAYMENT */
 function payNow(){
 
-if(name.value=="" || mobile.value==""){
+if(nameEl.value=="" || mobileEl.value==""){
 alert("Fill details first");
 return;
 }
 
-if(mobile.value.length!=10){
+if(mobileEl.value.length!=10){
 alert("Enter valid mobile number");
 return;
 }
@@ -237,10 +155,10 @@ headers:{
 "Content-Type":"application/json"
 },
 body:JSON.stringify({
-name:name.value,
-mobile:mobile.value,
-stream:stream.value,
-course:(course.value=="Other"?otherCourse.value:course.value),
+name:nameEl.value,
+mobile:mobileEl.value,
+stream:streamEl.value,
+course:(courseEl.value=="Other"?otherCourseEl.value:courseEl.value),
 payment_id:response.razorpay_payment_id
 })
 })
@@ -256,7 +174,7 @@ window.open("https://chat.whatsapp.com/F6pAgLGdTcu5soecJMh3F0");
 },500);
 
 })
-.catch(err=>{
+.catch(()=>{
 alert("Data save error ❌");
 });
 
