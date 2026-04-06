@@ -15,7 +15,7 @@ body{
     color:#fff;
 }
 
-/* SAME UI */
+/* UI SAME */
 .banner img{width:100%;height:auto;}
 
 .headerCard{
@@ -26,8 +26,15 @@ body{
     text-align:center;
     color:#111;
 }
+
 .year{color:#2563eb;font-weight:600;}
-.eventInfo{margin-top:10px;padding:12px;background:#f1f5f9;border-radius:10px;}
+
+.eventInfo{
+    margin-top:10px;
+    padding:12px;
+    background:#f1f5f9;
+    border-radius:10px;
+}
 
 .container{
     max-width:720px;
@@ -38,6 +45,7 @@ body{
 }
 
 label{margin-top:12px;display:block;}
+
 input,select{
     width:100%;
     padding:12px;
@@ -76,7 +84,11 @@ button{
     box-shadow:0 5px 20px rgba(0,0,0,0.4);
 }
 
-.footer{text-align:center;padding:20px;}
+.footer{
+    text-align:center;
+    padding:20px;
+    font-size:13px;
+}
 .footer a{color:#38bdf8;}
 </style>
 
@@ -112,59 +124,75 @@ button{
 <form id="myForm" action="https://formsubmit.co/banjaradigitalmp@gmail.com" method="POST">
 
 <input type="hidden" name="_captcha" value="false">
-<input type="hidden" name="_subject" value="New Student Registration">
 
-<label>Student Name</label>
+<label>State / राज्य</label>
+<input value="Madhya Pradesh" readonly>
+
+<label>Student Name / छात्र का नाम</label>
 <input name="Name" id="name" required>
 
-<label>Parent Name</label>
+<label>Parent Name / अभिभावक</label>
 <input name="Parent">
 
-<label>Date of Birth</label>
+<label>Date of Birth / जन्म तिथि</label>
 <input type="date" name="DOB">
 
-<label>Mobile</label>
+<label>Mobile / मोबाइल</label>
 <input name="Mobile" id="mobile" required>
 
-<label>Caste</label>
+<label>Caste / जाति</label>
 <select name="Caste">
 <option>SC</option><option>ST</option><option>OBC</option><option>Other</option>
 </select>
 
-<label>District</label>
+<label>District / जिला</label>
 <select name="District">
 <option>Indore</option><option>Bhopal</option><option>Ujjain</option>
 <option>Jabalpur</option><option>Gwalior</option><option>Sagar</option>
-<option>Rewa</option><option>Satna</option>
+<option>Rewa</option><option>Satna</option><option>Dewas</option>
+<option>Ratlam</option><option>Khargone</option><option>Sehore</option>
+<option>Vidisha</option><option>Betul</option><option>Chhindwara</option>
+<option>Shivpuri</option><option>Morena</option><option>Bhind</option>
+<option>Mandsaur</option><option>Neemuch</option><option>Barwani</option>
+<option>Alirajpur</option><option>Damoh</option><option>Katni</option>
+<option>Panna</option><option>Datia</option><option>Tikamgarh</option>
+<option>Singrauli</option><option>Anuppur</option><option>Dindori</option>
+<option>Umaria</option><option>Sidhi</option><option>Shahdol</option>
+<option>Harda</option><option>Agar Malwa</option><option>Shajapur</option>
+<option>Rajgarh</option><option>Seoni</option><option>Mandla</option>
+<option>Balaghat</option><option>Ashoknagar</option><option>Sheopur</option>
+<option>Burhanpur</option><option>Khandwa</option><option>Hoshangabad</option>
+<option>Narsinghpur</option><option>Guna</option><option>Chhatarpur</option>
+<option>Maihar</option><option>Niwari</option><option>Mauganj</option>
 </select>
 
-<label>School</label>
+<label>School / स्कूल</label>
 <input name="School">
 
-<label>Stream</label>
+<label>Stream / विषय</label>
 <select name="Stream">
-<option>Science</option><option>Commerce</option><option>Arts</option><option>Maths</option>
+<option>Science</option><option>Commerce</option><option>Arts</option><option>Maths</option><option>Other</option>
 </select>
 
-<label>Future College</label>
+<label>Future College / भविष्य कॉलेज</label>
 <input name="College">
 
-<label>Career Goal</label>
+<label>Career Goal / लक्ष्य</label>
 <select name="Career">
-<option>Doctor</option><option>Engineer</option><option>Govt Job</option>
+<option>Doctor</option><option>Engineer</option><option>Govt Job</option><option>Business</option><option>Other</option>
 </select>
 
-<label>Travel Mode</label>
+<label>Travel Mode / कैसे आएंगे</label>
 <select name="Travel">
-<option>Self</option><option>Bus</option><option>Public</option>
+<option>Self</option><option>Bus</option><option>Public Transport</option>
 </select>
 
-<label>Scholarship</label>
+<label>Scholarship / स्कॉलरशिप</label>
 <select name="Scholarship">
 <option>Yes</option><option>No</option>
 </select>
 
-<label>Health Card</label>
+<label>Health Card / हेल्थ कार्ड</label>
 <select name="Health">
 <option>Yes</option><option>No</option>
 </select>
@@ -187,7 +215,7 @@ button{
 <!-- DIGITAL PARTNER -->
 <div class="partnerCard">
 <h2>Digital Partner</h2>
-<img src="https://github.com/banjaradigitalmp-hue/banjara-digital/blob/main/WhatsApp%20Image%202026-03-06%20at%206.52.34%20PM.jpeg?raw=true" class="logoCircle">
+<img src="https://your-logo-link.png" class="logoCircle">
 <h1>Banjara Digital</h1>
 <p>CONNECT • CREATE • GROW</p>
 </div>
@@ -195,37 +223,35 @@ button{
 <!-- FOOTER -->
 <div class="footer">
 <p>
-<a href="#">Privacy</a> |
-<a href="#">Terms</a> |
-<a href="#">Refund</a>
+<a href="#">Privacy Policy</a> |
+<a href="#">Terms & Conditions</a> |
+<a href="#">Refund Policy</a>
 </p>
+
+<p>User data सुरक्षित रखा जाता है। All payments non-refundable.</p>
+
 <p>© 2026 Banjara Digital</p>
 </div>
 
 <script>
-
 function openMap(){
 window.open("https://www.google.com/maps/search/?api=1&query=Anand+Mohan+Mathur+Sabhagrah+Indore");
 }
 
-/* PAYMENT + AUTO SUBMIT */
 function startPayment(){
-
 if(name.value=="" || mobile.value==""){
 alert("Please fill required details");
 return;
 }
 
 var options = {
-key: "rzp_live_SZnaVX76WrMx4H", // 👈 KEY डालना
+key: "rzp_live_SZnaVX76WrMx4H",
 amount: 2100,
 currency: "INR",
 name: "Student Success Meet",
-description: "Registration Fee",
-
-handler: function (response){
+handler: function (){
 alert("Payment Successful ✅");
-document.getElementById("myForm").submit(); // 🔥 AUTO SUBMIT
+document.getElementById("myForm").submit();
 }
 };
 
@@ -235,7 +261,6 @@ new Razorpay(options).open();
 function joinGroup(){
 window.open("https://chat.whatsapp.com/F6pAgLGdTcu5soecJMh3F0");
 }
-
 </script>
 
 </body>
