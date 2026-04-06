@@ -15,26 +15,35 @@ body{
 }
 
 /* HEADER */
-.header{
-    text-align:center;
-    padding-bottom:20px;
-}
 .header img{
     width:100%;
     max-height:250px;
     object-fit:cover;
 }
 
-/* GLOW BOX */
-.glow{
-    background:linear-gradient(135deg,#1e3a8a,#2563eb);
+.headerBox{
+    background:rgba(255,255,255,0.08);
+    backdrop-filter:blur(20px);
     margin:15px;
-    padding:15px;
-    border-radius:12px;
-    box-shadow:0 0 25px rgba(37,99,235,0.6);
+    padding:20px;
+    border-radius:16px;
+    box-shadow:0 0 25px rgba(0,0,0,0.3);
+    text-align:center;
 }
 
-/* CONTAINER */
+.headerBox h1{color:#38bdf8;}
+.headerBox h3{color:#22c55e;}
+
+/* EVENT BOX */
+.eventBox{
+    background:linear-gradient(135deg,#2563eb,#1d4ed8);
+    padding:12px;
+    border-radius:10px;
+    margin-top:10px;
+    box-shadow:0 0 20px rgba(37,99,235,0.6);
+}
+
+/* FORM CONTAINER */
 .container{
     max-width:700px;
     margin:20px auto;
@@ -73,14 +82,28 @@ button{
 .mapBtn{background:#16a34a;}
 
 /* DIGITAL PARTNER */
-.partner{
+.partnerCard{
     text-align:center;
+    margin:25px;
     padding:30px;
-    margin:20px;
-    background:linear-gradient(135deg,#0ea5e9,#22c55e);
-    border-radius:16px;
-    box-shadow:0 0 30px rgba(34,197,94,0.6);
+    background:white;
+    border-radius:18px;
+    color:#111;
+    box-shadow:0 10px 30px rgba(0,0,0,0.2);
 }
+
+.logoCircle{
+    width:90px;
+    height:90px;
+    border-radius:50%;
+    object-fit:cover;
+    border:4px solid #22c55e;
+    margin:15px 0;
+}
+
+.partnerCard h2{color:#2563eb;}
+.partnerCard h1{color:#16a34a;font-weight:700;}
+.partnerCard p{color:#555;letter-spacing:2px;}
 
 /* FOOTER */
 .footer{
@@ -100,11 +123,11 @@ button{
 
 <img src="https://github.com/banjaradigitalmp-hue/student-form/blob/main/WhatsApp%20Image%202026-04-04%20at%209.41.57%20AM.jpeg?raw=true">
 
-<h1 style="color:#38bdf8;">Student Success Meet 2026-27</h1>
+<div class="headerBox">
+<h1>Student Success Meet 2026-27</h1>
+<h3>आयोजक: म.प्र. NGO महासंघ</h3>
 
-<h3 style="color:#22c55e;">आयोजक: म.प्र. NGO महासंघ</h3>
-
-<div class="glow">
+<div class="eventBox">
 <p>📅 10 May 2026 | ⏰ 10:00 AM</p>
 <p>📍 आनंद मोहन माथुर सभागृह, इंदौर</p>
 </div>
@@ -112,6 +135,7 @@ button{
 <a href="https://www.google.com/maps/search/?api=1&query=Anand+Mohan+Mathur+Sabhagrah+Indore" target="_blank">
 <button class="mapBtn">📍 View Location</button>
 </a>
+</div>
 
 </div>
 
@@ -180,7 +204,7 @@ button{
 <option>Public Transport</option>
 </select>
 
-<label>Scholarship Exam / स्कॉलरशिप चाहिए?</label>
+<label>Scholarship / स्कॉलरशिप चाहिए?</label>
 <select name="Scholarship">
 <option>Yes</option>
 <option>No</option>
@@ -210,11 +234,11 @@ button{
 </div>
 
 <!-- DIGITAL PARTNER -->
-<div class="partner">
+<div class="partnerCard">
 
 <h2>Digital Partner</h2>
 
-<img src="https://github.com/banjaradigitalmp-hue/banjara-digital/blob/main/WhatsApp%20Image%202026-03-06%20at%206.52.34%20PM.jpeg?raw=true" style="width:90px;">
+<img src="https://your-logo-link.png" class="logoCircle">
 
 <h1>Banjara Digital</h1>
 
@@ -241,7 +265,7 @@ User data सुरक्षित रखा जाता है। All payments
 
 <script>
 function joinGroup(){
-window.open("https://chat.whatsapp.com/F6pAgLGdTcu5soecJMh3F0 ");
+window.open("https://chat.whatsapp.com/F6pAgLGdTcu5soecJMh3F0","_blank");
 }
 </script>
 
