@@ -1,556 +1,152 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
 <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Student Success Meet 2026-27</title>
-  <meta name="description" content="Student Success Meet 2026-27 registration portal for Madhya Pradesh students.">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;800&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-  <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
-  <link rel="stylesheet" href="assets/styles.css">
-  <style>
-    :root { --bg:#040816; --panel:rgba(10,18,40,.82); --line:rgba(129,155,214,.18); --text:#edf4ff; --muted:#9db3d9; --primary:#47d7ff; --secondary:#16a34a; --shadow:0 24px 80px rgba(0,0,0,.35); }
-    * { box-sizing:border-box; }
-    html { scroll-behavior:smooth; }
-    body { margin:0; font-family:"Poppins",sans-serif; color:var(--text); background:radial-gradient(circle at left top, rgba(71,215,255,.16), transparent 28%),radial-gradient(circle at right top, rgba(139,92,246,.16), transparent 28%),linear-gradient(180deg, #020513 0%, #071126 44%, #09152b 100%); min-height:100vh; overflow-x:hidden; }
-    a { color:inherit; text-decoration:none; }
-    img { max-width:100%; display:block; }
-    .orb { position:fixed; width:320px; height:320px; border-radius:50%; filter:blur(65px); pointer-events:none; opacity:.35; z-index:0; animation:floatOrb 12s ease-in-out infinite; }
-    .orb.one { top:-90px; left:-110px; background:rgba(71,215,255,.16); }
-    .orb.two { right:-90px; top:140px; background:rgba(139,92,246,.16); animation-delay:-6s; }
-    @keyframes floatOrb { 0%,100% { transform:translateY(0) scale(1); } 50% { transform:translateY(24px) scale(1.06); } }
-    .shell { width:min(1180px, calc(100% - 24px)); margin:0 auto; position:relative; z-index:1; }
-    .topbar { display:flex; align-items:center; justify-content:space-between; gap:18px; padding:18px 0; }
-    .brand { display:flex; align-items:center; gap:14px; }
-    .brand-mark,.hero-copy h1,.section-title h2,.modal-card h3,.brand-text strong { font-family:"Orbitron",sans-serif; }
-    .brand-mark { width:56px; height:56px; border-radius:18px; display:grid; place-items:center; background:linear-gradient(135deg, rgba(71,215,255,.22), rgba(139,92,246,.18)); border:1px solid rgba(255,255,255,.12); font-weight:800; }
-    .brand-text small { display:block; color:var(--muted); }
-    .top-links { display:flex; gap:16px; flex-wrap:wrap; color:#d7e7ff; font-size:14px; }
-    .panel { background:var(--panel); border:1px solid var(--line); border-radius:30px; box-shadow:var(--shadow); backdrop-filter:blur(18px); }
-    .hero { overflow:hidden; }
-    .hero img { width:100%; max-height:470px; object-fit:cover; }
-    .hero-grid { display:grid; grid-template-columns:1.2fr .78fr; gap:20px; padding:24px; }
-    .hero-copy h1 { margin:18px 0 12px; font-size:clamp(34px,5vw,60px); line-height:1.05; }
-    .hero-copy p,.muted,.sidebar-card p,.policy-content p { color:var(--muted); line-height:1.75; }
-    .eyebrow { display:inline-flex; align-items:center; padding:8px 14px; border-radius:999px; background:rgba(71,215,255,.1); border:1px solid rgba(71,215,255,.16); color:#bfeeff; font-size:12px; font-weight:700; letter-spacing:.08em; text-transform:uppercase; }
-    .stats,.content-grid,.grid-2,.grid-3,.side-grid { display:grid; gap:16px; }
-    .stats { grid-template-columns:repeat(3, minmax(0,1fr)); margin-top:22px; }
-    .stat,.info-box { padding:16px; border-radius:20px; background:rgba(255,255,255,.04); border:1px solid rgba(148,163,184,.1); }
-    .stat strong { display:block; font-size:20px; margin-bottom:4px; }
-    .stat span { color:var(--muted); font-size:13px; }
-    .btn-row { display:flex; gap:14px; flex-wrap:wrap; margin-top:22px; }
-    .btn { border:none; cursor:pointer; padding:14px 22px; border-radius:18px; font:inherit; font-weight:700; text-align:center; transition:transform .18s ease, box-shadow .18s ease, opacity .18s ease; }
-    .btn:hover { transform:translateY(-1px); }
-    .btn-primary { color:#02111f; background:linear-gradient(135deg, #87ebff, #47d7ff 50%, #1196ff); box-shadow:0 16px 34px rgba(17,150,255,.25); }
-    .btn-secondary { color:#f0fff6; background:linear-gradient(135deg, rgba(22,163,74,.96), rgba(6,95,70,.92)); box-shadow:0 16px 34px rgba(22,163,74,.2); }
-    .hero-side { padding:22px; background:rgba(255,255,255,.05); border-radius:24px; border:1px solid rgba(255,255,255,.09); backdrop-filter:blur(16px); }
-    .hero-side h3,.sidebar-card h3 { margin-top:0; }
-    .detail { display:flex; gap:14px; align-items:flex-start; padding:14px; margin-bottom:12px; border-radius:18px; background:rgba(255,255,255,.04); border:1px solid rgba(148,163,184,.1); }
-    .detail:last-child { margin-bottom:0; }
-    .detail strong { display:block; margin-bottom:4px; }
-    .content-grid { grid-template-columns:minmax(0,1.45fr) minmax(280px,.75fr); margin:24px 0 28px; align-items:start; }
-    .form-card,.sidebar-card { padding:24px; }
-    .section-title { display:flex; justify-content:space-between; gap:18px; align-items:flex-start; margin-bottom:18px; }
-    .section-title h2 { margin:10px 0 6px; font-size:clamp(28px,3vw,38px); }
-    .price { min-width:185px; border-radius:20px; padding:14px 16px; text-align:right; background:rgba(71,215,255,.1); border:1px solid rgba(71,215,255,.16); }
-    .price strong { display:block; font-size:28px; }
-    form { display:grid; gap:18px; }
-    .grid-2 { grid-template-columns:repeat(2, minmax(0,1fr)); }
-    .grid-3 { grid-template-columns:repeat(3, minmax(0,1fr)); }
-    .field label { display:block; margin-bottom:8px; color:#dcecff; font-size:14px; font-weight:600; }
-    .field input,.field select { width:100%; border:1px solid rgba(148,163,184,.16); border-radius:16px; padding:14px 15px; font:inherit; color:var(--text); background:rgba(3,8,24,.48); outline:none; }
-    .field input::placeholder { color:#7890b8; }
-    .field input:focus,.field select:focus { border-color:rgba(71,215,255,.58); box-shadow:0 0 0 4px rgba(71,215,255,.12); }
-    .field input[readonly] { background:rgba(12,22,51,.96); color:#dcebff; }
-    .hidden { display:none; }
-    .status { display:none; padding:15px 16px; border-radius:18px; font-weight:600; }
-    .status.show { display:block; }
-    .status.info { background:rgba(71,215,255,.12); border:1px solid rgba(71,215,255,.16); color:#d9f7ff; }
-    .status.success { background:rgba(22,163,74,.14); border:1px solid rgba(22,163,74,.16); color:#defce9; }
-    .status.error { background:rgba(239,68,68,.14); border:1px solid rgba(239,68,68,.16); color:#ffe2e2; }
-    .wide { width:100%; }
-    .notice { padding:15px 16px; border-radius:18px; background:rgba(22,163,74,.1); border:1px solid rgba(22,163,74,.16); color:#dfffe8; line-height:1.7; }
-    .side-grid { grid-template-columns:1fr; }
-    .sidebar-card ul { margin:16px 0 0; padding-left:18px; color:var(--muted); line-height:1.8; }
-    .partner-logo { width:120px; height:120px; margin:10px auto 16px; border-radius:50%; padding:6px; background:linear-gradient(135deg, rgba(71,215,255,.9), rgba(139,92,246,.8)); box-shadow:0 18px 38px rgba(71,215,255,.16); }
-    .partner-logo img { width:100%; height:100%; object-fit:cover; border-radius:50%; border:4px solid #071126; }
-    .policy-row { display:flex; justify-content:center; gap:16px; flex-wrap:wrap; padding:8px 0 30px; color:#d8e8ff; }
-    .policy-btn { background:transparent; color:inherit; border:1px solid rgba(148,163,184,.16); padding:12px 16px; border-radius:14px; }
-    .footer { text-align:center; color:var(--muted); padding:0 0 30px; }
-    .overlay { position:fixed; inset:0; background:rgba(1,4,12,.72); backdrop-filter:blur(10px); display:none; align-items:center; justify-content:center; z-index:20; padding:18px; }
-    .overlay.show { display:flex; }
-    .modal-card { width:min(100%,640px); background:rgba(8,18,40,.95); border:1px solid rgba(148,163,184,.16); border-radius:28px; box-shadow:var(--shadow); padding:24px; }
-    .modal-card h3 { margin:8px 0 10px; font-size:30px; }
-    .modal-card p { color:var(--muted); line-height:1.8; }
-    .receipt-box { display:grid; grid-template-columns:repeat(2, minmax(0,1fr)); gap:14px; margin:18px 0; }
-    .receipt-item { padding:14px; border-radius:18px; background:rgba(255,255,255,.04); border:1px solid rgba(148,163,184,.1); }
-    .receipt-item span { display:block; color:var(--muted); font-size:13px; margin-bottom:6px; }
-    .policy-content h4 { margin-bottom:8px; font-size:20px; }
-    @media (max-width:980px) { .hero-grid,.content-grid { grid-template-columns:1fr; } }
-    @media (max-width:760px) {
-      .shell { width:min(100% - 16px, 100%); }
-      .topbar,.section-title { flex-direction:column; align-items:flex-start; }
-      .stats,.grid-2,.grid-3,.receipt-box { grid-template-columns:1fr; }
-      .hero-grid,.form-card,.sidebar-card,.hero-side,.modal-card { padding:18px; }
-      .btn,.price { width:100%; text-align:center; }
-    }
-  </style>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Student Success Meet</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+
+<style>
+body{
+  font-family:'Poppins',sans-serif;
+  margin:0;
+  background:#071126;
+  color:#fff;
+}
+
+.container{
+  max-width:1000px;
+  margin:auto;
+  padding:15px;
+}
+
+h1{font-size:28px;}
+
+.card{
+  background:#0b1b3a;
+  padding:20px;
+  border-radius:12px;
+}
+
+input,select{
+  width:100%;
+  padding:12px;
+  margin-top:6px;
+  margin-bottom:15px;
+  border-radius:8px;
+  border:none;
+}
+
+button{
+  width:100%;
+  padding:14px;
+  background:#47d7ff;
+  border:none;
+  border-radius:10px;
+  font-weight:bold;
+  cursor:pointer;
+}
+
+.status{
+  margin-top:10px;
+}
+
+@media(max-width:600px){
+  h1{font-size:22px;}
+}
+</style>
 </head>
+
 <body>
-  <div class="orb orb-a"></div>
-  <div class="orb orb-b"></div>
 
-  <header class="topbar shell">
-    <a class="brand" href="index.html">
-      <span class="brand-mark">SSM</span>
-      <span>
-  <div class="orb one"></div>
-  <div class="orb two"></div>
-  <header class="shell topbar">
-    <div class="brand">
-      <div class="brand-mark">SSM</div>
-      <div class="brand-text">
-        <strong>Student Success Meet</strong>
-        <small>2026-27 Registration Portal</small>
-      </span>
-    </a>
-    <nav class="topnav">
-      </div>
-    </div>
-    <nav class="top-links">
-      <a href="#register">Register</a>
-      <a href="success.html">Receipt</a>
-      <a href="admin.html">Admin</a>
-      <a href="privacy.html">Privacy</a>
-      <a href="javascript:void(0)" onclick="openPolicy('privacy')">Privacy</a>
-      <a href="javascript:void(0)" onclick="openPolicy('terms')">Terms</a>
-      <a href="javascript:void(0)" onclick="openPolicy('refund')">Refund</a>
-    </nav>
-  </header>
+<div class="container">
+  <div class="card">
+    <h1>Student Registration</h1>
 
-  <main class="shell">
-    <section class="hero panel">
-      <div class="hero-media">
-        <img src="https://github.com/banjaradigitalmp-hue/student-form/blob/main/WhatsApp%20Image%202026-04-04%20at%209.41.57%20AM.jpeg?raw=true" alt="Student Success Meet banner">
-      </div>
-    <section class="panel hero">
-      <img src="https://github.com/banjaradigitalmp-hue/student-form/blob/main/WhatsApp%20Image%202026-04-04%20at%209.41.57%20AM.jpeg?raw=true" alt="Student Success Meet Banner">
-      <div class="hero-grid">
-        <div class="hero-copy">
-          <div class="eyebrow">Future-Ready Student Event</div>
-          <h1>Professional, modern aur futuristic registration experience</h1>
-          <p>म.प्र. NGO महासंघ ke flagship student event ke liye premium registration portal. Career guidance, scholarship awareness, medal, certificate aur parent-friendly onboarding ek hi jagah.</p>
-          <div class="stats-grid">
-            <div class="stat-card"><strong>10 May 2026</strong><span>Event date</span></div>
-            <div class="stat-card"><strong>10:00 AM</strong><span>Reporting time</span></div>
-            <div class="stat-card"><strong>₹21</strong><span>Registration fee</span></div>
-          <div class="eyebrow">Modern Futuristic Event Portal</div>
-          <h1>Student registration ab aur zyada premium, fast aur professional</h1>
-          <p>म.प्र. NGO महासंघ ke is special event ke liye students aur parents ko ek smooth digital registration experience diya gaya hai. Form, payment, WhatsApp join aur data save workflow sab ek hi jagah ready hai.</p>
-          <div class="stats">
-            <div class="stat"><strong>10 May 2026</strong><span>Event Date</span></div>
-            <div class="stat"><strong>10:00 AM</strong><span>Reporting Time</span></div>
-            <div class="stat"><strong>₹21</strong><span>Registration Fee</span></div>
-          </div>
-          <div class="action-row">
-            <button class="btn btn-primary" type="button" data-scroll-target="#register">Register Now</button>
-          <div class="btn-row">
-            <button class="btn btn-primary" type="button" onclick="document.getElementById('register').scrollIntoView({behavior:'smooth'})">Register Now</button>
-            <a class="btn btn-secondary" href="https://www.google.com/maps/search/?api=1&query=Anand+Mohan+Mathur+Sabhagrah+Indore" target="_blank" rel="noopener">View Location</a>
-          </div>
-        </div>
-        <aside class="hero-aside glass">
-          <h2>Event Snapshot</h2>
-          <div class="detail-list">
-            <div class="detail-item"><span>📍</span><div><strong>Venue</strong><small>आनंद मोहन माथुर सभागृह, इंदौर</small></div></div>
-            <div class="detail-item"><span>🎓</span><div><strong>Audience</strong><small>Madhya Pradesh ke students aur parents</small></div></div>
-            <div class="detail-item"><span>🏅</span><div><strong>Benefits</strong><small>Food, token, medal, certificate, guidance</small></div></div>
-          </div>
-        <aside class="hero-side">
-          <h3>Event Details</h3>
-          <div class="detail"><span>📍</span><div><strong>Venue</strong><span class="muted">आनंद मोहन माथुर सभागृह, इंदौर</span></div></div>
-          <div class="detail"><span>🎓</span><div><strong>Who Can Join</strong><span class="muted">Students aur parents from Madhya Pradesh</span></div></div>
-          <div class="detail"><span>🏅</span><div><strong>Benefits</strong><span class="muted">Food, Token, Medal, Certificate, Guidance</span></div></div>
-        </aside>
-      </div>
-    </section>
+    <form id="form">
 
-    <section class="feature-band">
-      <article class="mini-panel"><h3>Career Focus</h3><p>Structured form fields se student stream, course aur goal insights better collect honge.</p></article>
-      <article class="mini-panel"><h3>Fast Processing</h3><p>Razorpay payment ke baad Apps Script workflow data store, receipt aur admin listing support karta hai.</p></article>
-      <article class="mini-panel"><h3>Admin Ready</h3><p>Search, filter, refresh aur export-oriented admin page included hai.</p></article>
-    </section>
+      <label>नाम</label>
+      <input id="name" required>
 
-    <section class="content-grid" id="register">
-      <section class="panel form-panel">
-        <div class="section-head">
-      <section class="panel form-card">
-        <div class="section-title">
-          <div>
-            <div class="eyebrow">Live Registration</div>
-            <h2>Student Registration Form</h2>
-            <p>Form validation, dynamic course loading, receipt generation aur WhatsApp redirect ready hai.</p>
-            <div class="eyebrow">Registration Form</div>
-            <h2>Student Success Meet Enrollment</h2>
-            <p class="muted">Payment ke baad student ko WhatsApp group join karne ka popup dikhaya jayega.</p>
-          </div>
-          <div class="price">
-            <span>Registration Fee</span>
-            <strong>₹21</strong>
-            <span>Food + Token + Medal + Certificate</span>
-          </div>
-          <div class="price-card"><span>Registration Fee</span><strong>₹21</strong><small>Food + Token + Medal + Certificate</small></div>
-        </div>
+      <label>मोबाइल</label>
+      <input id="mobile" maxlength="10" required>
 
-        <form id="studentForm" novalidate>
-          <div class="grid-two">
-            <div class="field">
-              <label for="state">State / राज्य</label>
-              <input id="state" value="Madhya Pradesh" readonly>
-            </div>
-          <div class="grid-2">
-            <div class="field"><label for="state">State / राज्य</label><input id="state" value="Madhya Pradesh" readonly></div>
-            <div class="field">
-              <label for="district">District (MP)</label>
-              <select id="district" required>
-              </select>
-            </div>
-          </div>
+      <label>Stream</label>
+      <select id="stream" required>
+        <option value="">Select</option>
+        <option>Science</option>
+        <option>Commerce</option>
+        <option>Arts</option>
+      </select>
 
-          <div class="grid-two">
-          <div class="grid-2">
-            <div class="field"><label for="name">Student Name / छात्र का नाम</label><input id="name" placeholder="Student ka full name" required></div>
-            <div class="field"><label for="parent">Parent Name / अभिभावक</label><input id="parent" placeholder="Parent ka full name" required></div>
-          </div>
+      <label>Course</label>
+      <select id="course" required></select>
 
-          <div class="grid-three">
-          <div class="grid-3">
-            <div class="field"><label for="dob">Date of Birth</label><input type="date" id="dob" required></div>
-            <div class="field"><label for="mobile">Student Mobile</label><input id="mobile" inputmode="numeric" maxlength="10" placeholder="10 digit mobile number" required></div>
-            <div class="field"><label for="mobile">Student Mobile</label><input id="mobile" maxlength="10" inputmode="numeric" placeholder="10 digit mobile" required></div>
-            <div class="field"><label for="caste">Caste</label><select id="caste"><option>SC</option><option>ST</option><option>OBC</option><option>Other</option></select></div>
-          </div>
+      <button type="submit">Pay ₹21</button>
 
-          <div class="grid-two">
-            <div class="field"><label for="school">School / Institute</label><input id="school" placeholder="School ya institute name" required></div>
-            <div class="field"><label for="college">Future College Preference</label><input id="college" placeholder="Future college ka naam"></div>
-          <div class="grid-2">
-            <div class="field"><label for="school">School / Institute</label><input id="school" placeholder="School name" required></div>
-            <div class="field"><label for="college">Future College</label><input id="college" placeholder="College preference"></div>
-          </div>
+      <div class="status" id="status"></div>
 
-          <div class="grid-three">
-          <div class="grid-3">
-            <div class="field">
-              <label for="stream">Stream</label>
-              <select id="stream" required>
-              </select>
-            </div>
-            <div class="field"><label for="course">Course</label><select id="course" required></select></div>
-            <div class="field hidden-field" id="otherCourseField"><label for="otherCourse">Other Course</label><input id="otherCourse" placeholder="Apna course likhein"></div>
-            <div class="field hidden" id="otherCourseField"><label for="otherCourse">Other Course</label><input id="otherCourse" placeholder="Apna course likhein"></div>
-          </div>
-
-          <div class="grid-two">
-          <div class="grid-2">
-            <div class="field">
-              <label for="career">Career Goal / लक्ष्य</label>
-              <select id="career" required>
-                <option value="Other">Other</option>
-              </select>
-            </div>
-            <div class="field hidden-field" id="otherCareerField"><label for="otherCareer">Other Goal</label><input id="otherCareer" placeholder="Apna career goal likhein"></div>
-            <div class="field hidden" id="otherCareerField"><label for="otherCareer">Other Goal</label><input id="otherCareer" placeholder="Apna career goal likhein"></div>
-          </div>
-
-          <div class="grid-three">
-          <div class="grid-3">
-            <div class="field"><label for="travel">College कैसे जाओगे</label><select id="travel"><option>Self Vehicle</option><option>College Bus</option><option>Public Transport</option></select></div>
-            <div class="field"><label for="scholarship">Scholarship join karna chahte hain?</label><select id="scholarship"><option>Yes</option><option>No</option></select></div>
-            <div class="field"><label for="scholarship">Scholarship योजना join karna hai?</label><select id="scholarship"><option>Yes</option><option>No</option></select></div>
-            <div class="field"><label for="health">Free Health Card चाहिए?</label><select id="health"><option>Yes</option><option>No</option></select></div>
-          </div>
-
-          <div class="grid-two">
-            <div class="field"><label for="parent1">Parent Mobile 1</label><input id="parent1" inputmode="numeric" maxlength="10" placeholder="Primary parent mobile"></div>
-            <div class="field"><label for="parent2">Parent Mobile 2</label><input id="parent2" inputmode="numeric" maxlength="10" placeholder="Secondary parent mobile"></div>
-          </div>
-
-          <div class="notice-card">
-            <strong>Production Setup Note</strong>
-            <p>`assets/config.js` mein live Razorpay key, Apps Script URL aur admin access key update karte hi form live flow ke liye ready hai.</p>
-          </div>
-
-          <div class="action-stack">
-            <button class="btn btn-primary wide" type="submit" id="payButton">Pay ₹21 & Register</button>
-            <div id="statusBox" class="status-box" aria-live="polite"></div>
-          <div class="grid-2">
-            <div class="field"><label for="parent1">Parent Mobile 1</label><input id="parent1" maxlength="10" inputmode="numeric" placeholder="Primary parent mobile"></div>
-            <div class="field"><label for="parent2">Parent Mobile 2</label><input id="parent2" maxlength="10" inputmode="numeric" placeholder="Secondary parent mobile"></div>
-          </div>
-          <div class="notice">Payment successful hone ke baad aapko WhatsApp group join karne ka popup dikhaya jayega.</div>
-          <button class="btn btn-primary wide" type="submit" id="payBtn">Pay ₹21 & Register</button>
-          <div class="status" id="statusBox" aria-live="polite"></div>
-        </form>
-      </section>
-
-      <aside class="sidebar">
-      <aside class="side-grid">
-        <section class="panel sidebar-card">
-          <div class="eyebrow">Why This Feels Better</div>
-          <h3>UX upgrades included</h3>
-          <ul class="bullet-list">
-            <li>Dynamic course loading fixed on page load and stream change</li>
-            <li>Success page with receipt, payment status and WhatsApp CTA</li>
-            <li>Config-driven Apps Script and Razorpay integration</li>
-            <li>Admin search page for registration records</li>
-          <div class="eyebrow">Portal Benefits</div>
-          <h3>Ab sab kuch properly connected</h3>
-          <ul>
-            <li>Course dropdown ab page load aur stream change dono par work karega</li>
-            <li>Payment success ke baad automatic WhatsApp join popup aayega</li>
-            <li>Registration data background me Google Sheet me save hoga</li>
-            <li>Privacy, Terms aur No Refund content isi file me available hai</li>
-          </ul>
-        </section>
-
-        <section class="panel sidebar-card partner-card">
-        <section class="panel sidebar-card" style="text-align:center;">
-          <div class="eyebrow">Digital Partner</div>
-          <div class="partner-logo"><img src="https://github.com/banjaradigitalmp-hue/banjara-digital/blob/main/WhatsApp%20Image%202026-03-06%20at%206.52.34%20PM.jpeg?raw=true" alt="Banjara Digital logo"></div>
-          <div class="partner-logo">
-            <img src="https://github.com/banjaradigitalmp-hue/banjara-digital/blob/main/WhatsApp%20Image%202026-03-06%20at%206.52.34%20PM.jpeg?raw=true" alt="Banjara Digital">
-          </div>
-          <h3>Banjara Digital</h3>
-          <p>Registration, UI polish, automation-friendly structure aur deployment readiness ke liye optimized setup.</p>
-          <p>Registration portal ko professional, responsive aur premium futuristic look me optimize kiya gaya hai.</p>
-        </section>
-      </aside>
-    </section>
-
-    <div class="policy-row">
-      <button class="policy-btn" type="button" onclick="openPolicy('privacy')">Privacy Policy</button>
-      <button class="policy-btn" type="button" onclick="openPolicy('terms')">Terms & Conditions</button>
-      <button class="policy-btn" type="button" onclick="openPolicy('refund')">Refund Policy</button>
-    </div>
-
-    <div class="footer">
-      <p>© 2026 Banjara Digital | Student Success Meet Registration System</p>
-    </div>
-  </main>
-
-  <footer class="footer shell">
-    <div class="footer-links">
-      <a href="privacy.html">Privacy Policy</a>
-      <a href="terms.html">Terms & Conditions</a>
-      <a href="refund.html">Refund Policy</a>
-      <a href="admin.html">Admin Panel</a>
-  <div class="overlay" id="successOverlay">
-    <div class="modal-card">
-      <div class="eyebrow">Payment Success</div>
-      <h3>Registration Complete</h3>
-      <p>Payment successful ho gaya hai. Ab WhatsApp group join karke event updates aur instructions le sakte hain.</p>
-      <div class="receipt-box" id="receiptBox"></div>
-      <div class="btn-row">
-        <a class="btn btn-secondary" id="whatsappJoinBtn" href="https://chat.whatsapp.com/F6pAgLGdTcu5soecJMh3F0" target="_blank" rel="noopener">WhatsApp Group Join Karein</a>
-        <button class="btn btn-primary" type="button" onclick="closeSuccessModal()">Close</button>
-      </div>
-    </div>
+    </form>
   </div>
+</div>
 
-  <div class="overlay" id="policyOverlay">
-    <div class="modal-card">
-      <div class="eyebrow">Policy</div>
-      <h3 id="policyTitle">Policy</h3>
-      <div class="policy-content" id="policyContent"></div>
-      <div class="btn-row">
-        <button class="btn btn-primary" type="button" onclick="closePolicy()">Close</button>
-      </div>
-    </div>
-    <p>© 2026 Banjara Digital. Student Success Meet registration system.</p>
-  </footer>
-  </div>
-  <script>
-    const APP_CONFIG = {
-      razorpayKey: "YOUR_RAZORPAY_KEY",
-      appsScriptUrl: "YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL",
-      whatsappGroupUrl: "https://chat.whatsapp.com/F6pAgLGdTcu5soecJMh3F0",
-      amount: 2100,
-      currency: "INR",
-      eventName: "Student Success Meet 2026-27"
-    };
+<script>
 
-    const courseMap = {
-      Science: ["MBBS", "BSc", "Engineering", "Nursing", "Pharmacy", "Other"],
-      Commerce: ["BCom", "CA", "BBA", "CS", "Banking", "Other"],
-      Arts: ["BA", "LLB", "UPSC", "Journalism", "Social Work", "Other"],
-      Maths: ["BSc Maths", "Data Science", "Statistics", "Actuarial Science", "Other"],
-      Other: ["Other"]
-    };
+const courseMap = {
+  Science:["MBBS","BSc","Engineering"],
+  Commerce:["BCom","CA","BBA"],
+  Arts:["BA","LLB"]
+};
 
-    const policies = {
-      privacy: { title: "Privacy Policy", html: "<p>Student aur parent ki details sirf registration, communication aur event management ke liye use ki jayengi.</p><p>Payment reference aur submitted details Google Sheet aur official backend process ke through securely store ki ja sakti hain.</p><p>Data ka unrelated resale ya misuse ka intention nahi hai.</p>" },
-      terms: { title: "Terms & Conditions", html: "<p>Registration tabhi valid mani jayegi jab payment successful ho aur form details sahi bhari gayi ho.</p><p>Organizers schedule, venue, ya communication process me zarurat ke hisaab se operational updates kar sakte hain.</p><p>Galat ya incomplete details wale records review ke liye hold kiye ja sakte hain.</p>" },
-      refund: { title: "Refund Policy", html: "<h4>No Refund Policy</h4><p>Student Success Meet registration fee ke liye no refund policy lagu rahegi.</p><p>Payment successful hone ke baad registration amount refund nahi kiya jayega.</p><p>Agar duplicate payment issue ho to organizer verification ke baad alag decision liya ja sakta hai, lekin standard policy no refund rahegi.</p>" }
-    };
+const stream = document.getElementById("stream");
+const course = document.getElementById("course");
+const form = document.getElementById("form");
+const statusBox = document.getElementById("status");
 
-    const form = document.getElementById("studentForm");
-    const stream = document.getElementById("stream");
-    const course = document.getElementById("course");
-    const career = document.getElementById("career");
-    const otherCourseField = document.getElementById("otherCourseField");
-    const otherCourse = document.getElementById("otherCourse");
-    const otherCareerField = document.getElementById("otherCareerField");
-    const otherCareer = document.getElementById("otherCareer");
-    const statusBox = document.getElementById("statusBox");
-    const payBtn = document.getElementById("payBtn");
-    const successOverlay = document.getElementById("successOverlay");
-    const receiptBox = document.getElementById("receiptBox");
-    const whatsappJoinBtn = document.getElementById("whatsappJoinBtn");
-    const policyOverlay = document.getElementById("policyOverlay");
-    const policyTitle = document.getElementById("policyTitle");
-    const policyContent = document.getElementById("policyContent");
+// ✅ Course Fix
+function updateCourse(){
+  let val = stream.value;
+  course.innerHTML="";
 
-    function setStatus(message, type) {
-      statusBox.textContent = message;
-      statusBox.className = "status show " + type;
+  if(!courseMap[val]) return;
+
+  courseMap[val].forEach(c=>{
+    let op = document.createElement("option");
+    op.textContent=c;
+    course.appendChild(op);
+  });
+}
+
+stream.addEventListener("change",updateCourse);
+
+// ✅ Payment
+form.addEventListener("submit",function(e){
+  e.preventDefault();
+
+  const name = document.getElementById("name").value;
+  const mobile = document.getElementById("mobile").value;
+
+  if(mobile.length!==10){
+    statusBox.innerText="10 digit mobile daalo";
+    return;
+  }
+
+  const rzp = new Razorpay({
+    key:"rzp_live_SZnaVX76WrMx4H",
+    amount:2100,
+    currency:"INR",
+    name:"Student Meet",
+    handler:function(res){
+      statusBox.innerText="Payment Success: "+res.razorpay_payment_id;
     }
+  });
 
-    function normalizePhone(value) {
-      return String(value || "").replace(/\D/g, "").slice(0, 10);
-    }
+  rzp.open();
+});
 
-    function updateCourseOptions() {
-      const selectedStream = stream.value;
-      const courses = courseMap[selectedStream] || ["Other"];
-      course.innerHTML = "";
-      courses.forEach(function(item) {
-        const option = document.createElement("option");
-        option.value = item;
-        option.textContent = item;
-        course.appendChild(option);
-      });
-      toggleOtherCourse();
-    }
+</script>
 
-    function toggleOtherCourse() {
-      const show = course.value === "Other";
-      otherCourseField.classList.toggle("hidden", !show);
-      otherCourse.required = show;
-      if (!show) otherCourse.value = "";
-    }
-
-    function toggleOtherCareer() {
-      const show = career.value === "Other";
-      otherCareerField.classList.toggle("hidden", !show);
-      otherCareer.required = show;
-      if (!show) otherCareer.value = "";
-    }
-
-    function getFormData() {
-      return {
-        state: document.getElementById("state").value.trim(),
-        district: document.getElementById("district").value.trim(),
-        name: document.getElementById("name").value.trim(),
-        parent: document.getElementById("parent").value.trim(),
-        dob: document.getElementById("dob").value,
-        mobile: normalizePhone(document.getElementById("mobile").value),
-        caste: document.getElementById("caste").value,
-        school: document.getElementById("school").value.trim(),
-        stream: stream.value,
-        course: course.value === "Other" ? otherCourse.value.trim() : course.value,
-        college: document.getElementById("college").value.trim(),
-        career: career.value === "Other" ? otherCareer.value.trim() : career.value,
-        travel: document.getElementById("travel").value,
-        scholarship: document.getElementById("scholarship").value,
-        health: document.getElementById("health").value,
-        parent1: normalizePhone(document.getElementById("parent1").value),
-        parent2: normalizePhone(document.getElementById("parent2").value)
-      };
-    }
-
-    function validateForm(data) {
-      if (!data.district || !data.name || !data.parent || !data.dob || !data.mobile || !data.school) return "Please required fields properly fill karein.";
-      if (data.mobile.length !== 10) return "Student mobile number 10 digits ka hona chahiye.";
-      if (course.value === "Other" && !data.course) return "Other course likhna zaroori hai.";
-      if (career.value === "Other" && !data.career) return "Other career goal likhna zaroori hai.";
-      if (data.parent1 && data.parent1.length !== 10) return "Parent Mobile 1 10 digits ka hona chahiye.";
-      if (data.parent2 && data.parent2.length !== 10) return "Parent Mobile 2 10 digits ka hona chahiye.";
-      return "";
-    }
-
-    async function saveRegistrationToBackend(data, paymentId) {
-      if (!APP_CONFIG.appsScriptUrl || APP_CONFIG.appsScriptUrl === "YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL") return;
-      await fetch(APP_CONFIG.appsScriptUrl, {
-        method: "POST",
-        headers: { "Content-Type": "text/plain;charset=utf-8" },
-        body: JSON.stringify({ action: "submit", event_name: APP_CONFIG.eventName, amount: APP_CONFIG.amount / 100, currency: APP_CONFIG.currency, payment_id: paymentId, payment_status: "Paid", submitted_at: new Date().toISOString(), ...data })
-      });
-    }
-
-  <script src="assets/config.js"></script>
-  <script src="assets/app.js"></script>
-    function showSuccessPopup(data, paymentId) {
-      const receiptItems = [["Student Name", data.name],["Mobile", data.mobile],["District", data.district],["Stream", data.stream],["Course", data.course],["Payment ID", paymentId]];
-      receiptBox.innerHTML = receiptItems.map(function(item) {
-        return "<div class='receipt-item'><span>" + item[0] + "</span><strong>" + item[1] + "</strong></div>";
-      }).join("");
-      whatsappJoinBtn.href = APP_CONFIG.whatsappGroupUrl;
-      successOverlay.classList.add("show");
-    }
-
-    function closeSuccessModal() { successOverlay.classList.remove("show"); }
-    function openPolicy(type) { const selected = policies[type]; if (!selected) return; policyTitle.textContent = selected.title; policyContent.innerHTML = selected.html; policyOverlay.classList.add("show"); }
-    function closePolicy() { policyOverlay.classList.remove("show"); }
-
-    async function handleSuccess(data, paymentId) {
-      try { await saveRegistrationToBackend(data, paymentId); } catch (error) {}
-      setStatus("Payment successful. WhatsApp group join karein.", "success");
-      form.reset();
-      updateCourseOptions();
-      toggleOtherCareer();
-      showSuccessPopup(data, paymentId);
-    }
-
-    function startPayment(data) {
-      if (!window.Razorpay) return setStatus("Razorpay load nahi hua. Internet ya script check karein.", "error");
-      if (!APP_CONFIG.razorpayKey || APP_CONFIG.razorpayKey === "YOUR_RAZORPAY_KEY") return setStatus("Apni live Razorpay key add karein. Tab payment proper chalega.", "error");
-      payBtn.disabled = true;
-      setStatus("Payment gateway open ho raha hai...", "info");
-      const rzp = new Razorpay({
-        key: APP_CONFIG.razorpayKey,
-        amount: APP_CONFIG.amount,
-        currency: APP_CONFIG.currency,
-        name: APP_CONFIG.eventName,
-        description: "Student Registration Fee",
-        prefill: { name: data.name, contact: data.mobile },
-        notes: { district: data.district, stream: data.stream, course: data.course },
-        theme: { color: "#47d7ff" },
-        handler: function(response) { handleSuccess(data, response.razorpay_payment_id).finally(function() { payBtn.disabled = false; }); },
-        modal: { ondismiss: function() { payBtn.disabled = false; setStatus("Payment cancel kar diya gaya.", "info"); } }
-      });
-      rzp.on("payment.failed", function() { payBtn.disabled = false; setStatus("Payment failed. Kripya dobara try karein.", "error"); });
-      rzp.open();
-    }
-
-    form.addEventListener("submit", function(event) {
-      event.preventDefault();
-      const data = getFormData();
-      const error = validateForm(data);
-      if (error) return setStatus(error, "error");
-      startPayment(data);
-    });
-
-    [document.getElementById("mobile"), document.getElementById("parent1"), document.getElementById("parent2")].forEach(function(input) {
-      input.addEventListener("input", function() { input.value = normalizePhone(input.value); });
-    });
-
-    stream.addEventListener("change", updateCourseOptions);
-    course.addEventListener("change", toggleOtherCourse);
-    career.addEventListener("change", toggleOtherCareer);
-    successOverlay.addEventListener("click", function(event) { if (event.target === successOverlay) closeSuccessModal(); });
-    policyOverlay.addEventListener("click", function(event) { if (event.target === policyOverlay) closePolicy(); });
-    updateCourseOptions();
-    toggleOtherCareer();
-  </script>
 </body>
 </html>
