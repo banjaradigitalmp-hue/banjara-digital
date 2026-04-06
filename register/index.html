@@ -4,69 +4,69 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Student Success Meet 2026-27</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
 <style>
 body{
     font-family:'Poppins',sans-serif;
     margin:0;
-    background:linear-gradient(135deg,#020617,#0f172a,#1e293b);
-    color:#fff;
+    background:#f1f5f9;
 }
 
-/* HEADER IMAGE */
-.header img{
-    width:100%;
-    max-height:240px;
-    object-fit:cover;
-}
-
-/* HEADER BOX */
-.headerBox{
-    background:rgba(255,255,255,0.08);
-    backdrop-filter:blur(20px);
+/* HEADER */
+.headerCard{
+    background:#ffffff;
     margin:15px;
     padding:20px;
     border-radius:16px;
+    box-shadow:0 10px 25px rgba(0,0,0,0.08);
     text-align:center;
 }
 
-/* TITLE */
-.headerBox h1{
-    color:#facc15; /* highlight yellow */
-    font-size:26px;
+.headerCard h1{
+    color:#2563eb;
+    font-weight:700;
 }
 
-/* AAYOJAK */
-.headerBox h3{
-    color:#22c55e;
+.headerCard h3{
+    color:#16a34a;
+    font-weight:600;
 }
 
-/* EVENT BOX */
-.eventBox{
-    background:linear-gradient(135deg,#06b6d4,#3b82f6);
-    padding:12px;
-    border-radius:10px;
+.eventInfo{
     margin-top:10px;
-    color:#fff;
+    color:#334155;
+    font-weight:500;
+}
+
+/* IMAGE */
+.header img{
+    width:100%;
+    max-height:220px;
+    object-fit:cover;
 }
 
 /* FORM */
 .container{
     max-width:700px;
     margin:20px auto;
-    background:rgba(255,255,255,0.05);
+    background:white;
     padding:25px;
     border-radius:16px;
-    backdrop-filter:blur(15px);
+    box-shadow:0 10px 25px rgba(0,0,0,0.08);
 }
 
-label{margin-top:12px;display:block;}
+label{
+    margin-top:12px;
+    display:block;
+    font-weight:600;
+}
+
 input,select{
     width:100%;
     padding:12px;
     border-radius:8px;
-    border:none;
+    border:1px solid #ccc;
     margin-top:5px;
 }
 
@@ -88,63 +88,61 @@ button{
 /* DIGITAL PARTNER */
 .partnerCard{
     text-align:center;
-    margin:25px;
+    margin:20px;
     padding:25px;
-    background:#ffffff;
-    border-radius:18px;
-    color:#111;
-    box-shadow:0 8px 25px rgba(0,0,0,0.15);
+    background:white;
+    border-radius:16px;
+    box-shadow:0 10px 25px rgba(0,0,0,0.08);
 }
 
-/* LOGO FIX */
 .logoCircle{
     width:70px;
     height:70px;
     border-radius:50%;
     object-fit:cover;
-    border:3px solid #e5e7eb;
     margin:10px 0;
 }
 
-/* TEXT */
 .partnerCard h2{
-    color:#3b82f6;
+    color:#2563eb;
 }
 
 .partnerCard h1{
-    color:#000; /* BLACK */
+    color:#000;
     font-weight:700;
 }
 
 .partnerCard p{
-    color:#6b7280;
-    letter-spacing:2px;
+    color:#64748b;
+    letter-spacing:1px;
 }
 
 /* FOOTER */
 .footer{
-    background:#020617;
+    background:#0f172a;
+    color:white;
     text-align:center;
-    padding:25px;
+    padding:20px;
 }
 .footer a{color:#38bdf8;text-decoration:none;}
-
 </style>
 
 </head>
 
 <body>
 
-<!-- HEADER -->
+<!-- HEADER IMAGE -->
 <div class="header">
-
 <img src="https://github.com/banjaradigitalmp-hue/student-form/blob/main/WhatsApp%20Image%202026-04-04%20at%209.41.57%20AM.jpeg?raw=true">
+</div>
 
-<div class="headerBox">
+<!-- HEADER CARD -->
+<div class="headerCard">
+
 <h1>Student Success Meet 2026-27</h1>
 <h3>आयोजक: म.प्र. NGO महासंघ</h3>
 
-<div class="eventBox">
+<div class="eventInfo">
 <p>📅 10 May 2026 | ⏰ 10:00 AM</p>
 <p>📍 आनंद मोहन माथुर सभागृह, इंदौर</p>
 </div>
@@ -152,7 +150,6 @@ button{
 <a href="https://www.google.com/maps/search/?api=1&query=Anand+Mohan+Mathur+Sabhagrah+Indore" target="_blank">
 <button class="mapBtn">📍 View Location</button>
 </a>
-</div>
 
 </div>
 
@@ -172,10 +169,10 @@ button{
 <label>Date of Birth / जन्म तिथि</label>
 <input type="date" name="DOB">
 
-<label>Mobile Number</label>
+<label>Mobile Number / मोबाइल नंबर</label>
 <input name="Mobile">
 
-<label>Caste</label>
+<label>Caste / जाति</label>
 <select name="Caste">
 <option>SC</option>
 <option>ST</option>
@@ -183,10 +180,10 @@ button{
 <option>Other</option>
 </select>
 
-<label>School Name</label>
+<label>School Name / स्कूल</label>
 <input name="School">
 
-<label>Stream</label>
+<label>Stream / विषय</label>
 <select name="Stream">
 <option>Science</option>
 <option>Commerce</option>
@@ -195,17 +192,10 @@ button{
 <option>Other</option>
 </select>
 
-<label>Subject Exam</label>
-<select name="Subject">
-<option>Science</option>
-<option>Commerce</option>
-<option>Arts</option>
-</select>
-
-<label>Future College</label>
+<label>Future College / भविष्य कॉलेज</label>
 <input name="College">
 
-<label>Career Goal</label>
+<label>Career Goal / लक्ष्य</label>
 <select name="Career">
 <option>Doctor</option>
 <option>Engineer</option>
@@ -214,20 +204,20 @@ button{
 <option>Other</option>
 </select>
 
-<label>Travel Mode</label>
+<label>Travel Mode / कैसे आएंगे</label>
 <select name="Travel">
 <option>Self</option>
 <option>Bus</option>
 <option>Public Transport</option>
 </select>
 
-<label>Scholarship</label>
+<label>Scholarship / स्कॉलरशिप चाहिए?</label>
 <select name="Scholarship">
 <option>Yes</option>
 <option>No</option>
 </select>
 
-<label>Health Card</label>
+<label>Health Card / हेल्थ कार्ड चाहिए?</label>
 <select name="Health">
 <option>Yes</option>
 <option>No</option>
@@ -239,7 +229,7 @@ button{
 <label>Parent Mobile 2</label>
 <input name="Parent Mobile 2">
 
-<p style="color:#4ade80;">
+<p style="color:#16a34a;">
 ₹21 Registration Fee (Food + Medal + Certificate)
 </p>
 
@@ -255,7 +245,7 @@ button{
 
 <h2>Digital Partner</h2>
 
-<img src="https://github.com/banjaradigitalmp-hue/banjara-digital/blob/main/WhatsApp%20Image%202026-03-06%20at%206.52.34%20PM.jpeg?raw=true">
+<img src="https://your-logo-link.png" class="logoCircle">
 
 <h1>Banjara Digital</h1>
 
@@ -282,7 +272,7 @@ User data सुरक्षित रखा जाता है। All payments
 
 <script>
 function joinGroup(){
-window.open("https://chat.whatsapp.com/F6pAgLGdTcu5soecJMh3F0");
+window.open("https://chat.whatsapp.com/F6pAgLGdTcu5soecJMh3F0","_blank");
 }
 </script>
 
