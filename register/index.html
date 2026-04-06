@@ -8,18 +8,99 @@
 <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
 
 <style>
-body{font-family:'Poppins';margin:0;background:#020617;color:#fff;}
-.banner img{width:100%;}
-.headerCard{background:#fff;color:#000;margin:15px;padding:20px;border-radius:15px;text-align:center;}
-.eventInfo{background:#f1f5f9;padding:10px;border-radius:10px;margin-top:10px;}
-.container{max-width:720px;margin:auto;background:#111827;padding:20px;border-radius:15px;}
-input,select{width:100%;padding:12px;margin-top:5px;border-radius:8px;border:none;}
-button{width:100%;padding:14px;margin-top:12px;border:none;border-radius:8px;}
-.pay{background:#2563eb;color:#fff;}
-.partnerCard{background:#fff;color:#000;margin:20px;padding:20px;text-align:center;border-radius:15px;}
-.logoCircle{width:90px;height:90px;border-radius:50%;box-shadow:0 0 20px #000;}
-.footer{text-align:center;padding:20px;}
-.footer a{color:#38bdf8;}
+body{
+font-family:'Poppins';
+margin:0;
+background:#020617;
+color:#fff;
+}
+
+.banner img{
+width:100%;
+}
+
+.headerCard{
+background:#fff;
+color:#000;
+margin:15px;
+padding:20px;
+border-radius:15px;
+text-align:center;
+}
+
+.eventInfo{
+background:#f1f5f9;
+padding:10px;
+border-radius:10px;
+margin-top:10px;
+}
+
+.container{
+max-width:720px;
+margin:auto;
+background:#111827;
+padding:20px;
+border-radius:15px;
+}
+
+input,select{
+width:100%;
+padding:12px;
+margin-top:8px;
+border-radius:8px;
+border:none;
+outline:none;
+}
+
+input:focus,select:focus{
+box-shadow:0 0 8px #2563eb;
+}
+
+button{
+width:100%;
+padding:14px;
+margin-top:12px;
+border:none;
+border-radius:8px;
+cursor:pointer;
+font-weight:600;
+}
+
+.pay{
+background:#2563eb;
+color:#fff;
+}
+
+.pay:hover{
+background:#1d4ed8;
+}
+
+.partnerCard{
+background:#fff;
+color:#000;
+margin:20px;
+padding:20px;
+text-align:center;
+border-radius:15px;
+}
+
+.logoCircle{
+width:90px;
+height:90px;
+border-radius:50%;
+box-shadow:0 0 20px #000;
+}
+
+.footer{
+text-align:center;
+padding:20px;
+}
+
+.footer a{
+color:#38bdf8;
+text-decoration:none;
+margin:0 5px;
+}
 </style>
 
 </head>
@@ -57,7 +138,10 @@ button{width:100%;padding:14px;margin-top:12px;border:none;border-radius:8px;}
 <option>Other</option>
 </select>
 
-<select id="course"></select>
+<select id="course">
+<option value="">Select Course</option>
+</select>
+
 <input id="otherCourse" placeholder="Write Course" style="display:none;">
 
 <p>₹21 Exam Fee – Free Food + Token + Medal + Certificate</p>
@@ -83,13 +167,21 @@ button{width:100%;padding:14px;margin-top:12px;border:none;border-radius:8px;}
 
 <script>
 
+/* GLOBAL VARIABLES */
+let name = document.getElementById("name");
+let mobile = document.getElementById("mobile");
+let stream = document.getElementById("stream");
+let course = document.getElementById("course");
+let otherCourse = document.getElementById("otherCourse");
+
 /* MAP */
 function openMap(){
-window.open("https://www.google.com/maps/search/?api=1&query=Indore");
+window.open("https://www.google.com/maps?q=Anand Mohan Mathur Sabhagrah Indore");
 }
 
-/* COURSE FIX */
+/* COURSE */
 function updateCourse(){
+
 let data={
 Science:["MBBS","BSc","Engineering","Other"],
 Commerce:["BCom","CA","BBA","Other"],
@@ -98,18 +190,20 @@ Maths:["BSc Maths","Data Science","Other"],
 Other:["Other"]
 };
 
-let courseSelect=document.getElementById("course");
-courseSelect.innerHTML="";
+course.innerHTML="<option value=''>Select Course</option>";
+
+if(stream.value==="") return;
 
 data[stream.value].forEach(c=>{
 let opt=document.createElement("option");
 opt.value=c;
 opt.text=c;
-courseSelect.appendChild(opt);
+course.appendChild(opt);
 });
 }
 
-document.getElementById("course").addEventListener("change",function(){
+/* OTHER COURSE */
+course.addEventListener("change",function(){
 if(this.value==="Other"){
 otherCourse.style.display="block";
 }else{
@@ -117,7 +211,7 @@ otherCourse.style.display="none";
 }
 });
 
-/* PAYMENT + SHEET + WHATSAPP */
+/* PAYMENT */
 function payNow(){
 
 if(name.value=="" || mobile.value==""){
@@ -125,8 +219,13 @@ alert("Fill details first");
 return;
 }
 
+if(mobile.value.length!=10){
+alert("Enter valid mobile number");
+return;
+}
+
 var options={
-key:"rzp_live_SZnaVX76WrMx4H",
+key:"rzp_live_SZnaVX76WrMx4H", // 👉 अपनी key डालो
 amount:2100,
 currency:"INR",
 
