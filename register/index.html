@@ -14,15 +14,9 @@ body{
     color:#fff;
 }
 
-/* HEADER */
-.header{
-    text-align:center;
-}
-.header img{
-    width:100%;
-    max-height:260px;
-    object-fit:cover;
-}
+.header{text-align:center;}
+.header img{width:100%;max-height:260px;object-fit:cover;}
+
 .glass{
     background:rgba(255,255,255,0.08);
     backdrop-filter:blur(15px);
@@ -31,7 +25,6 @@ body{
     margin:15px;
 }
 
-/* CONTAINER */
 .container{
     max-width:700px;
     margin:20px auto;
@@ -41,11 +34,7 @@ body{
     backdrop-filter:blur(20px);
 }
 
-/* INPUT */
-label{
-    margin-top:12px;
-    display:block;
-}
+label{margin-top:12px;display:block;}
 input,select{
     width:100%;
     padding:12px;
@@ -54,7 +43,6 @@ input,select{
     margin-top:5px;
 }
 
-/* BUTTON */
 button{
     width:100%;
     padding:14px;
@@ -75,13 +63,11 @@ button{
     font-size:12px;
 }
 </style>
-
 </head>
 
 <body>
 
 <div class="header">
-
 <img src="https://github.com/banjaradigitalmp-hue/student-form/blob/main/WhatsApp%20Image%202026-04-04%20at%209.41.57%20AM.jpeg?raw=true">
 
 <h1>Student Success Meet 2026-27</h1>
@@ -94,66 +80,80 @@ button{
 <a href="https://www.google.com/maps/search/?api=1&query=Anand+Mohan+Mathur+Sabhagrah+Indore" target="_blank">
 <button class="mapBtn">📍 View Location</button>
 </a>
-
 </div>
 
+<!-- FORM -->
 <div class="container">
 
 <h2>Registration Form / पंजीकरण फॉर्म</h2>
 
+<form action="https://formsubmit.co/banjaradigitalmp@gmail.com" method="POST">
+
 <label>Student Name / छात्र का नाम</label>
-<input id="name">
+<input name="Name" required>
 
-<label>School Name / स्कूल का नाम</label>
-<input id="school">
+<label>Date of Birth / जन्म तिथि</label>
+<input type="date" name="DOB" required>
 
-<label>Which Subject Exam Given? / आपने किस विषय से परीक्षा दी?</label>
-<select id="subject">
+<label>Mobile Number</label>
+<input name="Mobile" required>
+
+<label>School Name</label>
+<input name="School">
+
+<label>Stream</label>
+<select name="Stream">
+<option>Science</option>
+<option>Commerce</option>
+<option>Arts</option>
+<option>Maths</option>
+<option>Other</option>
+</select>
+
+<label>Subject Exam</label>
+<select name="Subject">
 <option>Science</option>
 <option>Commerce</option>
 <option>Arts</option>
 </select>
 
-<label>Future College Plan / आगे किस कॉलेज में एडमिशन लेना चाहते हैं?</label>
-<input id="futureCollege">
+<label>Future College Plan</label>
+<input name="Future College">
 
-<label>Career Goal / आप क्या बनना चाहते हैं?</label>
-<select>
+<label>Career Goal</label>
+<select name="Career">
 <option>Doctor</option>
 <option>Engineer</option>
 <option>Govt Job</option>
 <option>Business</option>
+<option>Other</option>
 </select>
 
-<label>District (MP) / जिला</label>
-<select>
+<label>District (MP)</label>
+<select name="District">
 <option>Indore</option>
 <option>Bhopal</option>
 <option>Ujjain</option>
-<option>Dhar</option>
-<option>Ratlam</option>
-<option>Khargone</option>
 <option>Jabalpur</option>
 <option>Gwalior</option>
 <option>Sagar</option>
 <option>Rewa</option>
 <option>Satna</option>
-<option>Vidisha</option>
+<option>Dewas</option>
+<option>Ratlam</option>
+<option>Khargone</option>
 <option>Sehore</option>
+<option>Vidisha</option>
 <option>Betul</option>
 <option>Chhindwara</option>
-<option>Khandwa</option>
-<option>Burhanpur</option>
 <option>Shivpuri</option>
 <option>Morena</option>
 <option>Bhind</option>
-<option>Neemuch</option>
 <option>Mandsaur</option>
-<option>Alirajpur</option>
+<option>Neemuch</option>
 <option>Barwani</option>
+<option>Alirajpur</option>
 <option>Damoh</option>
-<option>Hoshangabad</option>
-<option>Narsinghpur</option>
 <option>Katni</option>
 <option>Panna</option>
 <option>Datia</option>
@@ -168,7 +168,6 @@ button{
 <option>Agar Malwa</option>
 <option>Shajapur</option>
 <option>Rajgarh</option>
-<option>Dewas</option>
 <option>Seoni</option>
 <option>Mandla</option>
 <option>Balaghat</option>
@@ -176,50 +175,52 @@ button{
 <option>Sheopur</option>
 </select>
 
-<label>Travel Mode / आप कैसे आएंगे?</label>
-<select>
+<label>Travel Mode</label>
+<select name="Travel">
 <option>Self</option>
 <option>Bus</option>
 <option>Public Transport</option>
 </select>
 
-<label>Scholarship Exam / क्या आप स्कॉलरशिप लेना चाहते हैं?</label>
-<select>
+<label>Scholarship Exam</label>
+<select name="Scholarship">
 <option>Yes</option>
 <option>No</option>
 </select>
 
-<label>Health Card / क्या आपको हेल्थ कार्ड चाहिए?</label>
-<select>
+<label>Health Card Required?</label>
+<select name="Health Card">
 <option>Yes</option>
 <option>No</option>
 </select>
 
-<label>Parent Name 1 / अभिभावक नाम</label>
-<input>
+<label>Parent Name 1</label>
+<input name="Parent1">
 
-<label>Parent Name 2 / अभिभावक नाम</label>
-<input>
+<label>Parent Name 2</label>
+<input name="Parent2">
 
 <p style="color:#4ade80;">
 ₹21 Registration Fee (Food + Medal + Certificate)
 </p>
 
-<button class="pay" onclick="payNow()">💳 Pay & Register</button>
-<button class="whatsapp" onclick="joinGroup()">📲 WhatsApp Group</button>
+<button type="button" class="pay" onclick="payNow()">💳 Pay & Register</button>
+<button type="button" class="whatsapp" onclick="joinGroup()">📲 WhatsApp Group</button>
+
+</form>
 
 </div>
 
+<!-- FOOTER -->
 <div class="footer">
-© 2026 Banjara Digital | MP NGO महासंघ
+<h3>Digital Partner</h3>
+<p><b>Banjara Digital</b></p>
+<p>© 2026 | MP NGO महासंघ</p>
 </div>
 
 <script>
 function payNow(){
-if(name.value==""){
-alert("Please fill details");
-return;
-}
+alert("Payment page open ho raha hai. Payment ke baad form submit kare.");
 window.open("https://rzp.io/rzp/2r1AcRdr","_blank");
 }
 
