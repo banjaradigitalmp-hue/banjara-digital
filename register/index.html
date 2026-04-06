@@ -9,50 +9,63 @@
 
 <style>
 body{
-font-family:'Poppins';
+font-family:'Poppins',sans-serif;
 margin:0;
 background:linear-gradient(135deg,#020617,#0f172a);
 color:#fff;
 }
 
-/* HEADER */
+/* BANNER */
 .banner img{width:100%;}
 
+/* HEADER WHITE */
 .headerCard{
-background:rgba(255,255,255,0.08);
-backdrop-filter:blur(12px);
+background:#fff;
 margin:15px;
 padding:25px;
 border-radius:18px;
 text-align:center;
+color:#000;
+box-shadow:0 10px 30px rgba(0,0,0,0.3);
 }
 
-.year{color:#38bdf8;font-weight:600;}
+.year{color:#2563eb;font-weight:600;}
 
 .eventInfo{
 margin-top:10px;
 padding:12px;
-background:rgba(255,255,255,0.1);
+background:#f1f5f9;
 border-radius:10px;
+}
+
+/* MAP */
+.mapBtn{
+background:#16a34a;
+color:#fff;
+padding:12px;
+border:none;
+border-radius:10px;
+margin-top:10px;
+width:100%;
 }
 
 /* FORM */
 .container{
 max-width:720px;
-margin:auto;
+margin:20px auto;
 background:rgba(255,255,255,0.05);
-padding:20px;
-border-radius:15px;
+padding:25px;
+border-radius:18px;
 }
+
+label{margin-top:12px;display:block;}
 
 input,select{
 width:100%;
 padding:12px;
-margin-top:8px;
-border-radius:8px;
+margin-top:6px;
+border-radius:10px;
 border:none;
-background:#020617;
-color:#fff;
 }
 
 /* BUTTON */
@@ -62,16 +75,17 @@ padding:14px;
 margin-top:12px;
 border:none;
 border-radius:10px;
+font-weight:600;
 }
 
 .pay{background:#2563eb;color:#fff;}
 
-/* PARTNER */
+/* LOGO */
 .partnerCard{
 background:#fff;
-margin:20px;
-padding:20px;
-border-radius:15px;
+margin:25px;
+padding:25px;
+border-radius:18px;
 text-align:center;
 color:#000;
 }
@@ -80,11 +94,14 @@ color:#000;
 width:100px;
 height:100px;
 border-radius:50%;
-box-shadow:0 0 25px rgba(0,0,0,0.8);
+box-shadow:0 0 25px rgba(0,0,0,0.7);
 }
 
 /* FOOTER */
-.footer{text-align:center;padding:20px;font-size:13px;}
+.footer{
+text-align:center;
+padding:20px;
+}
 .footer a{color:#38bdf8;}
 </style>
 
@@ -108,6 +125,8 @@ box-shadow:0 0 25px rgba(0,0,0,0.8);
 ⏰ 10:00 AM <br>
 📍 आनंद मोहन माथुर सभागृह, इंदौर
 </div>
+
+<button class="mapBtn" onclick="openMap()">📍 View Location</button>
 </div>
 
 <!-- FORM -->
@@ -115,36 +134,35 @@ box-shadow:0 0 25px rgba(0,0,0,0.8);
 
 <h2>Registration Form / पंजीकरण फॉर्म</h2>
 
-<input id="name" placeholder="Student Name / छात्र का नाम">
-<input id="parent" placeholder="Parent Name / अभिभावक">
-<input type="date" id="dob">
-<input id="mobile" placeholder="Mobile / मोबाइल">
+<label>Student Name / छात्र का नाम</label>
+<input id="name">
 
+<label>Parent Name / अभिभावक</label>
+<input id="parent">
+
+<label>Date of Birth / जन्म तिथि</label>
+<input type="date" id="dob">
+
+<label>Mobile Number / मोबाइल</label>
+<input id="mobile">
+
+<label>Caste / जाति</label>
 <select id="caste">
 <option>SC</option><option>ST</option><option>OBC</option><option>Other</option>
 </select>
 
+<label>District / जिला</label>
 <select id="district">
 <option>Indore</option><option>Bhopal</option><option>Ujjain</option>
 <option>Jabalpur</option><option>Gwalior</option><option>Sagar</option>
-<option>Rewa</option><option>Satna</option><option>Dewas</option>
-<option>Ratlam</option><option>Khargone</option><option>Sehore</option>
-<option>Vidisha</option><option>Betul</option><option>Chhindwara</option>
-<option>Shivpuri</option><option>Morena</option><option>Bhind</option>
-<option>Mandsaur</option><option>Neemuch</option><option>Barwani</option>
-<option>Alirajpur</option><option>Damoh</option><option>Katni</option>
-<option>Panna</option><option>Datia</option><option>Tikamgarh</option>
-<option>Singrauli</option><option>Anuppur</option><option>Dindori</option>
-<option>Umaria</option><option>Sidhi</option><option>Shahdol</option>
-<option>Harda</option><option>Agar Malwa</option><option>Shajapur</option>
-<option>Rajgarh</option><option>Seoni</option><option>Mandla</option>
-<option>Balaghat</option><option>Ashoknagar</option><option>Sheopur</option>
 </select>
 
-<input id="school" placeholder="School / स्कूल">
+<label>School / स्कूल</label>
+<input id="school">
 
+<label>Stream / विषय</label>
 <select id="stream" onchange="updateCourse()">
-<option value="">Select Stream</option>
+<option value="">Select</option>
 <option>Science</option>
 <option>Commerce</option>
 <option>Arts</option>
@@ -152,35 +170,42 @@ box-shadow:0 0 25px rgba(0,0,0,0.8);
 <option>Other</option>
 </select>
 
-<select id="course" onchange="checkCourse()">
-<option>Select Course</option>
-</select>
+<label>Course / कोर्स</label>
+<select id="course" onchange="checkCourse()"></select>
 
-<input id="otherCourse" placeholder="Write Course" style="display:none;">
+<input id="otherCourse" placeholder="Other Course" style="display:none;">
 
-<input id="college" placeholder="Future College / भविष्य कॉलेज">
+<label>Future College / कॉलेज</label>
+<input id="college">
 
+<label>Career Goal / लक्ष्य</label>
 <select id="career">
 <option>Doctor</option><option>Engineer</option><option>Govt Job</option>
 <option>Business</option><option>Other</option>
 </select>
 
+<label>Travel Mode / यात्रा</label>
 <select id="travel">
 <option>Self Vehicle</option>
 <option>College Bus</option>
 <option>Public Transport</option>
 </select>
 
+<label>Scholarship / स्कॉलरशिप</label>
 <select id="scholarship">
 <option>Yes</option><option>No</option>
 </select>
 
+<label>Health Card / हेल्थ कार्ड</label>
 <select id="health">
 <option>Yes</option><option>No</option>
 </select>
 
-<input id="parent1" placeholder="Parent Mobile 1">
-<input id="parent2" placeholder="Parent Mobile 2">
+<label>Parent Mobile 1</label>
+<input id="parent1">
+
+<label>Parent Mobile 2</label>
+<input id="parent2">
 
 <p>₹21 Exam Fee – Free Food + Token + Medal + Certificate</p>
 
@@ -204,8 +229,8 @@ Payment के बाद WhatsApp group join करें
 <div class="footer">
 <p>
 <a href="#">Privacy Policy</a> |
-<a href="#">Terms & Conditions</a> |
-<a href="#">Refund Policy</a>
+<a href="#">Terms</a> |
+<a href="#">Refund</a>
 </p>
 <p>User data सुरक्षित रखा जाता है। All payments non-refundable.</p>
 <p>© 2026 Banjara Digital</p>
@@ -213,32 +238,45 @@ Payment के बाद WhatsApp group join करें
 
 <script>
 
-/* STREAM COURSE */
+/* MAP */
+function openMap(){
+window.open("https://www.google.com/maps/search/?api=1&query=Anand+Mohan+Mathur+Sabhagrah+Indore");
+}
+
+/* STREAM */
 function updateCourse(){
+let s=stream.value;
+let c=course;
+
 let data={
-Science:["MBBS","BSc","Engineering","Pharmacy","Other"],
-Commerce:["BCom","CA","CS","BBA","Other"],
-Arts:["BA","LLB","Journalism","UPSC","Other"],
-Maths:["BSc Maths","Data Science","Statistics","Other"],
+Science:["MBBS","BSc","Engineering","Other"],
+Commerce:["BCom","CA","BBA","Other"],
+Arts:["BA","LLB","UPSC","Other"],
+Maths:["BSc Maths","Data Science","Other"],
 Other:["Other"]
 };
 
-course.innerHTML="";
-data[stream.value].forEach(x=>{
+c.innerHTML="";
+data[s].forEach(x=>{
 let o=document.createElement("option");
 o.text=x;
-course.add(o);
+c.add(o);
 });
 }
 
+/* COURSE */
 function checkCourse(){
-otherCourse.style.display=(course.value=="Other")?"block":"none";
+if(course.value=="Other"){
+otherCourse.style.display="block";
+}else{
+otherCourse.style.display="none";
+}
 }
 
 /* PAYMENT */
 function startPayment(){
 
-if(name.value=="" || mobile.value=="" || stream.value==""){
+if(name.value=="" || mobile.value==""){
 alert("Please fill all required fields");
 return;
 }
