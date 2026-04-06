@@ -8,36 +8,55 @@
 <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
 
 <style>
-body{font-family:'Poppins';margin:0;background:#020617;color:#fff;}
+body{font-family:'Poppins';margin:0;background:linear-gradient(135deg,#020617,#0f172a);color:#fff;}
 .banner img{width:100%;}
 .headerCard{background:#fff;margin:15px;padding:25px;border-radius:18px;text-align:center;color:#000;}
+.year{color:#2563eb;font-weight:600;}
+.eventInfo{margin-top:10px;padding:12px;background:#f1f5f9;border-radius:10px;}
 .container{max-width:720px;margin:auto;background:#111827;padding:20px;border-radius:15px;}
 input,select{width:100%;padding:12px;margin-top:8px;border-radius:8px;border:none;}
 button{width:100%;padding:14px;margin-top:12px;border:none;border-radius:8px;}
 .pay{background:#2563eb;color:#fff;}
+.mapBtn{background:#16a34a;color:#fff;}
 .partnerCard{background:#fff;margin:20px;padding:20px;text-align:center;color:#000;border-radius:15px;}
 .logoCircle{width:90px;height:90px;border-radius:50%;}
+.footer{text-align:center;padding:20px;font-size:13px;}
+.footer a{color:#38bdf8;}
 </style>
 
 </head>
 
 <body>
 
+<!-- BANNER -->
 <div class="banner">
 <img src="https://github.com/banjaradigitalmp-hue/student-form/blob/main/WhatsApp%20Image%202026-04-04%20at%209.41.57%20AM.jpeg?raw=true">
 </div>
 
+<!-- HEADER -->
 <div class="headerCard">
-<h2>Student Success Meet 2026-27</h2>
-<p>आयोजक: म.प्र. NGO महासंघ</p>
+<h2>Student Success Meet</h2>
+<div class="year">2026-27</div>
+<h3>आयोजक: म.प्र. NGO महासंघ</h3>
+
+<div class="eventInfo">
+📅 10 May 2026 <br>
+⏰ 10:00 AM <br>
+📍 आनंद मोहन माथुर सभागृह, इंदौर
 </div>
 
+<button class="mapBtn" onclick="openMap()">📍 View Location</button>
+</div>
+
+<!-- FORM -->
 <div class="container">
 
+<h2>Registration Form / पंजीकरण फॉर्म</h2>
+
 <input id="name" placeholder="Student Name / छात्र का नाम" required>
-<input id="parent" placeholder="Parent Name">
+<input id="parent" placeholder="Parent Name / अभिभावक">
 <input type="date" id="dob">
-<input id="mobile" placeholder="Mobile" required>
+<input id="mobile" placeholder="Mobile / मोबाइल" required>
 
 <select id="caste">
 <option>SC</option><option>ST</option><option>OBC</option><option>Other</option>
@@ -48,27 +67,35 @@ button{width:100%;padding:14px;margin-top:12px;border:none;border-radius:8px;}
 <option>Jabalpur</option><option>Gwalior</option><option>Sagar</option>
 </select>
 
-<input id="school" placeholder="School">
+<input id="school" placeholder="School / स्कूल">
 
+<!-- STREAM -->
 <select id="stream" onchange="updateCourse()">
-<option value="">Select Stream</option>
+<option value="">Select Stream / विषय चुनें</option>
 <option>Science</option>
 <option>Commerce</option>
 <option>Arts</option>
+<option>Maths</option>
+<option>Other</option>
 </select>
 
-<select id="course">
-<option>Select Course</option>
+<!-- COURSE -->
+<select id="course" onchange="checkOtherCourse()">
+<option>Select Course / कोर्स चुनें</option>
 </select>
 
-<input id="college" placeholder="Future College">
+<input id="otherCourse" placeholder="Other Course / अन्य कोर्स लिखें" style="display:none;">
+
+<input id="college" placeholder="Future College / भविष्य कॉलेज">
 
 <select id="career">
-<option>Doctor</option><option>Engineer</option><option>Govt Job</option>
+<option>Doctor</option><option>Engineer</option><option>Govt Job</option><option>Business</option><option>Other</option>
 </select>
 
 <select id="travel">
-<option>Self</option><option>Bus</option><option>Public</option>
+<option>Self Vehicle</option>
+<option>College Bus</option>
+<option>Public Transport</option>
 </select>
 
 <select id="scholarship">
@@ -84,7 +111,7 @@ button{width:100%;padding:14px;margin-top:12px;border:none;border-radius:8px;}
 
 <p>₹21 Exam Fee – Free Food + Token + Medal + Certificate</p>
 
-<button class="pay" onclick="startPayment()">Pay & Register</button>
+<button class="pay" onclick="startPayment()">💳 Pay & Register</button>
 
 <p style="font-size:12px;">
 Payment के बाद आगे के update के लिए WhatsApp group join करें
@@ -92,23 +119,43 @@ Payment के बाद आगे के update के लिए WhatsApp group
 
 </div>
 
+<!-- DIGITAL PARTNER -->
 <div class="partnerCard">
 <h3>Digital Partner</h3>
 <img src="https://github.com/banjaradigitalmp-hue/banjara-digital/blob/main/WhatsApp%20Image%202026-03-06%20at%206.52.34%20PM.jpeg?raw=true" class="logoCircle">
 <h2>Banjara Digital</h2>
+<p>CONNECT • CREATE • GROW</p>
+</div>
+
+<!-- FOOTER -->
+<div class="footer">
+<p>
+<a href="#">Privacy Policy</a> |
+<a href="#">Terms & Conditions</a> |
+<a href="#">Refund Policy</a>
+</p>
+<p>User data सुरक्षित रखा जाता है। All payments non-refundable.</p>
+<p>© 2026 Banjara Digital</p>
 </div>
 
 <script>
 
+/* MAP */
+function openMap(){
+window.open("https://www.google.com/maps/search/?api=1&query=Anand+Mohan+Mathur+Sabhagrah+Indore");
+}
+
 /* STREAM → COURSE */
 function updateCourse(){
-let stream=document.getElementById("stream").value;
+let stream=streamSelect=document.getElementById("stream").value;
 let course=document.getElementById("course");
 
 let options={
-Science:["MBBS","BSc","Engineering","Pharmacy"],
-Commerce:["BCom","CA","CS","BBA"],
-Arts:["BA","LLB","Journalism","UPSC"]
+Science:["MBBS","BSc","Engineering","Pharmacy","Other"],
+Commerce:["BCom","CA","CS","BBA","Other"],
+Arts:["BA","LLB","Journalism","UPSC","Other"],
+Maths:["BSc Maths","Data Science","Statistics","Other"],
+Other:["Other"]
 };
 
 course.innerHTML="";
@@ -119,13 +166,24 @@ course.add(opt);
 });
 }
 
+/* OTHER COURSE */
+function checkOtherCourse(){
+if(course.value=="Other"){
+document.getElementById("otherCourse").style.display="block";
+}else{
+document.getElementById("otherCourse").style.display="none";
+}
+}
+
 /* PAYMENT */
 function startPayment(){
 
 if(name.value=="" || mobile.value=="" || stream.value==""){
-alert("Please fill form");
+alert("Please fill all required fields");
 return;
 }
+
+var finalCourse = (course.value=="Other") ? otherCourse.value : course.value;
 
 var options={
 key:"rzp_live_SZnaVX76WrMx4H",
@@ -145,7 +203,7 @@ caste:caste.value,
 district:district.value,
 school:school.value,
 stream:stream.value,
-course:course.value,
+course:finalCourse,
 college:college.value,
 career:career.value,
 travel:travel.value,
@@ -168,6 +226,7 @@ window.open("https://chat.whatsapp.com/F6pAgLGdTcu5soecJMh3F0");
 
 new Razorpay(options).open();
 }
+
 </script>
 
 </body>
