@@ -8,43 +8,94 @@
 <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
 
 <style>
-body{font-family:'Poppins';margin:0;background:#020617;color:#fff;}
+body{
+font-family:'Poppins';
+margin:0;
+background:#020617;
+color:#fff;
+}
 
+/* BANNER */
 .banner img{width:100%;}
 
+/* HEADER */
 .headerCard{
-background:#fff;color:#000;margin:15px;padding:20px;border-radius:15px;text-align:center;
+background:#fff;
+color:#000;
+margin:15px;
+padding:20px;
+border-radius:15px;
+text-align:center;
 }
 
-.eventInfo{background:#f1f5f9;padding:10px;border-radius:10px;margin-top:10px;}
+.eventInfo{
+background:#f1f5f9;
+padding:10px;
+border-radius:10px;
+margin-top:10px;
+}
 
+.mapBtn{
+background:#16a34a;
+color:#fff;
+padding:10px;
+border:none;
+border-radius:8px;
+width:100%;
+margin-top:10px;
+}
+
+/* FORM */
 .container{
-max-width:720px;margin:auto;background:#111827;padding:20px;border-radius:15px;
+max-width:720px;
+margin:auto;
+background:#111827;
+padding:20px;
+border-radius:15px;
 }
 
-label{margin-top:10px;display:block;font-size:14px;}
+label{margin-top:10px;display:block;}
 
 input,select{
-width:100%;padding:12px;margin-top:5px;border-radius:8px;border:none;
+width:100%;
+padding:12px;
+margin-top:5px;
+border-radius:8px;
+border:none;
 }
 
-button{
-width:100%;padding:14px;margin-top:12px;border:none;border-radius:8px;
-}
-
+/* BUTTON */
 .pay{background:#2563eb;color:#fff;}
-.mapBtn{background:#16a34a;color:#fff;}
+button{
+width:100%;
+padding:14px;
+margin-top:12px;
+border:none;
+border-radius:8px;
+}
 
+/* PARTNER */
 .partnerCard{
-background:#fff;margin:20px;padding:20px;text-align:center;color:#000;border-radius:15px;
+background:#fff;
+color:#000;
+margin:20px;
+padding:20px;
+text-align:center;
+border-radius:15px;
 }
 
 .logoCircle{
-width:100px;height:100px;border-radius:50%;
-box-shadow:0 0 25px rgba(0,0,0,0.7);
+width:90px;
+height:90px;
+border-radius:50%;
+box-shadow:0 0 20px #000;
 }
 
-.footer{text-align:center;padding:20px;}
+/* FOOTER */
+.footer{
+text-align:center;
+padding:20px;
+}
 .footer a{color:#38bdf8;}
 </style>
 
@@ -74,8 +125,6 @@ box-shadow:0 0 25px rgba(0,0,0,0.7);
 <!-- FORM -->
 <div class="container">
 
-<h2>Registration Form / पंजीकरण फॉर्म</h2>
-
 <label>State / राज्य</label>
 <input value="Madhya Pradesh" readonly>
 
@@ -85,18 +134,18 @@ box-shadow:0 0 25px rgba(0,0,0,0.7);
 <label>Parent Name / अभिभावक</label>
 <input id="parent">
 
-<label>Date of Birth / जन्म तिथि</label>
+<label>Date of Birth</label>
 <input type="date" id="dob">
 
-<label>Mobile / मोबाइल</label>
+<label>Mobile</label>
 <input id="mobile">
 
-<label>Caste / जाति</label>
+<label>Caste</label>
 <select id="caste">
 <option>SC</option><option>ST</option><option>OBC</option><option>Other</option>
 </select>
 
-<label>District / जिला</label>
+<label>District (MP)</label>
 <select id="district">
 <option>Indore</option><option>Bhopal</option><option>Ujjain</option>
 <option>Jabalpur</option><option>Gwalior</option><option>Sagar</option>
@@ -112,37 +161,39 @@ box-shadow:0 0 25px rgba(0,0,0,0.7);
 <option>Harda</option><option>Agar Malwa</option><option>Shajapur</option>
 <option>Rajgarh</option><option>Seoni</option><option>Mandla</option>
 <option>Balaghat</option><option>Ashoknagar</option><option>Sheopur</option>
-<option>Burhanpur</option><option>Khandwa</option><option>Narmadapuram</option>
+<option>Burhanpur</option><option>Khandwa</option><option>Hoshangabad</option>
 <option>Narsinghpur</option><option>Guna</option><option>Chhatarpur</option>
-<option>Maihar</option><option>Niwari</option><option>Mauganj</option>
+<option>Niwari</option><option>Mauganj</option>
 </select>
 
-<label>School / स्कूल</label>
+<label>School</label>
 <input id="school">
 
-<label>Stream / विषय</label>
+<label>Stream</label>
 <select id="stream" onchange="updateCourse()">
 <option>Science</option><option>Commerce</option><option>Arts</option><option>Maths</option><option>Other</option>
 </select>
 
-<label>Course / कोर्स</label>
-<select id="course" onchange="checkCourse()"></select>
+<label>Course</label>
+<select id="course" onchange="checkOtherCourse()"></select>
 
-<input id="otherCourse" placeholder="Other Course" style="display:none;">
+<input id="otherCourse" placeholder="Write Course" style="display:none;">
 
-<label>Future College / भविष्य कॉलेज</label>
+<label>Future College</label>
 <input id="college">
 
 <label>Career Goal / लक्ष्य</label>
-<select id="career" onchange="checkCareer()">
+<select id="career" onchange="checkOtherCareer()">
 <option>Doctor</option><option>Engineer</option><option>Govt Job</option><option>Business</option><option>Other</option>
 </select>
 
-<input id="otherCareer" placeholder="Other Goal" style="display:none;">
+<input id="otherCareer" placeholder="Write Goal" style="display:none;">
 
-<label>College कैसे जाएंगे</label>
+<label>College कैसे जाओगे</label>
 <select id="travel">
-<option>Self Vehicle</option><option>College Bus</option><option>Public Transport</option>
+<option>Self Vehicle</option>
+<option>College Bus</option>
+<option>Public Transport</option>
 </select>
 
 <label>क्या आप NGO महासंघ की Scholarship योजना में भाग लेना चाहते हैं?</label>
@@ -150,7 +201,7 @@ box-shadow:0 0 25px rgba(0,0,0,0.7);
 <option>Yes</option><option>No</option>
 </select>
 
-<label>क्या आपको Free Health Card चाहिए?</label>
+<label>Free Health Card चाहिए?</label>
 <select id="health">
 <option>Yes</option><option>No</option>
 </select>
@@ -163,11 +214,11 @@ box-shadow:0 0 25px rgba(0,0,0,0.7);
 
 <p>₹21 Exam Fee – Free Food + Token + Medal + Certificate</p>
 
-<button class="pay" onclick="startPayment()">💳 Pay & Register</button>
+<button class="pay" onclick="startPayment()">Pay & Register</button>
 
 </div>
 
-<!-- DIGITAL PARTNER -->
+<!-- PARTNER -->
 <div class="partnerCard">
 <h3>Digital Partner</h3>
 <img src="https://github.com/banjaradigitalmp-hue/banjara-digital/blob/main/WhatsApp%20Image%202026-03-06%20at%206.52.34%20PM.jpeg?raw=true" class="logoCircle">
@@ -191,7 +242,7 @@ function openMap(){
 window.open("https://www.google.com/maps/search/?api=1&query=Anand+Mohan+Mathur+Sabhagrah+Indore");
 }
 
-/* STREAM */
+/* COURSE */
 function updateCourse(){
 let data={
 Science:["MBBS","BSc","Engineering","Other"],
@@ -201,35 +252,33 @@ Maths:["BSc Maths","Data Science","Other"],
 Other:["Other"]
 };
 course.innerHTML="";
-data[stream.value].forEach(x=>{
+data[stream.value].forEach(c=>{
 let o=document.createElement("option");
-o.text=x;
+o.text=c;
 course.add(o);
 });
 }
 
-/* OTHER */
-function checkCourse(){
-otherCourse.style.display = course.value=="Other"?"block":"none";
+function checkOtherCourse(){
+otherCourse.style.display = (course.value=="Other") ? "block":"none";
 }
 
-function checkCareer(){
-otherCareer.style.display = career.value=="Other"?"block":"none";
+function checkOtherCareer(){
+otherCareer.style.display = (career.value=="Other") ? "block":"none";
 }
 
 /* PAYMENT */
 function startPayment(){
 
 if(name.value=="" || mobile.value==""){
-alert("Fill all details");
+alert("Fill required fields");
 return;
 }
 
 var options={
-key:"YOUR_RAZORPAY_KEY",
+key:"rzp_live_SZnaVX76WrMx4H",
 amount:2100,
 currency:"INR",
-method:{upi:true,card:true,netbanking:true,wallet:true},
 
 handler:function(res){
 
@@ -237,37 +286,29 @@ fetch("https://script.google.com/macros/s/AKfycbyAU5OsgXmi_lZqCeGYn5YjiuKd-GCbOb
 method:"POST",
 body:JSON.stringify({
 name:name.value,
-parent:parent.value,
-dob:dob.value,
 mobile:mobile.value,
-caste:caste.value,
 district:district.value,
-school:school.value,
 stream:stream.value,
-course:course.value,
-college:college.value,
+course:(course.value=="Other"?otherCourse.value:course.value),
 career:(career.value=="Other"?otherCareer.value:career.value),
-travel:travel.value,
-scholarship:scholarship.value,
-health:health.value,
-parent1:parent1.value,
-parent2:parent2.value,
 payment_id:res.razorpay_payment_id
 })
-});
-
+}).then(()=>{
 alert("Payment Successful");
 
 if(confirm("WhatsApp Group join kare?")){
 window.open("https://chat.whatsapp.com/F6pAgLGdTcu5soecJMh3F0");
 }
 
+}).catch(()=>{
+alert("Data save failed ❌");
+});
+
 }
 };
 
 new Razorpay(options).open();
 }
-
 </script>
 
 </body>
