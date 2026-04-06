@@ -14,14 +14,12 @@ body{font-family:'Poppins';margin:0;background:#020617;color:#fff;}
 /* HEADER WHITE */
 .headerCard{
 background:#fff;
+color:#000;
 margin:15px;
 padding:25px;
 border-radius:18px;
 text-align:center;
-color:#000;
 }
-
-.year{color:#2563eb;font-weight:600;}
 
 .eventInfo{
 margin-top:10px;
@@ -30,7 +28,6 @@ background:#f1f5f9;
 border-radius:10px;
 }
 
-/* FORM */
 .container{
 max-width:720px;
 margin:auto;
@@ -39,7 +36,7 @@ padding:20px;
 border-radius:15px;
 }
 
-label{margin-top:12px;display:block;}
+label{margin-top:10px;display:block;font-size:14px;}
 
 input,select{
 width:100%;
@@ -49,7 +46,6 @@ border-radius:8px;
 border:none;
 }
 
-/* BUTTON */
 button{
 width:100%;
 padding:14px;
@@ -72,16 +68,13 @@ border-radius:15px;
 }
 
 .logoCircle{
-width:95px;
-height:95px;
-border-radius:50%;
-box-shadow:0 0 20px rgba(0,0,0,0.6);
+width:100px;height:100px;border-radius:50%;
+box-shadow:0 0 25px rgba(0,0,0,0.8);
 }
 
-.footer{text-align:center;padding:20px;}
+.footer{text-align:center;padding:20px;font-size:13px;}
 .footer a{color:#38bdf8;}
 </style>
-
 </head>
 
 <body>
@@ -93,8 +86,7 @@ box-shadow:0 0 20px rgba(0,0,0,0.6);
 
 <!-- HEADER -->
 <div class="headerCard">
-<h2>Student Success Meet</h2>
-<div class="year">2026-27</div>
+<h2>Student Success Meet 2026-27</h2>
 <h3>आयोजक: म.प्र. NGO महासंघ</h3>
 
 <div class="eventInfo">
@@ -103,7 +95,7 @@ box-shadow:0 0 20px rgba(0,0,0,0.6);
 📍 आनंद मोहन माथुर सभागृह, इंदौर
 </div>
 
-<button class="mapBtn" onclick="openMap()">📍 Location देखें</button>
+<button class="mapBtn" onclick="openMap()">📍 View Location</button>
 </div>
 
 <!-- FORM -->
@@ -133,20 +125,23 @@ box-shadow:0 0 20px rgba(0,0,0,0.6);
 
 <label>District / जिला</label>
 <select id="district">
-<option>Indore</option><option>Bhopal</option><option>Ujjain</option><option>Jabalpur</option>
-<option>Gwalior</option><option>Sagar</option><option>Rewa</option><option>Satna</option>
-<option>Dewas</option><option>Ratlam</option><option>Khargone</option><option>Sehore</option>
-<option>Vidisha</option><option>Betul</option><option>Chhindwara</option><option>Shivpuri</option>
-<option>Morena</option><option>Bhind</option><option>Mandsaur</option><option>Neemuch</option>
-<option>Barwani</option><option>Alirajpur</option><option>Damoh</option><option>Katni</option>
-<option>Panna</option><option>Datia</option><option>Tikamgarh</option><option>Singrauli</option>
-<option>Anuppur</option><option>Dindori</option><option>Umaria</option><option>Sidhi</option>
-<option>Shahdol</option><option>Harda</option><option>Agar Malwa</option><option>Shajapur</option>
-<option>Rajgarh</option><option>Seoni</option><option>Mandla</option><option>Balaghat</option>
-<option>Ashoknagar</option><option>Sheopur</option><option>Burhanpur</option><option>Khandwa</option>
-<option>Hoshangabad</option><option>Narsinghpur</option><option>Guna</option><option>Chhatarpur</option>
-<option>Maihar</option><option>Niwari</option><option>Mauganj</option><option>Pandhurna</option>
-<option>Agar</option><option>Susner</option>
+<option>Indore</option><option>Bhopal</option><option>Ujjain</option>
+<option>Jabalpur</option><option>Gwalior</option><option>Sagar</option>
+<option>Rewa</option><option>Satna</option><option>Dewas</option>
+<option>Ratlam</option><option>Khargone</option><option>Sehore</option>
+<option>Vidisha</option><option>Betul</option><option>Chhindwara</option>
+<option>Shivpuri</option><option>Morena</option><option>Bhind</option>
+<option>Mandsaur</option><option>Neemuch</option><option>Barwani</option>
+<option>Alirajpur</option><option>Damoh</option><option>Katni</option>
+<option>Panna</option><option>Datia</option><option>Tikamgarh</option>
+<option>Singrauli</option><option>Anuppur</option><option>Dindori</option>
+<option>Umaria</option><option>Sidhi</option><option>Shahdol</option>
+<option>Harda</option><option>Agar Malwa</option><option>Shajapur</option>
+<option>Rajgarh</option><option>Seoni</option><option>Mandla</option>
+<option>Balaghat</option><option>Ashoknagar</option><option>Sheopur</option>
+<option>Burhanpur</option><option>Khandwa</option><option>Hoshangabad</option>
+<option>Narsinghpur</option><option>Guna</option><option>Chhatarpur</option>
+<option>Maihar</option><option>Niwari</option><option>Mauganj</option>
 </select>
 
 <label>School / स्कूल</label>
@@ -154,27 +149,30 @@ box-shadow:0 0 20px rgba(0,0,0,0.6);
 
 <label>Stream / विषय</label>
 <select id="stream" onchange="updateCourse()">
-<option>Science</option><option>Commerce</option><option>Arts</option><option>Maths</option><option>Other</option>
+<option value="">Select</option>
+<option>Science</option><option>Commerce</option>
+<option>Arts</option><option>Maths</option><option>Other</option>
 </select>
 
 <label>Course / कोर्स</label>
 <select id="course" onchange="checkCourse()"></select>
-
-<input id="otherCourse" placeholder="Other Course लिखें" style="display:none;">
+<input id="otherCourse" placeholder="Other Course" style="display:none;">
 
 <label>Future College / भविष्य कॉलेज</label>
 <input id="college">
 
 <label>Career Goal / लक्ष्य</label>
 <select id="career" onchange="checkCareer()">
-<option>Doctor</option><option>Engineer</option><option>Govt Job</option><option>Business</option><option>Other</option>
+<option>Doctor</option><option>Engineer</option>
+<option>Govt Job</option><option>Business</option><option>Other</option>
 </select>
+<input id="otherCareer" placeholder="Other Career" style="display:none;">
 
-<input id="otherCareer" placeholder="Other Career लिखें" style="display:none;">
-
-<label>College कैसे जाओगे / Travel Mode</label>
+<label>College कैसे जाओगे</label>
 <select id="travel">
-<option>Self Vehicle</option><option>College Bus</option><option>Public Transport</option>
+<option>Self Vehicle</option>
+<option>College Bus</option>
+<option>Public Transport</option>
 </select>
 
 <label>क्या आप NGO महासंघ की Scholarship योजना में भाग लेना चाहते हैं?</label>
@@ -182,7 +180,7 @@ box-shadow:0 0 20px rgba(0,0,0,0.6);
 <option>Yes</option><option>No</option>
 </select>
 
-<label>Health Card / हेल्थ कार्ड</label>
+<label>Free Health Card चाहिए?</label>
 <select id="health">
 <option>Yes</option><option>No</option>
 </select>
@@ -203,16 +201,21 @@ Payment के बाद WhatsApp group join करें
 
 </div>
 
-<!-- DIGITAL -->
+<!-- DIGITAL PARTNER -->
 <div class="partnerCard">
 <h3>Digital Partner</h3>
 <img src="https://github.com/banjaradigitalmp-hue/banjara-digital/blob/main/WhatsApp%20Image%202026-03-06%20at%206.52.34%20PM.jpeg?raw=true" class="logoCircle">
 <h2>Banjara Digital</h2>
+<p>CONNECT • CREATE • GROW</p>
 </div>
 
 <!-- FOOTER -->
 <div class="footer">
-<p><a href="#">Privacy</a> | <a href="#">Terms</a> | <a href="#">Refund</a></p>
+<p>
+<a href="#">Privacy Policy</a> |
+<a href="#">Terms</a> |
+<a href="#">Refund</a>
+</p>
 <p>© 2026 Banjara Digital</p>
 </div>
 
@@ -222,10 +225,9 @@ function openMap(){
 window.open("https://www.google.com/maps/search/?api=1&query=Anand+Mohan+Mathur+Sabhagrah+Indore");
 }
 
+/* STREAM → COURSE */
 function updateCourse(){
 let s=stream.value;
-let c=course;
-
 let data={
 Science:["MBBS","BSc","Engineering","Other"],
 Commerce:["BCom","CA","BBA","Other"],
@@ -233,26 +235,26 @@ Arts:["BA","LLB","UPSC","Other"],
 Maths:["BSc Maths","Data Science","Other"],
 Other:["Other"]
 };
-
-c.innerHTML="";
+course.innerHTML="";
 data[s].forEach(x=>{
 let o=document.createElement("option");
 o.text=x;
-c.add(o);
+course.add(o);
 });
 }
 
 function checkCourse(){
-otherCourse.style.display = (course.value=="Other") ? "block":"none";
+otherCourse.style.display=(course.value=="Other")?"block":"none";
 }
 
 function checkCareer(){
-otherCareer.style.display = (career.value=="Other") ? "block":"none";
+otherCareer.style.display=(career.value=="Other")?"block":"none";
 }
 
+/* PAYMENT */
 function startPayment(){
 if(name.value=="" || mobile.value==""){
-alert("Form पूरा भरें");
+alert("Fill required fields");
 return;
 }
 
@@ -261,10 +263,10 @@ key:"YOUR_RAZORPAY_KEY",
 amount:2100,
 currency:"INR",
 
-handler:function(res){
+handler:function(){
 alert("Payment Successful");
 
-if(confirm("WhatsApp Group join करें?")){
+if(confirm("WhatsApp Group join kare?")){
 window.open("https://chat.whatsapp.com/F6pAgLGdTcu5soecJMh3F0");
 }
 }
@@ -272,6 +274,7 @@ window.open("https://chat.whatsapp.com/F6pAgLGdTcu5soecJMh3F0");
 
 new Razorpay(options).open();
 }
+
 </script>
 
 </body>
