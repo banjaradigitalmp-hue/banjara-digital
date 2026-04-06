@@ -8,41 +8,49 @@
 <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
 
 <style>
-body{font-family:Poppins;margin:0;background:#020617;color:#fff;}
+body{font-family:'Poppins';margin:0;background:#020617;color:#fff;}
 .banner img{width:100%;}
-.headerCard{background:#fff;margin:15px;padding:20px;border-radius:15px;color:#000;text-align:center;}
+.headerCard{background:#fff;margin:15px;padding:25px;border-radius:18px;text-align:center;color:#000;}
 .container{max-width:720px;margin:auto;background:#111827;padding:20px;border-radius:15px;}
 input,select{width:100%;padding:12px;margin-top:8px;border-radius:8px;border:none;}
 button{width:100%;padding:14px;margin-top:12px;border:none;border-radius:8px;}
 .pay{background:#2563eb;color:#fff;}
 .partnerCard{background:#fff;margin:20px;padding:20px;text-align:center;color:#000;border-radius:15px;}
 .logoCircle{width:90px;height:90px;border-radius:50%;}
-.note{font-size:13px;color:#94a3b8;margin-top:5px;}
 </style>
 
 </head>
 
 <body>
 
-<!-- HEADER -->
+<div class="banner">
+<img src="https://github.com/banjaradigitalmp-hue/student-form/blob/main/WhatsApp%20Image%202026-04-04%20at%209.41.57%20AM.jpeg?raw=true">
+</div>
+
 <div class="headerCard">
 <h2>Student Success Meet 2026-27</h2>
 <p>आयोजक: म.प्र. NGO महासंघ</p>
 </div>
 
-<!-- FORM -->
 <div class="container">
 
-<input id="name" placeholder="Student Name">
+<input id="name" placeholder="Student Name / छात्र का नाम" required>
 <input id="parent" placeholder="Parent Name">
 <input type="date" id="dob">
-<input id="mobile" placeholder="Mobile">
+<input id="mobile" placeholder="Mobile" required>
 
 <select id="caste">
 <option>SC</option><option>ST</option><option>OBC</option><option>Other</option>
 </select>
 
-<select id="stream" onchange="updateCourses()">
+<select id="district">
+<option>Indore</option><option>Bhopal</option><option>Ujjain</option>
+<option>Jabalpur</option><option>Gwalior</option><option>Sagar</option>
+</select>
+
+<input id="school" placeholder="School">
+
+<select id="stream" onchange="updateCourse()">
 <option value="">Select Stream</option>
 <option>Science</option>
 <option>Commerce</option>
@@ -55,17 +63,35 @@ button{width:100%;padding:14px;margin-top:12px;border:none;border-radius:8px;}
 
 <input id="college" placeholder="Future College">
 
+<select id="career">
+<option>Doctor</option><option>Engineer</option><option>Govt Job</option>
+</select>
+
+<select id="travel">
+<option>Self</option><option>Bus</option><option>Public</option>
+</select>
+
+<select id="scholarship">
+<option>Yes</option><option>No</option>
+</select>
+
+<select id="health">
+<option>Yes</option><option>No</option>
+</select>
+
+<input id="parent1" placeholder="Parent Mobile 1">
+<input id="parent2" placeholder="Parent Mobile 2">
+
 <p>₹21 Exam Fee – Free Food + Token + Medal + Certificate</p>
 
 <button class="pay" onclick="startPayment()">Pay & Register</button>
 
-<p class="note">
-Payment के बाद आगे की जानकारी के लिए WhatsApp Group join करें
+<p style="font-size:12px;">
+Payment के बाद आगे के update के लिए WhatsApp group join करें
 </p>
 
 </div>
 
-<!-- DIGITAL PARTNER -->
 <div class="partnerCard">
 <h3>Digital Partner</h3>
 <img src="https://github.com/banjaradigitalmp-hue/banjara-digital/blob/main/WhatsApp%20Image%202026-03-06%20at%206.52.34%20PM.jpeg?raw=true" class="logoCircle">
@@ -74,50 +100,66 @@ Payment के बाद आगे की जानकारी के लिए
 
 <script>
 
-/* STREAM BASED COURSES */
-function updateCourses(){
-let stream = document.getElementById("stream").value;
-let course = document.getElementById("course");
+/* STREAM → COURSE */
+function updateCourse(){
+let stream=document.getElementById("stream").value;
+let course=document.getElementById("course");
 
-course.innerHTML = "";
+let options={
+Science:["MBBS","BSc","Engineering","Pharmacy"],
+Commerce:["BCom","CA","CS","BBA"],
+Arts:["BA","LLB","Journalism","UPSC"]
+};
 
-if(stream=="Science"){
-course.innerHTML += "<option>MBBS</option><option>B.Tech</option><option>BSc</option>";
-}
-if(stream=="Commerce"){
-course.innerHTML += "<option>B.Com</option><option>CA</option><option>CS</option>";
-}
-if(stream=="Arts"){
-course.innerHTML += "<option>BA</option><option>LLB</option><option>UPSC</option>";
-}
+course.innerHTML="";
+options[stream].forEach(c=>{
+let opt=document.createElement("option");
+opt.text=c;
+course.add(opt);
+});
 }
 
 /* PAYMENT */
 function startPayment(){
 
-var options = {
-key: "rzp_live_SZnaVX76WrMx4H",
-amount: 2100,
+if(name.value=="" || mobile.value=="" || stream.value==""){
+alert("Please fill form");
+return;
+}
 
-handler: function (response){
+var options={
+key:"rzp_live_SZnaVX76WrMx4H",
+amount:2100,
+currency:"INR",
 
-fetch("https://script.google.com/macros/s/AKfycbyAU5OsgXmi_lZqCeGYn5YjiuKd-GCbObx2Hpr05YVKKykOrVhSLKajurqSNbBzZAgGkg/exec", {
+handler:function(response){
+
+fetch("https://script.google.com/macros/s/AKfycbyAU5OsgXmi_lZqCeGYn5YjiuKd-GCbObx2Hpr05YVKKykOrVhSLKajurqSNbBzZAgGkg/exec",{
 method:"POST",
-body: JSON.stringify({
-name: name.value,
-parent: parent.value,
-dob: dob.value,
-mobile: mobile.value,
-caste: caste.value,
-stream: stream.value,
-course: course.value,
-college: college.value,
-payment_id: response.razorpay_payment_id
+body:JSON.stringify({
+name:name.value,
+parent:parent.value,
+dob:dob.value,
+mobile:mobile.value,
+caste:caste.value,
+district:district.value,
+school:school.value,
+stream:stream.value,
+course:course.value,
+college:college.value,
+career:career.value,
+travel:travel.value,
+scholarship:scholarship.value,
+health:health.value,
+parent1:parent1.value,
+parent2:parent2.value,
+payment_id:response.razorpay_payment_id
 })
 });
 
-/* SUCCESS + WHATSAPP */
-if(confirm("Payment Successful ✅\nWhatsApp Group join karna hai?")){
+alert("Payment Successful ✅");
+
+if(confirm("WhatsApp Group join kare?")){
 window.open("https://chat.whatsapp.com/F6pAgLGdTcu5soecJMh3F0");
 }
 
@@ -125,9 +167,7 @@ window.open("https://chat.whatsapp.com/F6pAgLGdTcu5soecJMh3F0");
 };
 
 new Razorpay(options).open();
-
 }
-
 </script>
 
 </body>
