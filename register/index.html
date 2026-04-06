@@ -9,72 +9,45 @@
 
 <style>
 body{font-family:'Poppins';margin:0;background:#020617;color:#fff;}
+
 .banner img{width:100%;}
 
-/* HEADER WHITE */
 .headerCard{
-background:#fff;
-color:#000;
-margin:15px;
-padding:25px;
-border-radius:18px;
-text-align:center;
+background:#fff;color:#000;margin:15px;padding:20px;border-radius:15px;text-align:center;
 }
 
-.eventInfo{
-margin-top:10px;
-padding:12px;
-background:#f1f5f9;
-border-radius:10px;
-}
+.eventInfo{background:#f1f5f9;padding:10px;border-radius:10px;margin-top:10px;}
 
 .container{
-max-width:720px;
-margin:auto;
-background:#111827;
-padding:20px;
-border-radius:15px;
+max-width:720px;margin:auto;background:#111827;padding:20px;border-radius:15px;
 }
 
 label{margin-top:10px;display:block;font-size:14px;}
 
 input,select{
-width:100%;
-padding:12px;
-margin-top:6px;
-border-radius:8px;
-border:none;
+width:100%;padding:12px;margin-top:5px;border-radius:8px;border:none;
 }
 
 button{
-width:100%;
-padding:14px;
-margin-top:12px;
-border:none;
-border-radius:8px;
-font-weight:600;
+width:100%;padding:14px;margin-top:12px;border:none;border-radius:8px;
 }
 
 .pay{background:#2563eb;color:#fff;}
 .mapBtn{background:#16a34a;color:#fff;}
 
 .partnerCard{
-background:#fff;
-margin:20px;
-padding:20px;
-text-align:center;
-color:#000;
-border-radius:15px;
+background:#fff;margin:20px;padding:20px;text-align:center;color:#000;border-radius:15px;
 }
 
 .logoCircle{
 width:100px;height:100px;border-radius:50%;
-box-shadow:0 0 25px rgba(0,0,0,0.8);
+box-shadow:0 0 25px rgba(0,0,0,0.7);
 }
 
-.footer{text-align:center;padding:20px;font-size:13px;}
+.footer{text-align:center;padding:20px;}
 .footer a{color:#38bdf8;}
 </style>
+
 </head>
 
 <body>
@@ -139,7 +112,7 @@ box-shadow:0 0 25px rgba(0,0,0,0.8);
 <option>Harda</option><option>Agar Malwa</option><option>Shajapur</option>
 <option>Rajgarh</option><option>Seoni</option><option>Mandla</option>
 <option>Balaghat</option><option>Ashoknagar</option><option>Sheopur</option>
-<option>Burhanpur</option><option>Khandwa</option><option>Hoshangabad</option>
+<option>Burhanpur</option><option>Khandwa</option><option>Narmadapuram</option>
 <option>Narsinghpur</option><option>Guna</option><option>Chhatarpur</option>
 <option>Maihar</option><option>Niwari</option><option>Mauganj</option>
 </select>
@@ -149,13 +122,12 @@ box-shadow:0 0 25px rgba(0,0,0,0.8);
 
 <label>Stream / विषय</label>
 <select id="stream" onchange="updateCourse()">
-<option value="">Select</option>
-<option>Science</option><option>Commerce</option>
-<option>Arts</option><option>Maths</option><option>Other</option>
+<option>Science</option><option>Commerce</option><option>Arts</option><option>Maths</option><option>Other</option>
 </select>
 
 <label>Course / कोर्स</label>
 <select id="course" onchange="checkCourse()"></select>
+
 <input id="otherCourse" placeholder="Other Course" style="display:none;">
 
 <label>Future College / भविष्य कॉलेज</label>
@@ -163,16 +135,14 @@ box-shadow:0 0 25px rgba(0,0,0,0.8);
 
 <label>Career Goal / लक्ष्य</label>
 <select id="career" onchange="checkCareer()">
-<option>Doctor</option><option>Engineer</option>
-<option>Govt Job</option><option>Business</option><option>Other</option>
+<option>Doctor</option><option>Engineer</option><option>Govt Job</option><option>Business</option><option>Other</option>
 </select>
-<input id="otherCareer" placeholder="Other Career" style="display:none;">
 
-<label>College कैसे जाओगे</label>
+<input id="otherCareer" placeholder="Other Goal" style="display:none;">
+
+<label>College कैसे जाएंगे</label>
 <select id="travel">
-<option>Self Vehicle</option>
-<option>College Bus</option>
-<option>Public Transport</option>
+<option>Self Vehicle</option><option>College Bus</option><option>Public Transport</option>
 </select>
 
 <label>क्या आप NGO महासंघ की Scholarship योजना में भाग लेना चाहते हैं?</label>
@@ -180,7 +150,7 @@ box-shadow:0 0 25px rgba(0,0,0,0.8);
 <option>Yes</option><option>No</option>
 </select>
 
-<label>Free Health Card चाहिए?</label>
+<label>क्या आपको Free Health Card चाहिए?</label>
 <select id="health">
 <option>Yes</option><option>No</option>
 </select>
@@ -195,10 +165,6 @@ box-shadow:0 0 25px rgba(0,0,0,0.8);
 
 <button class="pay" onclick="startPayment()">💳 Pay & Register</button>
 
-<p style="font-size:12px;">
-Payment के बाद WhatsApp group join करें
-</p>
-
 </div>
 
 <!-- DIGITAL PARTNER -->
@@ -206,13 +172,12 @@ Payment के बाद WhatsApp group join करें
 <h3>Digital Partner</h3>
 <img src="https://github.com/banjaradigitalmp-hue/banjara-digital/blob/main/WhatsApp%20Image%202026-03-06%20at%206.52.34%20PM.jpeg?raw=true" class="logoCircle">
 <h2>Banjara Digital</h2>
-<p>CONNECT • CREATE • GROW</p>
 </div>
 
 <!-- FOOTER -->
 <div class="footer">
 <p>
-<a href="#">Privacy Policy</a> |
+<a href="#">Privacy</a> |
 <a href="#">Terms</a> |
 <a href="#">Refund</a>
 </p>
@@ -221,13 +186,13 @@ Payment के बाद WhatsApp group join करें
 
 <script>
 
+/* MAP */
 function openMap(){
 window.open("https://www.google.com/maps/search/?api=1&query=Anand+Mohan+Mathur+Sabhagrah+Indore");
 }
 
-/* STREAM → COURSE */
+/* STREAM */
 function updateCourse(){
-let s=stream.value;
 let data={
 Science:["MBBS","BSc","Engineering","Other"],
 Commerce:["BCom","CA","BBA","Other"],
@@ -236,39 +201,67 @@ Maths:["BSc Maths","Data Science","Other"],
 Other:["Other"]
 };
 course.innerHTML="";
-data[s].forEach(x=>{
+data[stream.value].forEach(x=>{
 let o=document.createElement("option");
 o.text=x;
 course.add(o);
 });
 }
 
+/* OTHER */
 function checkCourse(){
-otherCourse.style.display=(course.value=="Other")?"block":"none";
+otherCourse.style.display = course.value=="Other"?"block":"none";
 }
 
 function checkCareer(){
-otherCareer.style.display=(career.value=="Other")?"block":"none";
+otherCareer.style.display = career.value=="Other"?"block":"none";
 }
 
 /* PAYMENT */
 function startPayment(){
+
 if(name.value=="" || mobile.value==""){
-alert("Fill required fields");
+alert("Fill all details");
 return;
 }
 
 var options={
-key:"rzp_live_SZnaVX76WrMx4H",
+key:"YOUR_RAZORPAY_KEY",
 amount:2100,
 currency:"INR",
+method:{upi:true,card:true,netbanking:true,wallet:true},
 
-handler:function(){
+handler:function(res){
+
+fetch("https://script.google.com/macros/s/AKfycbyAU5OsgXmi_lZqCeGYn5YjiuKd-GCbObx2Hpr05YVKKykOrVhSLKajurqSNbBzZAgGkg/exec",{
+method:"POST",
+body:JSON.stringify({
+name:name.value,
+parent:parent.value,
+dob:dob.value,
+mobile:mobile.value,
+caste:caste.value,
+district:district.value,
+school:school.value,
+stream:stream.value,
+course:course.value,
+college:college.value,
+career:(career.value=="Other"?otherCareer.value:career.value),
+travel:travel.value,
+scholarship:scholarship.value,
+health:health.value,
+parent1:parent1.value,
+parent2:parent2.value,
+payment_id:res.razorpay_payment_id
+})
+});
+
 alert("Payment Successful");
 
 if(confirm("WhatsApp Group join kare?")){
 window.open("https://chat.whatsapp.com/F6pAgLGdTcu5soecJMh3F0");
 }
+
 }
 };
 
