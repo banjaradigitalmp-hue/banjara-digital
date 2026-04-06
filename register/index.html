@@ -1,162 +1,1037 @@
-<!-- 🔥 FULL FINAL FIXED VERSION -->
 <!DOCTYPE html>
 <html lang="hi">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Student Success Meet</title>
-
+<title>Student Success Meet 2026-27</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
-
 <style>
-body{font-family:sans-serif;background:#071126;color:#fff;margin:0}
-.container{max-width:900px;margin:auto;padding:20px}
-.card{background:#0b1b3a;padding:20px;border-radius:10px}
-input,select{width:100%;padding:12px;margin:8px 0;border-radius:8px;border:none}
-button{width:100%;padding:14px;background:#47d7ff;border:none;border-radius:10px;font-weight:bold}
-.hidden{display:none}
-.popup{
-position:fixed;top:0;left:0;width:100%;height:100%;
-background:rgba(0,0,0,.7);
-display:none;justify-content:center;align-items:center
-}
-.popup-box{background:#fff;color:#000;padding:20px;border-radius:10px}
+  :root{
+    --bg:#06111f;
+    --bg-soft:#0b1730;
+    --panel:rgba(11,23,48,0.78);
+    --panel-strong:rgba(15,23,42,0.92);
+    --line:rgba(148,163,184,0.18);
+    --text:#e5eefb;
+    --muted:#9fb2d2;
+    --white:#ffffff;
+    --primary:#38bdf8;
+    --primary-strong:#0ea5e9;
+    --secondary:#22c55e;
+    --accent:#8b5cf6;
+    --danger:#ef4444;
+    --shadow:0 20px 60px rgba(2,6,23,0.45);
+    --radius:24px;
+  }
+
+  *{
+    box-sizing:border-box;
+  }
+
+  html{
+    scroll-behavior:smooth;
+  }
+
+  body{
+    margin:0;
+    font-family:'Poppins',sans-serif;
+    color:var(--text);
+    background:
+      radial-gradient(circle at top left, rgba(56,189,248,0.18), transparent 28%),
+      radial-gradient(circle at top right, rgba(139,92,246,0.18), transparent 30%),
+      linear-gradient(180deg, #020617 0%, #06111f 42%, #081428 100%);
+    min-height:100vh;
+  }
+
+  a{
+    color:inherit;
+    text-decoration:none;
+  }
+
+  .page-shell{
+    width:min(1180px, calc(100% - 28px));
+    margin:0 auto;
+    padding:18px 0 40px;
+  }
+
+  .hero{
+    position:relative;
+    overflow:hidden;
+    border:1px solid var(--line);
+    border-radius:32px;
+    box-shadow:var(--shadow);
+    background:
+      linear-gradient(135deg, rgba(8,15,33,0.92), rgba(8,20,40,0.84)),
+      #081020;
+  }
+
+  .hero::before,
+  .hero::after{
+    content:"";
+    position:absolute;
+    border-radius:50%;
+    filter:blur(10px);
+    pointer-events:none;
+  }
+
+  .hero::before{
+    width:240px;
+    height:240px;
+    background:rgba(56,189,248,0.18);
+    top:-80px;
+    left:-30px;
+  }
+
+  .hero::after{
+    width:260px;
+    height:260px;
+    background:rgba(139,92,246,0.18);
+    right:-90px;
+    bottom:-120px;
+  }
+
+  .banner-wrap{
+    position:relative;
+  }
+
+  .banner-wrap img{
+    width:100%;
+    display:block;
+    max-height:460px;
+    object-fit:cover;
+  }
+
+  .hero-content{
+    display:grid;
+    grid-template-columns:1.2fr 0.8fr;
+    gap:20px;
+    padding:24px;
+  }
+
+  .glass-card{
+    background:rgba(255,255,255,0.06);
+    border:1px solid rgba(255,255,255,0.12);
+    backdrop-filter:blur(14px);
+    border-radius:24px;
+  }
+
+  .hero-main{
+    padding:24px;
+  }
+
+  .eyebrow{
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    padding:8px 14px;
+    border-radius:999px;
+    background:rgba(56,189,248,0.14);
+    border:1px solid rgba(56,189,248,0.22);
+    color:#bfeaff;
+    font-size:13px;
+    font-weight:600;
+    letter-spacing:0.04em;
+    text-transform:uppercase;
+  }
+
+  .hero-main h1{
+    margin:16px 0 8px;
+    font-size:clamp(30px, 4.8vw, 52px);
+    line-height:1.05;
+  }
+
+  .hero-main p{
+    margin:0;
+    color:var(--muted);
+    line-height:1.7;
+    font-size:15px;
+  }
+
+  .hero-points{
+    display:grid;
+    grid-template-columns:repeat(3, minmax(0, 1fr));
+    gap:12px;
+    margin-top:22px;
+  }
+
+  .point{
+    background:rgba(2,6,23,0.34);
+    border:1px solid rgba(148,163,184,0.12);
+    border-radius:18px;
+    padding:14px;
+  }
+
+  .point strong{
+    display:block;
+    font-size:18px;
+    color:var(--white);
+    margin-bottom:4px;
+  }
+
+  .point span{
+    color:var(--muted);
+    font-size:13px;
+  }
+
+  .hero-side{
+    padding:22px;
+    display:flex;
+    flex-direction:column;
+    gap:14px;
+    justify-content:space-between;
+  }
+
+  .event-box{
+    background:rgba(2,6,23,0.36);
+    border:1px solid rgba(148,163,184,0.14);
+    border-radius:20px;
+    padding:18px;
+  }
+
+  .event-box h3{
+    margin:0 0 14px;
+    font-size:20px;
+  }
+
+  .event-line{
+    display:flex;
+    gap:12px;
+    align-items:flex-start;
+    color:#d9e7fb;
+    margin:0 0 12px;
+    line-height:1.5;
+  }
+
+  .event-line:last-child{
+    margin-bottom:0;
+  }
+
+  .hero-actions{
+    display:grid;
+    gap:12px;
+  }
+
+  button{
+    border:none;
+    cursor:pointer;
+    font-family:inherit;
+    transition:transform 0.2s ease, box-shadow 0.2s ease, opacity 0.2s ease;
+  }
+
+  button:hover{
+    transform:translateY(-1px);
+  }
+
+  .btn{
+    width:100%;
+    padding:14px 18px;
+    border-radius:16px;
+    font-weight:700;
+    font-size:15px;
+  }
+
+  .btn-primary{
+    color:#02131f;
+    background:linear-gradient(135deg, #7dd3fc, #38bdf8 50%, #0ea5e9);
+    box-shadow:0 16px 30px rgba(14,165,233,0.28);
+  }
+
+  .btn-secondary{
+    color:var(--white);
+    background:linear-gradient(135deg, rgba(34,197,94,0.9), rgba(22,163,74,0.95));
+    box-shadow:0 16px 28px rgba(22,163,74,0.24);
+  }
+
+  .main-grid{
+    display:grid;
+    grid-template-columns:1.5fr 0.75fr;
+    gap:20px;
+    margin-top:24px;
+  }
+
+  .form-card,
+  .side-card{
+    border:1px solid var(--line);
+    border-radius:30px;
+    background:var(--panel);
+    backdrop-filter:blur(18px);
+    box-shadow:var(--shadow);
+  }
+
+  .form-card{
+    padding:24px;
+  }
+
+  .section-title{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:16px;
+    margin-bottom:18px;
+  }
+
+  .section-title h2{
+    margin:0;
+    font-size:28px;
+  }
+
+  .section-title p{
+    margin:6px 0 0;
+    color:var(--muted);
+    font-size:14px;
+  }
+
+  .fee-badge{
+    padding:12px 16px;
+    border-radius:18px;
+    color:#dbf3ff;
+    background:rgba(56,189,248,0.12);
+    border:1px solid rgba(56,189,248,0.22);
+    text-align:right;
+    min-width:180px;
+  }
+
+  .fee-badge strong{
+    display:block;
+    font-size:22px;
+    color:var(--white);
+  }
+
+  form{
+    display:grid;
+    gap:18px;
+  }
+
+  .grid-2,
+  .grid-3{
+    display:grid;
+    gap:16px;
+  }
+
+  .grid-2{
+    grid-template-columns:repeat(2, minmax(0, 1fr));
+  }
+
+  .grid-3{
+    grid-template-columns:repeat(3, minmax(0, 1fr));
+  }
+
+  .field label{
+    display:block;
+    margin-bottom:8px;
+    font-size:14px;
+    font-weight:600;
+    color:#dbeafe;
+  }
+
+  .field input,
+  .field select{
+    width:100%;
+    padding:14px 15px;
+    border-radius:16px;
+    border:1px solid rgba(148,163,184,0.18);
+    outline:none;
+    background:rgba(2,6,23,0.5);
+    color:var(--white);
+    font-size:15px;
+  }
+
+  .field input::placeholder{
+    color:#7f93b3;
+  }
+
+  .field input:focus,
+  .field select:focus{
+    border-color:rgba(56,189,248,0.6);
+    box-shadow:0 0 0 4px rgba(56,189,248,0.14);
+  }
+
+  .field input[readonly]{
+    color:#cfe3ff;
+    background:rgba(15,23,42,0.88);
+  }
+
+  .helper{
+    margin:0;
+    padding:14px 16px;
+    border-radius:18px;
+    background:rgba(34,197,94,0.12);
+    border:1px solid rgba(34,197,94,0.18);
+    color:#d9ffe9;
+    line-height:1.6;
+    font-size:14px;
+  }
+
+  .status{
+    display:none;
+    margin-top:14px;
+    padding:14px 16px;
+    border-radius:16px;
+    font-weight:600;
+  }
+
+  .status.show{
+    display:block;
+  }
+
+  .status.success{
+    background:rgba(34,197,94,0.12);
+    border:1px solid rgba(34,197,94,0.25);
+    color:#dcfce7;
+  }
+
+  .status.error{
+    background:rgba(239,68,68,0.12);
+    border:1px solid rgba(239,68,68,0.25);
+    color:#fee2e2;
+  }
+
+  .status.info{
+    background:rgba(56,189,248,0.12);
+    border:1px solid rgba(56,189,248,0.25);
+    color:#d9f3ff;
+  }
+
+  .side-stack{
+    display:grid;
+    gap:20px;
+  }
+
+  .side-card{
+    padding:22px;
+  }
+
+  .side-card h3{
+    margin:0 0 10px;
+    font-size:22px;
+  }
+
+  .side-card p{
+    margin:0;
+    color:var(--muted);
+    line-height:1.7;
+    font-size:14px;
+  }
+
+  .check-list{
+    margin:18px 0 0;
+    padding:0;
+    list-style:none;
+    display:grid;
+    gap:12px;
+  }
+
+  .check-list li{
+    padding:12px 14px;
+    border-radius:16px;
+    background:rgba(2,6,23,0.34);
+    border:1px solid rgba(148,163,184,0.1);
+  }
+
+  .partner{
+    text-align:center;
+  }
+
+  .logo-frame{
+    width:110px;
+    height:110px;
+    margin:6px auto 16px;
+    padding:6px;
+    border-radius:50%;
+    background:linear-gradient(135deg, rgba(56,189,248,0.8), rgba(139,92,246,0.8));
+    box-shadow:0 20px 40px rgba(56,189,248,0.2);
+  }
+
+  .logo-frame img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    border-radius:50%;
+    border:4px solid rgba(2,6,23,0.9);
+    display:block;
+  }
+
+  .partner h4{
+    margin:0 0 8px;
+    font-size:14px;
+    color:#9ccfff;
+    text-transform:uppercase;
+    letter-spacing:0.08em;
+  }
+
+  .partner h2{
+    margin:0 0 8px;
+    font-size:28px;
+  }
+
+  .footer{
+    margin-top:24px;
+    padding:20px 16px 8px;
+    text-align:center;
+    color:var(--muted);
+  }
+
+  .footer-links{
+    display:flex;
+    gap:16px;
+    justify-content:center;
+    flex-wrap:wrap;
+    margin-bottom:10px;
+  }
+
+  .footer-links a{
+    color:#c7defb;
+  }
+
+  @media (max-width:980px){
+    .hero-content,
+    .main-grid{
+      grid-template-columns:1fr;
+    }
+  }
+
+  @media (max-width:760px){
+    .page-shell{
+      width:min(100% - 18px, 100%);
+      padding-top:10px;
+    }
+
+    .hero-main,
+    .hero-side,
+    .form-card,
+    .side-card{
+      padding:18px;
+    }
+
+    .hero-points,
+    .grid-2,
+    .grid-3,
+    .section-title{
+      grid-template-columns:1fr;
+    }
+
+    .section-title{
+      display:block;
+    }
+
+    .fee-badge{
+      margin-top:12px;
+      text-align:left;
+      min-width:0;
+    }
+  }
 </style>
 </head>
-
 <body>
+  <div class="page-shell">
+    <section class="hero">
+      <div class="banner-wrap">
+        <img src="https://github.com/banjaradigitalmp-hue/student-form/blob/main/WhatsApp%20Image%202026-04-04%20at%209.41.57%20AM.jpeg?raw=true" alt="Student Success Meet Banner">
+      </div>
 
-<div class="container">
-<div class="card">
+      <div class="hero-content">
+        <div class="hero-main glass-card">
+          <div class="eyebrow">Student Success Meet 2026-27</div>
+          <h1>Future Ready Students ke liye ek Powerful Career Event</h1>
+          <p>म.प्र. NGO महासंघ द्वारा आयोजित यह कार्यक्रम students ko career guidance, scholarship awareness, networking, medal, certificate aur growth opportunities ke saath ek premium event experience deta hai.</p>
 
-<h2>Student Registration</h2>
+          <div class="hero-points">
+            <div class="point">
+              <strong>10 May 2026</strong>
+              <span>Registration & event date</span>
+            </div>
+            <div class="point">
+              <strong>10:00 AM</strong>
+              <span>Reporting time</span>
+            </div>
+            <div class="point">
+              <strong>Indore</strong>
+              <span>Anand Mohan Mathur Sabhagrah</span>
+            </div>
+          </div>
+        </div>
 
-<form id="form">
+        <div class="hero-side glass-card">
+          <div class="event-box">
+            <h3>Event Details</h3>
+            <div class="event-line"><span>📅</span><span>10 May 2026</span></div>
+            <div class="event-line"><span>⏰</span><span>10:00 AM</span></div>
+            <div class="event-line"><span>📍</span><span>आनंद मोहन माथुर सभागृह, इंदौर</span></div>
+          </div>
 
-<input id="name" placeholder="Student Name" required>
-<input id="mobile" placeholder="Mobile" maxlength="10" required>
+          <div class="hero-actions">
+            <button class="btn btn-secondary" type="button" onclick="openMap()">View Location</button>
+            <button class="btn btn-primary" type="button" onclick="scrollToForm()">Register Now</button>
+          </div>
+        </div>
+      </div>
+    </section>
 
-<select id="stream" required>
-<option value="">Stream</option>
-<option>Science</option>
-<option>Commerce</option>
-<option>Arts</option>
-</select>
+    <div class="main-grid">
+      <section class="form-card" id="registration-form">
+        <div class="section-title">
+          <div>
+            <h2>Student Registration</h2>
+            <p>Saari details sahi bharen. Payment ke baad registration data submit ho jayega.</p>
+          </div>
+          <div class="fee-badge">
+            <span>Registration Fee</span>
+            <strong>₹21</strong>
+            <span>Food + Token + Medal + Certificate</span>
+          </div>
+        </div>
 
-<select id="course" required></select>
+        <form id="studentForm" novalidate>
+          <div class="grid-2">
+            <div class="field">
+              <label for="state">State / राज्य</label>
+              <input id="state" value="Madhya Pradesh" readonly>
+            </div>
+            <div class="field">
+              <label for="district">District (MP)</label>
+              <select id="district" required>
+                <option value="">District Select Karein</option>
+                <option>Indore</option><option>Bhopal</option><option>Ujjain</option>
+                <option>Jabalpur</option><option>Gwalior</option><option>Sagar</option>
+                <option>Rewa</option><option>Satna</option><option>Dewas</option>
+                <option>Ratlam</option><option>Khargone</option><option>Sehore</option>
+                <option>Vidisha</option><option>Betul</option><option>Chhindwara</option>
+                <option>Shivpuri</option><option>Morena</option><option>Bhind</option>
+                <option>Mandsaur</option><option>Neemuch</option><option>Barwani</option>
+                <option>Alirajpur</option><option>Damoh</option><option>Katni</option>
+                <option>Panna</option><option>Datia</option><option>Tikamgarh</option>
+                <option>Singrauli</option><option>Anuppur</option><option>Dindori</option>
+                <option>Umaria</option><option>Sidhi</option><option>Shahdol</option>
+                <option>Harda</option><option>Agar Malwa</option><option>Shajapur</option>
+                <option>Rajgarh</option><option>Seoni</option><option>Mandla</option>
+                <option>Balaghat</option><option>Ashoknagar</option><option>Sheopur</option>
+                <option>Burhanpur</option><option>Khandwa</option><option>Hoshangabad</option>
+                <option>Narsinghpur</option><option>Guna</option><option>Chhatarpur</option>
+                <option>Niwari</option><option>Mauganj</option>
+              </select>
+            </div>
+          </div>
 
-<input id="otherCourse" class="hidden" placeholder="Other Course">
+          <div class="grid-2">
+            <div class="field">
+              <label for="name">Student Name / छात्र का नाम</label>
+              <input id="name" placeholder="Student ka full name" required>
+            </div>
+            <div class="field">
+              <label for="parent">Parent Name / अभिभावक</label>
+              <input id="parent" placeholder="Parent ka naam" required>
+            </div>
+          </div>
 
-<select id="career">
-<option>Doctor</option>
-<option>Engineer</option>
-<option>Other</option>
-</select>
+          <div class="grid-3">
+            <div class="field">
+              <label for="dob">Date of Birth</label>
+              <input type="date" id="dob" required>
+            </div>
+            <div class="field">
+              <label for="mobile">Mobile</label>
+              <input id="mobile" inputmode="numeric" maxlength="10" placeholder="10 digit mobile number" required>
+            </div>
+            <div class="field">
+              <label for="caste">Caste</label>
+              <select id="caste">
+                <option>SC</option><option>ST</option><option>OBC</option><option>Other</option>
+              </select>
+            </div>
+          </div>
 
-<input id="otherCareer" class="hidden" placeholder="Other Career">
+          <div class="grid-2">
+            <div class="field">
+              <label for="school">School</label>
+              <input id="school" placeholder="School / institute name" required>
+            </div>
+            <div class="field">
+              <label for="college">Future College</label>
+              <input id="college" placeholder="Future college preference">
+            </div>
+          </div>
 
-<button type="submit">Pay ₹21</button>
+          <div class="grid-3">
+            <div class="field">
+              <label for="stream">Stream</label>
+              <select id="stream" required>
+                <option value="Science">Science</option>
+                <option value="Commerce">Commerce</option>
+                <option value="Arts">Arts</option>
+                <option value="Maths">Maths</option>
+                <option value="Other">Other</option>
+              </select>
+            </div>
 
-<div id="status"></div>
+            <div class="field">
+              <label for="course">Course</label>
+              <select id="course" required></select>
+            </div>
 
-</form>
-</div>
-</div>
+            <div class="field" id="otherCourseField" style="display:none;">
+              <label for="otherCourse">Other Course</label>
+              <input id="otherCourse" placeholder="Apna course likhein">
+            </div>
+          </div>
 
-<!-- ✅ Popup -->
-<div class="popup" id="popup">
-<div class="popup-box">
-<h3>Payment Success</h3>
-<p id="receipt"></p>
-<a href="https://chat.whatsapp.com/F6pAgLGdTcu5soecJMh3F0" target="_blank">
-<button>Join WhatsApp</button>
-</a>
-</div>
-</div>
+          <div class="grid-2">
+            <div class="field">
+              <label for="career">Career Goal / लक्ष्य</label>
+              <select id="career" required>
+                <option value="Doctor">Doctor</option>
+                <option value="Engineer">Engineer</option>
+                <option value="Govt Job">Govt Job</option>
+                <option value="Business">Business</option>
+                <option value="Other">Other</option>
+              </select>
+            </div>
 
-<script>
+            <div class="field" id="otherCareerField" style="display:none;">
+              <label for="otherCareer">Other Goal</label>
+              <input id="otherCareer" placeholder="Apna career goal likhein">
+            </div>
+          </div>
 
-// CONFIG
-const CONFIG={
-key:"YOUR_RAZORPAY_KEY",
-sheetURL:"YOUR_SCRIPT_URL"
-};
+          <div class="grid-3">
+            <div class="field">
+              <label for="travel">College कैसे जाओगे</label>
+              <select id="travel">
+                <option>Self Vehicle</option>
+                <option>College Bus</option>
+                <option>Public Transport</option>
+              </select>
+            </div>
 
-// DATA
-const courseMap={
-Science:["MBBS","BSc","Engineering","Other"],
-Commerce:["BCom","CA","BBA","Other"],
-Arts:["BA","LLB","Other"]
-};
+            <div class="field">
+              <label for="scholarship">Scholarship योजना में भाग लेना चाहते हैं?</label>
+              <select id="scholarship">
+                <option>Yes</option><option>No</option>
+              </select>
+            </div>
 
-const stream=document.getElementById("stream");
-const course=document.getElementById("course");
-const otherCourse=document.getElementById("otherCourse");
-const career=document.getElementById("career");
-const otherCareer=document.getElementById("otherCareer");
+            <div class="field">
+              <label for="health">Free Health Card चाहिए?</label>
+              <select id="health">
+                <option>Yes</option><option>No</option>
+              </select>
+            </div>
+          </div>
 
-// Course load
-stream.onchange=()=>{
-course.innerHTML="";
-courseMap[stream.value].forEach(c=>{
-let op=document.createElement("option");
-op.textContent=c;
-course.appendChild(op);
-});
-};
+          <div class="grid-2">
+            <div class="field">
+              <label for="parent1">Parent Mobile 1</label>
+              <input id="parent1" inputmode="numeric" maxlength="10" placeholder="Primary parent number">
+            </div>
+            <div class="field">
+              <label for="parent2">Parent Mobile 2</label>
+              <input id="parent2" inputmode="numeric" maxlength="10" placeholder="Secondary parent number">
+            </div>
+          </div>
 
-// Other course
-course.onchange=()=>{
-otherCourse.classList.toggle("hidden",course.value!=="Other");
-};
+          <p class="helper">Payment successful hone ke baad registration Google Sheet / backend script par save hoga. WhatsApp group join option bhi milega.</p>
 
-// Other career
-career.onchange=()=>{
-otherCareer.classList.toggle("hidden",career.value!=="Other");
-};
+          <button class="btn btn-primary" id="payButton" type="submit">Pay ₹21 & Register</button>
+          <div id="statusBox" class="status" aria-live="polite"></div>
+        </form>
+      </section>
 
-// Submit
-document.getElementById("form").onsubmit=function(e){
-e.preventDefault();
+      <aside class="side-stack">
+        <div class="side-card">
+          <h3>Why Join?</h3>
+          <p>Ye event sirf registration form nahi hai, balki students ke liye ek guided growth experience hai jahan unhe direction, recognition aur support milega.</p>
+          <ul class="check-list">
+            <li>Career guidance aur future planning support</li>
+            <li>Scholarship awareness aur NGO महासंघ opportunities</li>
+            <li>Free food, token, medal aur certificate</li>
+            <li>Students aur parents dono ke liye useful networking</li>
+          </ul>
+        </div>
 
-let data={
-name:name.value,
-mobile:mobile.value,
-stream:stream.value,
-course:course.value==="Other"?otherCourse.value:course.value,
-career:career.value==="Other"?otherCareer.value:career.value
-};
+        <div class="side-card partner">
+          <h4>Digital Partner</h4>
+          <div class="logo-frame">
+            <img src="https://github.com/banjaradigitalmp-hue/banjara-digital/blob/main/WhatsApp%20Image%202026-03-06%20at%206.52.34%20PM.jpeg?raw=true" alt="Banjara Digital">
+          </div>
+          <h2>Banjara Digital</h2>
+          <p>Technology aur digital execution support ke saath registration journey ko smooth aur modern banaya gaya hai.</p>
+        </div>
+      </aside>
+    </div>
 
-if(data.mobile.length!==10){
-status.innerText="Mobile 10 digit hona chahiye";
-return;
-}
+    <footer class="footer">
+      <div class="footer-links">
+        <a href="#registration-form">Register</a>
+        <a href="https://www.google.com/maps/search/?api=1&query=Anand+Mohan+Mathur+Sabhagrah+Indore" target="_blank" rel="noopener">Location</a>
+        <a href="https://banjaradigital.com/" target="_blank" rel="noopener">Support</a>
+      </div>
+      <p>© 2026 Banjara Digital. All rights reserved.</p>
+    </footer>
+  </div>
 
-// Razorpay
-let rzp=new Razorpay({
-key:CONFIG.key,
-amount:2100,
-handler:function(res){
+  <script>
+    const courseMap = {
+      Science: ["MBBS", "BSc", "Engineering", "Nursing", "Pharmacy", "Other"],
+      Commerce: ["BCom", "CA", "BBA", "CS", "Banking", "Other"],
+      Arts: ["BA", "LLB", "UPSC", "Journalism", "Social Work", "Other"],
+      Maths: ["BSc Maths", "Data Science", "Statistics", "Actuarial Science", "Other"],
+      Other: ["Other"]
+    };
 
-// Google Sheet
-fetch(CONFIG.sheetURL,{
-method:"POST",
-body:JSON.stringify({...data,payment:res.razorpay_payment_id})
-});
+    const elements = {
+      form: document.getElementById("studentForm"),
+      statusBox: document.getElementById("statusBox"),
+      payButton: document.getElementById("payButton"),
+      stream: document.getElementById("stream"),
+      course: document.getElementById("course"),
+      otherCourseField: document.getElementById("otherCourseField"),
+      otherCourse: document.getElementById("otherCourse"),
+      career: document.getElementById("career"),
+      otherCareerField: document.getElementById("otherCareerField"),
+      otherCareer: document.getElementById("otherCareer"),
+      name: document.getElementById("name"),
+      parent: document.getElementById("parent"),
+      dob: document.getElementById("dob"),
+      mobile: document.getElementById("mobile"),
+      caste: document.getElementById("caste"),
+      district: document.getElementById("district"),
+      school: document.getElementById("school"),
+      college: document.getElementById("college"),
+      travel: document.getElementById("travel"),
+      scholarship: document.getElementById("scholarship"),
+      health: document.getElementById("health"),
+      parent1: document.getElementById("parent1"),
+      parent2: document.getElementById("parent2")
+    };
 
-// Popup
-document.getElementById("popup").style.display="flex";
-document.getElementById("receipt").innerText=
-"Name: "+data.name+" | Payment: "+res.razorpay_payment_id;
+    function scrollToForm() {
+      document.getElementById("registration-form").scrollIntoView({ behavior: "smooth", block: "start" });
+    }
 
-}
-});
+    function openMap() {
+      window.open("https://www.google.com/maps/search/?api=1&query=Anand+Mohan+Mathur+Sabhagrah+Indore", "_blank");
+    }
 
-rzp.open();
+    function setStatus(message, type) {
+      elements.statusBox.textContent = message;
+      elements.statusBox.className = "status show " + type;
+    }
 
-};
+    function normalizePhone(value) {
+      return value.replace(/\D/g, "").slice(0, 10);
+    }
 
-</script>
+    function updateCourse() {
+      const selectedStream = elements.stream.value;
+      const courses = courseMap[selectedStream] || ["Other"];
 
+      elements.course.innerHTML = "";
+
+      courses.forEach(function(courseName) {
+        const option = document.createElement("option");
+        option.value = courseName;
+        option.textContent = courseName;
+        elements.course.appendChild(option);
+      });
+
+      checkOtherCourse();
+    }
+
+    function checkOtherCourse() {
+      const show = elements.course.value === "Other";
+      elements.otherCourseField.style.display = show ? "block" : "none";
+      elements.otherCourse.required = show;
+      if (!show) {
+        elements.otherCourse.value = "";
+      }
+    }
+
+    function checkOtherCareer() {
+      const show = elements.career.value === "Other";
+      elements.otherCareerField.style.display = show ? "block" : "none";
+      elements.otherCareer.required = show;
+      if (!show) {
+        elements.otherCareer.value = "";
+      }
+    }
+
+    function getFormData() {
+      return {
+        state: "Madhya Pradesh",
+        name: elements.name.value.trim(),
+        parent: elements.parent.value.trim(),
+        dob: elements.dob.value,
+        mobile: normalizePhone(elements.mobile.value),
+        caste: elements.caste.value,
+        district: elements.district.value,
+        school: elements.school.value.trim(),
+        stream: elements.stream.value,
+        course: elements.course.value === "Other" ? elements.otherCourse.value.trim() : elements.course.value,
+        college: elements.college.value.trim(),
+        career: elements.career.value === "Other" ? elements.otherCareer.value.trim() : elements.career.value,
+        travel: elements.travel.value,
+        scholarship: elements.scholarship.value,
+        health: elements.health.value,
+        parent1: normalizePhone(elements.parent1.value),
+        parent2: normalizePhone(elements.parent2.value)
+      };
+    }
+
+    function validateForm(data) {
+      if (!data.name || !data.parent || !data.dob || !data.mobile || !data.district || !data.school) {
+        return "Please required fields properly fill karein.";
+      }
+
+      if (data.mobile.length !== 10) {
+        return "Student mobile number 10 digits ka hona chahiye.";
+      }
+
+      if (elements.course.value === "Other" && !data.course) {
+        return "Please other course likhein.";
+      }
+
+      if (elements.career.value === "Other" && !data.career) {
+        return "Please other career goal likhein.";
+      }
+
+      if (data.parent1 && data.parent1.length !== 10) {
+        return "Parent Mobile 1 10 digits ka hona chahiye.";
+      }
+
+      if (data.parent2 && data.parent2.length !== 10) {
+        return "Parent Mobile 2 10 digits ka hona chahiye.";
+      }
+
+      return "";
+    }
+
+    async function saveRegistration(data, paymentId) {
+      const payload = Object.assign({}, data, {
+        payment_id: paymentId,
+        payment_status: "Paid",
+        submitted_at: new Date().toISOString()
+      });
+
+      const response = await fetch("https://script.google.com/macros/s/AKfycbyAU5OsgXmi_lZqCeGYn5YjiuKd-GCbObx2Hpr05YVKKykOrVhSLKajurqSNbBzZAgGkg/exec", {
+        method: "POST",
+        headers: {
+          "Content-Type": "text/plain;charset=utf-8"
+        },
+        body: JSON.stringify(payload)
+      });
+
+      if (!response.ok) {
+        throw new Error("Save request failed");
+      }
+    }
+
+    function startPayment() {
+      const data = getFormData();
+      const validationError = validateForm(data);
+
+      if (validationError) {
+        setStatus(validationError, "error");
+        return;
+      }
+
+      const razorpayKey = "rzp_live_SZnaVX76WrMx4H";
+      if (!window.Razorpay) {
+        setStatus("Razorpay checkout load nahi hua. Internet connection ya script check karein.", "error");
+        return;
+      }
+
+      if (!razorpayKey || razorpayKey === "rzp_live_SZnaVX76WrMx4H") {
+        setStatus("Razorpay key abhi placeholder hai. Live payment ke liye apni real Razorpay key add karni hogi.", "info");
+        return;
+      }
+
+      elements.payButton.disabled = true;
+      elements.payButton.style.opacity = "0.7";
+      setStatus("Payment gateway open ho raha hai...", "info");
+
+      const options = {
+        key: razorpayKey,
+        amount: 2100,
+        currency: "INR",
+        name: "Student Success Meet 2026-27",
+        description: "Student Registration Fee",
+        theme: {
+          color: "#38bdf8"
+        },
+        prefill: {
+          name: data.name,
+          contact: data.mobile
+        },
+        notes: {
+          district: data.district,
+          stream: data.stream,
+          course: data.course
+        },
+        handler: async function(response) {
+          try {
+            setStatus("Payment successful. Registration save ki ja rahi hai...", "info");
+            await saveRegistration(data, response.razorpay_payment_id);
+            setStatus("Payment successful aur registration save ho gaya.", "success");
+            elements.form.reset();
+            updateCourse();
+            checkOtherCareer();
+
+            setTimeout(function() {
+              const shouldJoin = window.confirm("Registration successful. Kya aap WhatsApp group join karna chahte hain?");
+              if (shouldJoin) {
+                window.open("https://chat.whatsapp.com/F6pAgLGdTcu5soecJMh3F0", "_blank");
+              }
+            }, 300);
+          } catch (error) {
+            setStatus("Payment successful hua, lekin data save nahi ho paya. Script endpoint check karein.", "error");
+          } finally {
+            elements.payButton.disabled = false;
+            elements.payButton.style.opacity = "1";
+          }
+        },
+        modal: {
+          ondismiss: function() {
+            elements.payButton.disabled = false;
+            elements.payButton.style.opacity = "1";
+            setStatus("Payment cancel kar diya gaya.", "info");
+          }
+        }
+      };
+
+      const razorpay = new Razorpay(options);
+      razorpay.on("payment.failed", function() {
+        elements.payButton.disabled = false;
+        elements.payButton.style.opacity = "1";
+        setStatus("Payment failed. Please dobara try karein.", "error");
+      });
+      razorpay.open();
+    }
+
+    elements.form.addEventListener("submit", function(event) {
+      event.preventDefault();
+      startPayment();
+    });
+
+    elements.stream.addEventListener("change", updateCourse);
+    elements.course.addEventListener("change", checkOtherCourse);
+    elements.career.addEventListener("change", checkOtherCareer);
+
+    elements.mobile.addEventListener("input", function() {
+      elements.mobile.value = normalizePhone(elements.mobile.value);
+    });
+
+    elements.parent1.addEventListener("input", function() {
+      elements.parent1.value = normalizePhone(elements.parent1.value);
+    });
+
+    elements.parent2.addEventListener("input", function() {
+      elements.parent2.value = normalizePhone(elements.parent2.value);
+    });
+
+    updateCourse();
+    checkOtherCareer();
+  </script>
 </body>
 </html>
