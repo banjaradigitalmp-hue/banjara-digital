@@ -4,22 +4,18 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Student Success Meet</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
 
 <style>
 body{font-family:'Poppins';margin:0;background:#020617;color:#fff;}
 .banner img{width:100%;}
-.header{background:#fff;color:#000;padding:20px;text-align:center;border-radius:12px;margin:10px;}
-.event{background:#f1f5f9;padding:10px;border-radius:10px;margin-top:10px;}
-.container{padding:20px;max-width:700px;margin:auto;background:#111827;border-radius:12px;}
-label{margin-top:10px;display:block;}
-input,select{width:100%;padding:10px;margin-top:5px;border-radius:8px;border:none;}
-button{width:100%;padding:12px;margin-top:10px;border:none;border-radius:8px;}
+.header{background:#fff;color:#000;padding:20px;text-align:center;border-radius:10px;margin:10px;}
+.container{max-width:750px;margin:auto;padding:20px;background:#111827;border-radius:10px;}
+input,select{width:100%;padding:12px;margin-top:8px;border-radius:8px;border:none;}
+button{width:100%;padding:14px;margin-top:10px;border:none;border-radius:8px;}
 .pay{background:#2563eb;color:#fff;}
-.partner{background:#fff;color:#000;text-align:center;padding:20px;margin:15px;border-radius:12px;}
-.logo{width:90px;height:90px;border-radius:50%;box-shadow:0 0 20px #000;}
-.footer{text-align:center;padding:20px;}
+.footer{text-align:center;padding:20px;font-size:13px;}
 .footer a{color:#38bdf8;}
 </style>
 
@@ -36,42 +32,22 @@ button{width:100%;padding:12px;margin-top:10px;border:none;border-radius:8px;}
 <div class="header">
 <h2>Student Success Meet 2026-27</h2>
 <p>आयोजक: म.प्र. NGO महासंघ</p>
-
-<div class="event">
-📅 10 May 2026 <br>
-⏰ 10:00 AM <br>
-📍 आनंद मोहन माथुर सभागृह, इंदौर
-</div>
-
-<button onclick="window.open('https://www.google.com/maps/search/?api=1&query=Anand+Mohan+Mathur+Sabhagrah+Indore')">
-📍 View Location
-</button>
+<p>📅 10 May 2026 | ⏰ 10:00 AM</p>
+<p>📍 आनंद मोहन माथुर सभागृह, इंदौर</p>
 </div>
 
 <!-- FORM -->
 <div class="container">
 
-<label>राज्य / State</label>
-<input value="Madhya Pradesh" readonly>
-
-<label>नाम / Name</label>
-<input id="name">
-
-<label>अभिभावक / Parent</label>
-<input id="parent">
-
-<label>DOB</label>
+<input id="name" placeholder="Student Name / छात्र का नाम">
+<input id="parent" placeholder="Parent Name / अभिभावक">
 <input type="date" id="dob">
+<input id="mobile" placeholder="Mobile / मोबाइल">
 
-<label>मोबाइल</label>
-<input id="mobile">
-
-<label>जाति</label>
 <select id="caste">
 <option>SC</option><option>ST</option><option>OBC</option><option>Other</option>
 </select>
 
-<label>जिला</label>
 <select id="district">
 <option>Indore</option><option>Bhopal</option><option>Ujjain</option>
 <option>Jabalpur</option><option>Gwalior</option><option>Sagar</option>
@@ -92,29 +68,48 @@ button{width:100%;padding:12px;margin-top:10px;border:none;border-radius:8px;}
 <option>Niwari</option><option>Mauganj</option>
 </select>
 
-<label>Stream</label>
+<input id="school" placeholder="School / स्कूल">
+
 <select id="stream" onchange="loadCourse()">
-<option>Science</option><option>Commerce</option><option>Arts</option><option>Maths</option><option>Other</option>
+<option value="">Select Stream</option>
+<option>Science</option>
+<option>Commerce</option>
+<option>Arts</option>
+<option>Maths</option>
+<option>Other</option>
 </select>
 
-<label>Course</label>
-<select id="course" onchange="otherCourse()"></select>
+<select id="course" onchange="otherCourseShow()"></select>
+<input id="otherCourse" placeholder="Other Course" style="display:none">
 
-<input id="otherCourseInput" placeholder="Other Course" style="display:none">
+<input id="college" placeholder="Future College">
+
+<select id="career">
+<option>Doctor</option><option>Engineer</option><option>Govt Job</option>
+<option>Business</option><option>Other</option>
+</select>
+
+<select id="travel">
+<option>Self Vehicle</option>
+<option>College Bus</option>
+<option>Public Transport</option>
+</select>
+
+<select id="scholarship">
+<option>Yes</option><option>No</option>
+</select>
+
+<select id="health">
+<option>Yes</option><option>No</option>
+</select>
+
+<input id="parent1" placeholder="Parent Mobile 1">
+<input id="parent2" placeholder="Parent Mobile 2">
 
 <p>₹21 Exam Fee – Free Food + Token + Medal + Certificate</p>
 
 <button class="pay" onclick="pay()">Pay & Register</button>
 
-<p>Payment के बाद WhatsApp group join करें</p>
-
-</div>
-
-<!-- PARTNER -->
-<div class="partner">
-<h3>Digital Partner</h3>
-<img src="https://github.com/banjaradigitalmp-hue/banjara-digital/blob/main/WhatsApp%20Image%202026-03-06%20at%206.52.34%20PM.jpeg?raw=true" class="logo">
-<h2>Banjara Digital</h2>
 </div>
 
 <!-- FOOTER -->
@@ -133,12 +128,11 @@ button{width:100%;padding:12px;margin-top:10px;border:none;border-radius:8px;}
 function loadCourse(){
 let data={
 Science:["MBBS","BSc","Engineering","Other"],
-Commerce:["BCom","CA","Other"],
-Arts:["BA","LLB","Other"],
-Maths:["BSc Maths","Other"],
+Commerce:["BCom","CA","BBA","Other"],
+Arts:["BA","LLB","UPSC","Other"],
+Maths:["BSc Maths","Data Science","Other"],
 Other:["Other"]
 };
-
 course.innerHTML="";
 data[stream.value].forEach(c=>{
 let o=document.createElement("option");
@@ -147,21 +141,22 @@ course.add(o);
 });
 }
 
-function otherCourse(){
-otherCourseInput.style.display=(course.value=="Other")?"block":"none";
+function otherCourseShow(){
+otherCourse.style.display=(course.value=="Other")?"block":"none";
 }
 
 /* PAYMENT */
 function pay(){
 
 if(name.value=="" || mobile.value==""){
-alert("Fill details");
+alert("Fill required fields");
 return;
 }
 
 var options={
 key:"rzp_live_SZnaVX76WrMx4H",
 amount:2100,
+currency:"INR",
 
 handler:function(res){
 
@@ -169,20 +164,33 @@ fetch("https://script.google.com/macros/s/AKfycbz61bYG939JPxIt8KsG2SvCL08kYz1HWy
 method:"POST",
 body:JSON.stringify({
 name:name.value,
+parent:parent.value,
+dob:dob.value,
 mobile:mobile.value,
+caste:caste.value,
 district:district.value,
+school:school.value,
 stream:stream.value,
-course:(course.value=="Other"?otherCourseInput.value:course.value),
+course:(course.value=="Other"?otherCourse.value:course.value),
+college:college.value,
+career:career.value,
+travel:travel.value,
+scholarship:scholarship.value,
+health:health.value,
+parent1:parent1.value,
+parent2:parent2.value,
 payment_id:res.razorpay_payment_id
 })
-}).then(()=>{
+})
+.then(()=>{
 alert("Payment Successful ✅");
 
-if(confirm("WhatsApp join kare?")){
+if(confirm("WhatsApp Group join kare?")){
 window.open("https://chat.whatsapp.com/F6pAgLGdTcu5soecJMh3F0");
 }
 
-}).catch(()=>{
+})
+.catch(()=>{
 alert("Data save error ❌");
 });
 
