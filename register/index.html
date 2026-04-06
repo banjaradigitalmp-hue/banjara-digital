@@ -15,18 +15,16 @@ background:linear-gradient(135deg,#020617,#0f172a);
 color:#fff;
 }
 
-/* BANNER */
+/* HEADER */
 .banner img{width:100%;}
 
-/* HEADER */
 .headerCard{
 background:rgba(255,255,255,0.08);
-backdrop-filter:blur(15px);
+backdrop-filter:blur(12px);
 margin:15px;
 padding:25px;
 border-radius:18px;
 text-align:center;
-box-shadow:0 0 25px rgba(0,0,0,0.5);
 }
 
 .year{color:#38bdf8;font-weight:600;}
@@ -41,19 +39,19 @@ border-radius:10px;
 /* FORM */
 .container{
 max-width:720px;
-margin:20px auto;
+margin:auto;
 background:rgba(255,255,255,0.05);
-padding:25px;
-border-radius:18px;
+padding:20px;
+border-radius:15px;
 }
 
 input,select{
 width:100%;
 padding:12px;
 margin-top:8px;
-border-radius:10px;
+border-radius:8px;
 border:none;
-background:#0f172a;
+background:#020617;
 color:#fff;
 }
 
@@ -64,15 +62,20 @@ padding:14px;
 margin-top:12px;
 border:none;
 border-radius:10px;
-font-weight:600;
 }
 
-.pay{
-background:linear-gradient(135deg,#2563eb,#1d4ed8);
-color:white;
+.pay{background:#2563eb;color:#fff;}
+
+/* PARTNER */
+.partnerCard{
+background:#fff;
+margin:20px;
+padding:20px;
+border-radius:15px;
+text-align:center;
+color:#000;
 }
 
-/* LOGO */
 .logoCircle{
 width:100px;
 height:100px;
@@ -80,22 +83,8 @@ border-radius:50%;
 box-shadow:0 0 25px rgba(0,0,0,0.8);
 }
 
-/* PARTNER */
-.partnerCard{
-background:#fff;
-color:#000;
-text-align:center;
-margin:20px;
-padding:25px;
-border-radius:15px;
-}
-
 /* FOOTER */
-.footer{
-text-align:center;
-padding:20px;
-font-size:13px;
-}
+.footer{text-align:center;padding:20px;font-size:13px;}
 .footer a{color:#38bdf8;}
 </style>
 
@@ -126,10 +115,10 @@ font-size:13px;
 
 <h2>Registration Form / पंजीकरण फॉर्म</h2>
 
-<input id="name" placeholder="Student Name / छात्र का नाम" required>
+<input id="name" placeholder="Student Name / छात्र का नाम">
 <input id="parent" placeholder="Parent Name / अभिभावक">
 <input type="date" id="dob">
-<input id="mobile" placeholder="Mobile / मोबाइल" required>
+<input id="mobile" placeholder="Mobile / मोबाइल">
 
 <select id="caste">
 <option>SC</option><option>ST</option><option>OBC</option><option>Other</option>
@@ -155,7 +144,7 @@ font-size:13px;
 <input id="school" placeholder="School / स्कूल">
 
 <select id="stream" onchange="updateCourse()">
-<option value="">Select Stream / विषय</option>
+<option value="">Select Stream</option>
 <option>Science</option>
 <option>Commerce</option>
 <option>Arts</option>
@@ -167,12 +156,13 @@ font-size:13px;
 <option>Select Course</option>
 </select>
 
-<input id="otherCourse" placeholder="Other Course" style="display:none;">
+<input id="otherCourse" placeholder="Write Course" style="display:none;">
 
-<input id="college" placeholder="Future College">
+<input id="college" placeholder="Future College / भविष्य कॉलेज">
 
 <select id="career">
-<option>Doctor</option><option>Engineer</option><option>Govt Job</option><option>Business</option><option>Other</option>
+<option>Doctor</option><option>Engineer</option><option>Govt Job</option>
+<option>Business</option><option>Other</option>
 </select>
 
 <select id="travel">
@@ -202,7 +192,7 @@ Payment के बाद WhatsApp group join करें
 
 </div>
 
-<!-- PARTNER -->
+<!-- DIGITAL PARTNER -->
 <div class="partnerCard">
 <h3>Digital Partner</h3>
 <img src="https://github.com/banjaradigitalmp-hue/banjara-digital/blob/main/WhatsApp%20Image%202026-03-06%20at%206.52.34%20PM.jpeg?raw=true" class="logoCircle">
@@ -214,8 +204,8 @@ Payment के बाद WhatsApp group join करें
 <div class="footer">
 <p>
 <a href="#">Privacy Policy</a> |
-<a href="#">Terms</a> |
-<a href="#">Refund</a>
+<a href="#">Terms & Conditions</a> |
+<a href="#">Refund Policy</a>
 </p>
 <p>User data सुरक्षित रखा जाता है। All payments non-refundable.</p>
 <p>© 2026 Banjara Digital</p>
@@ -223,38 +213,37 @@ Payment के बाद WhatsApp group join करें
 
 <script>
 
+/* STREAM COURSE */
 function updateCourse(){
-let s=stream.value;
-let c=course;
-
 let data={
 Science:["MBBS","BSc","Engineering","Pharmacy","Other"],
-Commerce:["BCom","CA","BBA","Other"],
-Arts:["BA","LLB","UPSC","Other"],
+Commerce:["BCom","CA","CS","BBA","Other"],
+Arts:["BA","LLB","Journalism","UPSC","Other"],
 Maths:["BSc Maths","Data Science","Statistics","Other"],
 Other:["Other"]
 };
 
-c.innerHTML="";
-data[s].forEach(x=>{
+course.innerHTML="";
+data[stream.value].forEach(x=>{
 let o=document.createElement("option");
 o.text=x;
-c.add(o);
+course.add(o);
 });
 }
 
 function checkCourse(){
-otherCourse.style.display = (course.value=="Other") ? "block" : "none";
+otherCourse.style.display=(course.value=="Other")?"block":"none";
 }
 
+/* PAYMENT */
 function startPayment(){
 
-if(name.value=="" || mobile.value==""){
-alert("Please fill required fields");
+if(name.value=="" || mobile.value=="" || stream.value==""){
+alert("Please fill all required fields");
 return;
 }
 
-var finalCourse = (course.value=="Other") ? otherCourse.value : course.value;
+var finalCourse=(course.value=="Other")?otherCourse.value:course.value;
 
 var options={
 key:"YOUR_RAZORPAY_KEY",
